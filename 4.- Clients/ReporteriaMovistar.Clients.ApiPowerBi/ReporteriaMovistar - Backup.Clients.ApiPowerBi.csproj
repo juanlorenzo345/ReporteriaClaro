@@ -1,0 +1,127 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\ApiDataModel.cs" />
+    <Compile Remove="Repositories\ApiDataModelRepository.Generated.cs" />
+    <Compile Remove="Repositories\Interfaces\IApiDataModelRepository.Generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="appsettings.Production.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EfCore.SqlServer2008Query" Version="1.0.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataProviders\ReporteriaMovistarDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataProviders</DependentUpon>
+    </Compile>
+    <Compile Update="Models\ApiDataEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ApiDataEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ApiDataEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiDataEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ApiDataModelRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\EntityFrameworkRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\EntityFrameworkUnitOfWork.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\EntityFrameworkUnitOfWorkFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IApiDataEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IApiDataEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IApiDataEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IApiDataModelRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IUnitOfWork.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IUnitOfWorkFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ReporteriaMovistarDbModel.Diagram1.view">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaMovistarDbModel.efml</DependentUpon>
+    </None>
+    <None Update="ReporteriaMovistarDbModel.edps">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaMovistarDbModel.efml</DependentUpon>
+    </None>
+    <None Update="ReporteriaMovistarDbModel.efml">
+      <Generator>DevartEFCoreGenerator</Generator>
+      <LastGenOutput>ReporteriaMovistarDbModel.info</LastGenOutput>
+    </None>
+    <None Update="ReporteriaMovistarDbModel.info">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaMovistarDbModel.efml</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Middleware\" />
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="https://json.schemastore.org/appsettings.json" appsettings_1production_1json__JsonSchema="https://json.schemastore.org/appsettings.json" /></VisualStudio></ProjectExtensions>
+
+</Project>

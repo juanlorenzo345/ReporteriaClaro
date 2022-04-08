@@ -1,0 +1,65 @@
+﻿@using ReporteriaMovistar.Application.Models.Validation.Authentication
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.DataProtection
+@using Microsoft.AspNetCore.Http
+@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData.Models
+@layout LoginLayout
+@attribute [Route(PageRoutes.Login)]
+@attribute [AllowAnonymous]
+@inject ISnackbar snackbar
+@inject LoginValidator validator
+@inject SignInManager<ApplicationUser> signInManager
+@inject UserManager<ApplicationUser> userManager
+@inject IHttpContextAccessor httpContextAccessor
+@inject ILogAccesoUsuarioService logAccesoUsuarioService
+@inject IDataProtectionProvider dataProtectionProvider
+@inject IJSRuntime jsRuntime
+@inject NavigationManager navigationManager
+
+<MudPaper Class="pa-4" Style="max-width: 300px;">
+    <MudForm @ref="formulario" Model="modelo">
+        <MudText Typo="Typo.h6" Align="Align.Center">Inicio de sesión</MudText>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudTextField T="string"
+                              Label="Usuario"
+                              @bind-Value="modelo.Usuario"
+                              Validation="validator.ValidateValue"
+                              For="() => modelo.Usuario"
+                              InputType="InputType.Text"
+                              OnKeyUp="ValidarTeclaPresionadaAsync" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField T="string"
+                              Label="Contraseña"
+                              @bind-Value="modelo.Contrasena"
+                              Validation="validator.ValidateValue"
+                              For="() => modelo.Contrasena"
+                              InputType="InputType.Password"
+                              OnKeyUp="ValidarTeclaPresionadaAsync" />
+            </MudItem>
+            <MudItem xs="12">
+                <MudCheckBox T="bool"
+                             Label="Recordarme"
+                             @bind-Checked="modelo.Recordarme"
+                             Validation="validator.ValidateValue"
+                             For="() => modelo.Recordarme" />
+            </MudItem>
+            @if (!string.IsNullOrEmpty(error))
+            {
+                <MudItem xs="12">
+                    <MudText Color="@Color.Error">@error</MudText>
+                </MudItem>
+            }
+        </MudGrid>
+        <MudGrid>
+            <MudItem xs="12" Class="d-flex justify-center">
+                <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="IniciarSesionAsync">Ingresar</MudButton>
+            </MudItem>
+            @*<MudItem xs="12" Class="d-flex justify-end">
+                    <MudLink Href="/">¿Olvidó su contraseña?</MudLink>
+                </MudItem>*@
+        </MudGrid>
+    </MudForm>
+</MudPaper>

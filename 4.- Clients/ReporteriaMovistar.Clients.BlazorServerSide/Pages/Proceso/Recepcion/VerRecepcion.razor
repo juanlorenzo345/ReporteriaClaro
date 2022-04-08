@@ -1,0 +1,103 @@
+﻿@using ReporteriaMovistar.Application.Models.View
+@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@using ReporteriaMovistar.Clients.BlazorServerSide.Configuration
+@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.Recepcion)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador, Roles.Recepcion)]
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IEquipoService equipoService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<AuthorizeView Roles="@Roles.SuperAdministrador">
+    <div class="d-flex justify-end">
+        <MudSwitch T="bool" Checked="mostrarEliminados" CheckedChanged="MostrarEliminadosChangedAsync" Color="Color.Primary" Label="Mostrar registros eliminados" />
+    </div>
+</AuthorizeView>
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewRecepcionModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Recepción</MudText>
+        <MudSpacer />
+        <MudTextField T="string"
+                      ValueChanged="BuscarPorEsnAsync"
+                      Placeholder="Buscar por ESN"
+                      Adornment="Adornment.Start"
+                      AdornmentIcon="@Icons.Material.Filled.Search"
+                      IconSize="Size.Medium"
+                      Clearable="true" />
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewRecepcionModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha" T="ViewRecepcionModel">Fecha</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="header_id" T="ViewRecepcionModel">Header ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="esn" T="ViewRecepcionModel">ESN</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="numero_referencia" T="ViewRecepcionModel">Nº ref.</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="marca" T="ViewRecepcionModel">Marca</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="modelo" T="ViewRecepcionModel">Modelo</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="color" T="ViewRecepcionModel">Color</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="tecnologia" T="ViewRecepcionModel">Tecnología</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="tipo" T="ViewRecepcionModel">Tipo</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="subtipo" T="ViewRecepcionModel">Subtipo</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="categoria" T="ViewRecepcionModel">Categoría</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="subcategoria" T="ViewRecepcionModel">Subcategoría</MudTableSortLabel></MudTh>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)" Context="authContext">
+            <MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewRecepcionModel">Fecha creación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_creacion" T="ViewRecepcionModel">Usuario creación</MudTableSortLabel></MudTh>
+        </AuthorizeView>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTh><MudTableSortLabel SortLabel="fecha_modificacion" T="ViewRecepcionModel">Fecha modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_modificacion" T="ViewRecepcionModel">Usuario modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="eliminado" T="ViewRecepcionModel">Eliminado</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="fecha_eliminacion" T="ViewRecepcionModel">Fecha eliminación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_eliminacion" T="ViewRecepcionModel">Usuario eliminación</MudTableSortLabel></MudTh>
+        </AuthorizeView>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Fecha</MudTd>
+        <MudTd>@($"{context.HeaderId:N0}")</MudTd>
+        <MudTd>@context.Esn</MudTd>
+        <MudTd>@context.NumeroReferencia</MudTd>
+        <MudTd>@context.Marca</MudTd>
+        <MudTd>@context.Modelo</MudTd>
+        <MudTd>@context.Color</MudTd>
+        <MudTd>@context.Tecnologia</MudTd>
+        <MudTd>@context.Tipo</MudTd>
+        <MudTd>@context.Subtipo</MudTd>
+        <MudTd>@context.Categoria</MudTd>
+        <MudTd>@context.Subcategoria</MudTd>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)" Context="authContext">
+            <MudTd>@context.FechaCreacionRegistro</MudTd>
+            <MudTd>@context.UsuarioCreacionRegistro</MudTd>
+        </AuthorizeView>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTd>@context.FechaModificacionRegistro</MudTd>
+            <MudTd>@context.UsuarioModificacionRegistro</MudTd>
+            <MudTd><MudCheckBox T="bool" Checked="@context.Eliminado" ReadOnly="true" /></MudTd>
+            <MudTd>@context.FechaEliminacionRegistro</MudTd>
+            <MudTd>@context.UsuarioEliminacionRegistro</MudTd>
+        </AuthorizeView>
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>
+<MudFab Class="create-button" Icon="@Icons.Material.Sharp.SettingsSuggest" Color="Color.Success" Label="Extraer desde Fullstar" OnClick="ExtraerDesdeFullstarAsync" />
+<ProgresoIndefinido Texto="Extrayendo información de recepción desde Fullstar..." Visible="this.extrayendoDesdeFullstar"/>

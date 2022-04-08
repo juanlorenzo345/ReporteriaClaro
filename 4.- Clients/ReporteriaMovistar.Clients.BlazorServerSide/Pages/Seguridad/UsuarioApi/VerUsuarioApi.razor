@@ -1,0 +1,74 @@
+﻿@using ReporteriaMovistar.Application.Models.View
+@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@using ReporteriaMovistar.Clients.BlazorServerSide.Configuration
+@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.UsuariosApi)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador)]
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IUsuarioApiService usuarioApiService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewUsuarioApiModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Usuarios de API (Power BI)</MudText>
+        <MudSpacer />
+    </ToolBarContent>
+    <ColGroup>
+        <col style="width: 145px;" />
+    </ColGroup>
+    <HeaderContent>
+        <MudTh Style="text-align:center">Acción</MudTh>
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewUsuarioApiModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="comentario" T="ViewUsuarioApiModel">Comentario</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewUsuarioApiModel">Fecha creación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario_creacion" T="ViewUsuarioApiModel">Usuario creación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha_modificacion" T="ViewUsuarioApiModel">Fecha modificación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario_modificacion" T="ViewUsuarioApiModel">Usuario modificación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="eliminado" T="ViewUsuarioApiModel">Eliminado</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="razon_eliminacion" T="ViewUsuarioApiModel">Razón</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha_eliminacion" T="ViewUsuarioApiModel">Fecha eliminación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario_eliminacion" T="ViewUsuarioApiModel">Usuario eliminación</MudTableSortLabel></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd Style="text-align: center; overflow: hidden;">
+            @if (!context.Eliminado)
+            {
+                <MudTooltip Text="Eliminar">
+                    <MudIconButton Icon="@Icons.Material.Sharp.Delete" Color="Color.Error" OnClick="() => EliminarUsuarioAsync(context)" />
+                </MudTooltip>
+            }
+        </MudTd>
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Comentario</MudTd>
+        <MudTd>@context.FechaCreacionRegistro</MudTd>
+        <MudTd>@context.UsuarioCreacionRegistro</MudTd>
+        <MudTd>@context.FechaModificacionRegistro</MudTd>
+        <MudTd>@context.UsuarioModificacionRegistro</MudTd>
+        <MudTd><MudCheckBox T="bool" Checked="@context.Eliminado" ReadOnly="true" /></MudTd>
+        <MudTd>@context.RazonDesactivacion</MudTd>
+        <MudTd>@context.FechaEliminacionRegistro</MudTd>
+        <MudTd>@context.UsuarioEliminacionRegistro</MudTd>
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>
+<MudFab Class="create-button" Icon="@Icons.Material.Sharp.Add" Color="Color.Success" Label="Crear" OnClick="CrearUsuarioAsync" />

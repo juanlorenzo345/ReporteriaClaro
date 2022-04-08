@@ -1,0 +1,11 @@
+﻿@inject ISnackbar snackbar
+
+<MudDialog>
+    <DialogContent>
+        <MudText>¿Está seguro que desea descartar los cambios?</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="CerrarSinGuardar">Si</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="NoCerrar">No</MudButton>
+    </DialogActions>
+</MudDialog>

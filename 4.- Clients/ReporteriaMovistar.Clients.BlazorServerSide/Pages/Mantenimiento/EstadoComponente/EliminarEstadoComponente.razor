@@ -1,0 +1,16 @@
+﻿@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IEstadoComponenteService estadoComponenteService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudDialog>
+    <DialogContent>
+        <MudText>¿Desea eliminar el estado '@this.Modelo.Estado' (ID @this.Modelo.Id)?</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="EliminarAsync">Si</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Cancelar">No</MudButton>
+    </DialogActions>
+</MudDialog>

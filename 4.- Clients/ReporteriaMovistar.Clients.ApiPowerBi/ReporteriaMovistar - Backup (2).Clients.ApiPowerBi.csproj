@@ -1,0 +1,199 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Models\ApiDataEntity.cs" />
+    <Compile Remove="Models\ApiDataModel.cs" />
+    <Compile Remove="Repositories\ApiDataEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\ApiDataModelRepository.Generated.cs" />
+    <Compile Remove="Repositories\Interfaces\IApiDataEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\Interfaces\IApiDataModelRepository.Generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="appsettings.Production.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EfCore.SqlServer2008Query" Version="1.0.4" />
+    <PackageReference Include="Inferno" Version="1.6.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.12">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="4.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DataProviders\ReporteriaMovistarDbContext.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DataProviders</DependentUpon>
+    </Compile>
+    <Compile Update="Models\ApiUserEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models</DependentUpon>
+    </Compile>
+    <Compile Update="Models\VWDetallePronosticoEquipoPowerBiEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models</DependentUpon>
+    </Compile>
+    <Compile Update="Models\VWHistorialMovimientoEquipoPowerBiEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models</DependentUpon>
+    </Compile>
+    <Compile Update="Models\VWRechazoLimpiezaPowerBiEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models</DependentUpon>
+    </Compile>
+    <Compile Update="Models\VWUltimoEstadoEquipoPowerBiEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Models</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ApiUserEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ApiUserEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiUserEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\EntityFrameworkRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\EntityFrameworkUnitOfWork.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\EntityFrameworkUnitOfWorkFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IApiUserEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IApiUserEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IApiUserEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IUnitOfWork.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IUnitOfWorkFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWDetallePronosticoEquipoPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWDetallePronosticoEquipoPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IVWDetallePronosticoEquipoPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWHistorialMovimientoEquipoPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWHistorialMovimientoEquipoPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IVWHistorialMovimientoEquipoPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWRechazoLimpiezaPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWRechazoLimpiezaPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IVWRechazoLimpiezaPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWUltimoEstadoEquipoPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Interfaces</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\Interfaces\IVWUltimoEstadoEquipoPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IVWUltimoEstadoEquipoPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWDetallePronosticoEquipoPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWDetallePronosticoEquipoPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VWDetallePronosticoEquipoPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWHistorialMovimientoEquipoPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWHistorialMovimientoEquipoPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VWHistorialMovimientoEquipoPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWRechazoLimpiezaPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWRechazoLimpiezaPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VWRechazoLimpiezaPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWUltimoEstadoEquipoPowerBiEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\VWUltimoEstadoEquipoPowerBiEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VWUltimoEstadoEquipoPowerBiEntityRepository.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Development.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ReporteriaMovistarDbModel.Diagram1.view">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaMovistarDbModel.efml</DependentUpon>
+    </None>
+    <None Update="ReporteriaMovistarDbModel.edps">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaMovistarDbModel.efml</DependentUpon>
+    </None>
+    <None Update="ReporteriaMovistarDbModel.efml">
+      <Generator>DevartEFCoreGenerator</Generator>
+      <LastGenOutput>ReporteriaMovistarDbModel.info</LastGenOutput>
+    </None>
+    <None Update="ReporteriaMovistarDbModel.info">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaMovistarDbModel.efml</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1development_1json__JsonSchema="https://json.schemastore.org/appsettings.json" appsettings_1production_1json__JsonSchema="https://json.schemastore.org/appsettings.json" /></VisualStudio></ProjectExtensions>
+
+</Project>

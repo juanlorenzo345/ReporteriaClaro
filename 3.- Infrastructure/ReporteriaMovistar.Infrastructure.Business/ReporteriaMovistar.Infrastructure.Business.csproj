@@ -1,0 +1,361 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Converters\ComponenteDetalleEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\ComponenteEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\ControlCalidadEstadoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\EquipoDespachoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\EquipoFamiliaEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\EquipoRecepcionEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\FaceplateEstadoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\GuiaDespachoMovimientoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\GuiaEstadoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\HdmiEstadoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\RcaEstadoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\SPSeguimientoUltimoMovimientoEntityResult1Converter.Generated.cs" />
+    <Compile Remove="Converters\SPUltimoOperarioPinturaEntityResultConverter.Generated.cs" />
+    <Compile Remove="Converters\UtpEstadoEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\VWDetalleDespachoYComponentesEntityConverter.Generated.cs" />
+    <Compile Remove="Converters\VWDetalleMovimientoEquipoPowerBiEntityConverter.Generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="27.2.0" />
+    <PackageReference Include="EPPlus" Version="5.8.2" />
+    <PackageReference Include="Inferno" Version="1.6.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.- Domain\ReporteriaMovistar.Domain.Interfaces\ReporteriaMovistar.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\..\1.- Domain\ReporteriaMovistar.Domain.Models\ReporteriaMovistar.Domain.Models.csproj" />
+    <ProjectReference Include="..\..\2.- Application\ReporteriaMovistar.Application.Interfaces\ReporteriaMovistar.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\..\2.- Application\ReporteriaMovistar.Application.Models\ReporteriaMovistar.Application.Models.csproj" />
+    <ProjectReference Include="..\ReporteriaMovistar.Infrastructure.Data\ReporteriaMovistar.Infrastructure.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Excel\Tables\" />
+    <Folder Include="Services\Reports\" />
+    <Folder Include="Workflows\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Converters\ApiUserEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\ApiUserEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ApiUserEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\ComponenteEstadoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\ComponenteEstadoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ComponenteEstadoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\DespachoDetalleEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\DespachoDetalleEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DespachoDetalleEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\DespachoEncabezadoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\DespachoEncabezadoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DespachoEncabezadoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\DespachoEstadoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\DespachoEstadoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DespachoEstadoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EFMigrationsHistoryEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EFMigrationsHistoryEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EFMigrationsHistoryEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoColorEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoColorEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoColorEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoConfiguracionEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoConfiguracionEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoConfiguracionEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoMarcaEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoMarcaEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoMarcaEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoModeloEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoModeloEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoModeloEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoMovimientoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoMovimientoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoMovimientoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoScrapEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoScrapEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoScrapEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoTecnologiaEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EquipoTecnologiaEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EquipoTecnologiaEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EtapaEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EtapaEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EtapaEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EtapaEstadoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EtapaEstadoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EtapaEstadoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EtapaSecuenciaEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\EtapaSecuenciaEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>EtapaSecuenciaEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityRoleClaimEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityRoleClaimEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityRoleClaimEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityRoleEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityRoleEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityRoleEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserAccessLogEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserAccessLogEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserAccessLogEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserClaimEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserClaimEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserClaimEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserExceptionLogEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserExceptionLogEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserExceptionLogEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserLoginEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserLoginEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserLoginEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserOperationLogEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserOperationLogEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserOperationLogEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserRoleEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserRoleEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserRoleEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserTokenEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\IdentityUserTokenEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IdentityUserTokenEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\OperarioEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\OperarioEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OperarioEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\PronosticoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\PronosticoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>PronosticoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPInformacionEquipoEntityResultConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPInformacionEquipoEntityResultConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SPInformacionEquipoEntityResultConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPSeguimientoDespachoEntityResultConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPSeguimientoDespachoEntityResultConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SPSeguimientoDespachoEntityResultConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPSeguimientoEquipoEntityResultConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPSeguimientoEquipoEntityResultConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SPSeguimientoEquipoEntityResultConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPSeguimientoUltimoMovimientoEntityResult1Converter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPSeguimientoUltimoMovimientoEntityResultConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPSeguimientoUltimoMovimientoEntityResultConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SPSeguimientoUltimoMovimientoEntityResultConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPUltimoOperarioEtapaEntityResultConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPUltimoOperarioEtapaEntityResultConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SPUltimoOperarioEtapaEntityResultConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\SPUltimoOperarioPinturaEntityResultConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\TempDespachoCsvEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\TempDespachoCsvEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TempDespachoCsvEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\TempEquipoMovimientoCsvEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\TempEquipoMovimientoCsvEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TempEquipoMovimientoCsvEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\VWMovimientoEquipoEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\VWMovimientoEquipoEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>VWMovimientoEquipoEntityConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\ZonaEntityConverter.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Converters</DependentUpon>
+    </Compile>
+    <Compile Update="Converters\ZonaEntityConverter.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ZonaEntityConverter.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ReporteriaMovistar.Application.Models.Validation.Insert
+@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@using ReporteriaMovistar.Application.Models.Input.Choice
+@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData.Models
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject NewRolUsuarioModelValidator validator
+@inject UserManager<ApplicationUser> userManager
+@inject IRolService rolService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudForm @ref="formulario" Model="@modelo">
+    <MudDialog>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudAutocomplete T="ChoiceRolModel"
+                                     Label="Rol"
+                                     @bind-Value="modelo.Rol"
+                                     Validation="validator.ValidateValue"
+                                     For="@(() => modelo.Rol)"
+                                     SearchFunc="BuscarRolAsync"
+                                     ToStringFunc="@((item) => item is null ? null : $"{item.Nombre}")"
+                                     MaxItems="null"
+                                     DebounceInterval="1000" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudTooltip Text="Guardar">
+                <MudFab Color="Color.Primary" Icon="@Icons.Material.Sharp.Save" OnClick="GuardarAsync" />
+            </MudTooltip>
+            <MudTooltip Text="Cancelar">
+                <MudFab Color="Color.Error" Icon="@Icons.Material.Sharp.Close" OnClick="CancelarAsync" />
+            </MudTooltip>
+        </DialogActions>
+    </MudDialog>
+</MudForm>

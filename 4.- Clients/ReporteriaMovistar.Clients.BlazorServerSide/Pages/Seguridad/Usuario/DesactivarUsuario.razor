@@ -1,0 +1,32 @@
+﻿@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@using ReporteriaMovistar.Application.Models.Validation.Update
+@inject ISnackbar snackbar
+@inject UpdateActivacionUsuarioModelValidator validator
+@inject IUsuarioService usuarioService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudForm @ref="formulario" Model="@modelo">
+    <MudDialog>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudText>¿Está seguro que desea desactivar el usuario '@this.Modelo.Usuario' (ID: @this.Modelo.Id)?</MudText>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                  Label="Razón"
+                                  @bind-Value="modelo.Razon"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.Razon)"
+                                  InputType="InputType.Text"
+                                  Lines="3" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="DesactivarAsync">Si</MudButton>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Cancelar">No</MudButton>
+        </DialogActions>
+    </MudDialog>
+</MudForm>

@@ -1,0 +1,11 @@
+﻿@using ReporteriaMovistar.Clients.BlazorServerSide.Pages.Proceso.Shared
+@using ReporteriaMovistar.Application.Models.Enums
+@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData
+@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@using ReporteriaMovistar.Clients.BlazorServerSide.Pages.Shared
+@attribute [Route(PageRoutes.Empaque)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador, Roles.Empaque)]
+@inject IMovimientoEmpaqueADespachoService movimientoEmpaqueADespachoService
+
+<VerMovimientoEquipo NombreEtapa="Empaque" Etapa="Etapa.Empaque" @ref="movimientoEquipo" />
+<CargaMasiva CargaMasivaService="this.movimientoEmpaqueADespachoService" Titulo="Carga masiva equipos desde empaque a despacho" TamanoMaximoArchivo="@FileHelper.ConvertMegabytesToBytes(10D)" ProcesamientoArchivoChanged="RecargarDatosArchivoProcesadoAsync" />

@@ -1,0 +1,184 @@
+﻿@using ReporteriaMovistar.Application.Models.Validation.Insert
+@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@using ReporteriaMovistar.Application.Models.Input.Choice
+@using ReporteriaMovistar.Clients.BlazorServerSide.Configuration
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject NewMovimientoEquipoModelValidator movimientoValidator
+@inject IMovimientoEquipoService movimientoEquipoService
+@inject IOperarioService operarioService
+@inject EquipoData equipoData
+@inject EtapaData etapaData
+@inject OperarioData operarioData
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudDialog Style="overflow-y: scroll;">
+    <DialogContent>
+        <MudForm @ref="formularioMovimiento" Model="@modeloMovimiento">
+            <MudCard>
+                <MudCardContent>
+                    <MudCard>
+                        <MudCardHeader>
+                            <MudText Typo="Typo.subtitle1" Style="font-weight: bold !important;">Información básica</MudText>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudGrid>
+                                <MudItem xs="3">
+                                    <MudDatePicker Label="Fecha"
+                                                   @bind-Date="modeloMovimiento.Fecha"
+                                                   Validation="movimientoValidator.ValidateValue"
+                                                   For="@(() => modeloMovimiento.Fecha)" />
+                                </MudItem>
+                                <MudItem xs="3">
+                                    <MudTimePicker Label="Hora"
+                                                   Time="modeloMovimiento.Hora"
+                                                   Validation="movimientoValidator.ValidateValue"
+                                                   For="@(() => modeloMovimiento.Hora)" />
+                                </MudItem>
+                                <MudItem xs="3">
+                                    <MudSelect T="ChoiceEtapaModel"
+                                               Label="Destino"
+                                               @bind-Value="modeloMovimiento.EtapaDestino"
+                                               Validation="movimientoValidator.ValidateValue"
+                                               For="@(() => modeloMovimiento.EtapaDestino)"
+                                               ToStringFunc="@((item) => item is null ? null : $"{item.Nombre} ({item.Zona})")">
+                                        @foreach (ChoiceEtapaModel etapaDestino in etapasDestino)
+                                        {
+                                            <MudSelectItem T="ChoiceEtapaModel" Value="etapaDestino">@etapaDestino.Nombre (@etapaDestino.Zona)</MudSelectItem>
+                                        }
+                                    </MudSelect>
+                                </MudItem>
+                                <MudItem xs="3">
+                                    <MudAutocomplete T="ChoiceOperarioModel"
+                                                     Label="Operario"
+                                                     @bind-Value="modeloMovimiento.Operario"
+                                                     Validation="movimientoValidator.ValidateValue"
+                                                     For="@(() => modeloMovimiento.Operario)"
+                                                     SearchFunc="@(async operario => await this.operarioData.BuscarOperarioAsync(operario, this.AuthenticationStateTask))"
+                                                     ToStringFunc="@((item) => item is null || string.IsNullOrWhiteSpace(item.Nombre) ? null : $"{item.Nombre}")"
+                                                     MaxItems="null"
+                                                     DebounceInterval="1000" />
+                                </MudItem>
+                            </MudGrid>
+                        </MudCardContent>
+                    </MudCard>
+                    <MudCard>
+                        <MudCardHeader>
+                            <MudText Typo="Typo.subtitle1" Style="font-weight: bold !important;">Detalle</MudText>
+                        </MudCardHeader>
+                        <MudCardContent>
+                            <MudGrid>
+                                <MudItem xs="3">
+                                    <MudTextField T="string"
+                                                  @bind-Value="modeloMovimiento.Esn"
+                                                  Placeholder="Buscar por ESN"
+                                                  Adornment="Adornment.Start"
+                                                  AdornmentIcon="@Icons.Material.Filled.Search"
+                                                  IconSize="Size.Medium"
+                                                  @ref="textFieldEsn"
+                                                  OnKeyUp="ValidarTeclaPresionadaAsync" />
+                                </MudItem>
+                                <MudItem xs="3">
+                                    <MudTextField T="string"
+                                                  Label="Observación"
+                                                  @bind-Value="modeloMovimiento.Observacion"
+                                                  Validation="movimientoValidator.ValidateValue"
+                                                  For="@(() => modeloMovimiento.Observacion)"
+                                                  InputType="InputType.Text" />
+                                </MudItem>
+                                @if (this.modeloMovimiento?.EtapaDestino?.EsEtapaAnterior == true)
+                                {
+                                    <MudItem xs="3">
+                                        <MudAutocomplete T="ChoiceOperarioModel"
+                                                         Label="Operario a devolver"
+                                                         @bind-Value="modeloMovimiento.OperarioDevolucion"
+                                                         Validation="movimientoValidator.ValidateValue"
+                                                         For="@(() => modeloMovimiento.OperarioDevolucion)"
+                                                         SearchFunc="@(async operario => await this.operarioData.BuscarOperarioAsync(operario, this.AuthenticationStateTask))"
+                                                         ToStringFunc="@((item) => item is null || string.IsNullOrWhiteSpace(item.Nombre) ? null : $"{item.Nombre}")"
+                                                         MaxItems="null"
+                                                         DebounceInterval="1000" />
+                                    </MudItem>
+                                }
+                            </MudGrid>
+                        </MudCardContent>
+                    </MudCard>
+                </MudCardContent>
+            </MudCard>
+        </MudForm>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudForm @ref="formularioBulkMovimiento" Model="@modeloBulkMovimiento">
+                    <MudCard>
+                        <MudCardContent>
+                            <MudTable Items="modeloBulkMovimiento.Movimientos"
+                                      Bordered="MudBlazorTableConfiguration.Bordered"
+                                      Dense="MudBlazorTableConfiguration.Dense"
+                                      Hover="MudBlazorTableConfiguration.Hover"
+                                      Striped="MudBlazorTableConfiguration.Striped"
+                                      FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+                                      FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+                                      Height="@MudBlazorTableConfiguration.Height">
+                                <ToolBarContent>
+                                    <MudText Typo="Typo.h6">Equipos agregados</MudText>
+                                    <MudSpacer />
+                                </ToolBarContent>
+                                <ColGroup>
+                                    <col style="width: 145px;" />
+                                </ColGroup>
+                                <HeaderContent>
+                                    <MudTh Style="text-align:center">Acción</MudTh>
+                                    <MudTh>Fecha</MudTh>
+                                    <MudTh>ID</MudTh>
+                                    <MudTh>ESN</MudTh>
+                                    <MudTh>Marca</MudTh>
+                                    <MudTh>Modelo</MudTh>
+                                    <MudTh>Color</MudTh>
+                                    <MudTh>Destino</MudTh>
+                                    <MudTh>Operario</MudTh>
+                                    <MudTh>Operario a devolver</MudTh>
+                                    <MudTh>Observación</MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    <MudTd Style="text-align: center; overflow: hidden;">
+                                        <MudTooltip Text="Eliminar">
+                                            <MudIconButton Icon="@Icons.Material.Sharp.Delete" Color="Color.Error" OnClick="() => QuitarEquipo(context)" />
+                                        </MudTooltip>
+                                    </MudTd>
+                                    <MudTd>@($"{context.Fecha?.Date.Add(context.Hora.Value):g}")</MudTd>
+                                    <MudTd>@context.Equipo.Id</MudTd>
+                                    <MudTd>@context.Equipo.Esn</MudTd>
+                                    <MudTd>@context.Equipo.Marca</MudTd>
+                                    <MudTd>@context.Equipo.Modelo</MudTd>
+                                    <MudTd>@context.Equipo.Color</MudTd>
+                                    <MudTd>@context.EtapaDestino.Nombre</MudTd>
+                                    <MudTd>@context.Operario.Nombre</MudTd>
+                                    <MudTd>@context.OperarioDevolucion?.Nombre</MudTd>
+                                    <MudTd>@context.Observacion</MudTd>
+                                </RowTemplate>
+                                <NoRecordsContent>
+                                    <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+                                </NoRecordsContent>
+                                <LoadingContent>
+                                    <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+                                </LoadingContent>
+                                <PagerContent>
+                                    <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+                                </PagerContent>
+                            </MudTable>
+                        </MudCardContent>
+                    </MudCard>
+                </MudForm>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudTooltip Text="Guardar">
+            <MudFab Color="Color.Primary" Icon="@Icons.Material.Sharp.Save" OnClick="GuardarAsync" />
+        </MudTooltip>
+        <MudTooltip Text="Cancelar">
+            <MudFab Color="Color.Error" Icon="@Icons.Material.Sharp.Close" OnClick="CancelarAsync" />
+        </MudTooltip>
+    </DialogActions>
+</MudDialog>

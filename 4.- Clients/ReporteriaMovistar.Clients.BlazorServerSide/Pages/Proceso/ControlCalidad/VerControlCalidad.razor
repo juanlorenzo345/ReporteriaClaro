@@ -1,0 +1,7 @@
+﻿@using ReporteriaMovistar.Clients.BlazorServerSide.Pages.Proceso.Shared
+@using ReporteriaMovistar.Application.Models.Enums
+@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.ControlCalidad)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador, Roles.ControlCalidad)]
+
+<VerMovimientoEquipo NombreEtapa="Control de Calidad" Etapa="Etapa.ControlCalidad" />

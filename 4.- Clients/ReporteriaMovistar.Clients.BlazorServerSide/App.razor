@@ -1,0 +1,35 @@
+@using ReporteriaMovistar.Clients.BlazorServerSide.Shared.Authentication
+<CascadingAuthenticationState>
+    <MudThemeProvider Theme="@tema" />
+    <MudDialogProvider FullWidth="true" MaxWidth="MaxWidth.ExtraSmall" />
+    <MudSnackbarProvider />
+    <Router AppAssembly="@typeof(Program).Assembly" PreferExactMatches="@true">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)">
+                
+                <NotAuthorized>
+                    @if (!context.User.Identity.IsAuthenticated)
+                    {
+                        <RedirectToLogin/>
+                    }
+                    else
+                    {
+                        <Error401/>
+                    }
+                </NotAuthorized>
+            </AuthorizeRouteView>
+        </Found>
+        <NotFound>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <Error404/>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
+@code{
+
+    //NOTE: Se crea un objeto derivado de Theme que contiene la configuración de diseño de MudBlazor.
+    private MudTheme tema = new Configuration.MudBlazorThemeConfiguration();
+
+}

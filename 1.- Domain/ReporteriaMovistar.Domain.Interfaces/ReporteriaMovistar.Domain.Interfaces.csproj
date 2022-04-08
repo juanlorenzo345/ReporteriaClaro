@@ -1,0 +1,312 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Repositories\IComponenteDetalleEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IComponenteEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IControlCalidadEstadoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IEquipoDespachoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IEquipoFamiliaEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IEquipoRecepcionEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IFaceplateEstadoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IGuiaDespachoMovimientoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IGuiaEstadoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IHdmiEstadoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IRcaEstadoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IUtpEstadoEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IVWDetalleDespachoYComponentesEntityRepository.Generated.cs" />
+    <Compile Remove="Repositories\IVWDetalleMovimientoEquipoPowerBiEntityRepository.Generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ReporteriaMovistar.Domain.Models\ReporteriaMovistar.Domain.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DataProviders\" />
+    <Folder Include="Stores\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Repositories\IApiUserEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IApiUserEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IApiUserEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IComponenteEstadoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IComponenteEstadoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IComponenteEstadoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IDespachoDetalleEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IDespachoDetalleEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IDespachoDetalleEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IDespachoEncabezadoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IDespachoEncabezadoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IDespachoEncabezadoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IDespachoEstadoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IDespachoEstadoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IDespachoEstadoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEFMigrationsHistoryEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEFMigrationsHistoryEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEFMigrationsHistoryEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoColorEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoColorEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoColorEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoConfiguracionEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoConfiguracionEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoConfiguracionEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoMarcaEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoMarcaEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoMarcaEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoModeloEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoModeloEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoModeloEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoMovimientoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoMovimientoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoMovimientoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoScrapEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoScrapEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoScrapEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoTecnologiaEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEquipoTecnologiaEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEquipoTecnologiaEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEtapaEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEtapaEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEtapaEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEtapaEstadoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEtapaEstadoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEtapaEstadoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEtapaSecuenciaEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IEtapaSecuenciaEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IEtapaSecuenciaEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityRoleClaimEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityRoleClaimEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityRoleClaimEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityRoleEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityRoleEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityRoleEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserAccessLogEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserAccessLogEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserAccessLogEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserClaimEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserClaimEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserClaimEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserExceptionLogEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserExceptionLogEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserExceptionLogEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserLoginEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserLoginEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserLoginEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserOperationLogEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserOperationLogEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserOperationLogEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserRoleEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserRoleEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserRoleEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserTokenEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IIdentityUserTokenEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IIdentityUserTokenEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IOperarioEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IOperarioEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IOperarioEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IPronosticoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IPronosticoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IPronosticoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ITempDespachoCsvEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ITempDespachoCsvEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ITempDespachoCsvEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ITempEquipoMovimientoCsvEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\ITempEquipoMovimientoCsvEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ITempEquipoMovimientoCsvEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IUnitOfWork.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IUnitOfWorkFactory.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IVWMovimientoEquipoEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IVWMovimientoEquipoEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IVWMovimientoEquipoEntityRepository.cs</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IZonaEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Repositories</DependentUpon>
+    </Compile>
+    <Compile Update="Repositories\IZonaEntityRepository.Generated.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>IZonaEntityRepository.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+</Project>

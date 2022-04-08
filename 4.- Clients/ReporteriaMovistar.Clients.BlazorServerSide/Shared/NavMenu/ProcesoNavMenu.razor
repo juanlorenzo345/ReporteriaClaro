@@ -1,0 +1,40 @@
+﻿@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData
+<AuthorizeView>
+    <MudNavGroup Title="Proceso"
+                 Expanded="false"
+                 ExpandIcon="@Icons.Material.Sharp.ExpandMore"
+                 Class="primary-item-mudnavgroup">
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.Recepcion)">
+            <MudNavLink Href="@PageRoutes.Recepcion" Match="NavLinkMatch.All">Recepción</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.Diagnostico)">
+            <MudNavLink Href="@PageRoutes.Diagnostico" Match="NavLinkMatch.All">Diagnóstico</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.Limpieza)">
+            <MudNavLink Href="@PageRoutes.Limpieza" Match="NavLinkMatch.All">Limpieza</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.Pintura)">
+            <MudNavLink Href="@PageRoutes.Pintura" Match="NavLinkMatch.All">Pintura</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.QuickResponse)">
+            <MudNavLink Href="@PageRoutes.QuickResponse" Match="NavLinkMatch.All">QR</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.Etiquetado)">
+            <MudNavLink Href="@PageRoutes.Etiquetado" Match="NavLinkMatch.All">Etiquetado</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.ControlCalidad)">
+            <MudNavLink Href="@PageRoutes.ControlCalidad" Match="NavLinkMatch.All">Control de Calidad</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.Empaque)">
+            <MudNavLink Href="@PageRoutes.Empaque" Match="NavLinkMatch.All">Empaque</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador, Roles.Despacho)">
+            <MudNavLink Href="@PageRoutes.Despacho" Match="NavLinkMatch.All">Despacho</MudNavLink>
+        </AuthorizeView>
+        <MudNavLink Href="@PageRoutes.Scrap" Match="NavLinkMatch.All">Scrap</MudNavLink>
+        <MudNavLink Href="@PageRoutes.Seguimiento" Match="NavLinkMatch.All">Seguimiento</MudNavLink>
+        <AuthorizeView Context="authContext" Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.Pronosticos" Match="NavLinkMatch.All">Pronósticos</MudNavLink>
+        </AuthorizeView>
+    </MudNavGroup>
+</AuthorizeView>

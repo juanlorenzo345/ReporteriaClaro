@@ -1,0 +1,41 @@
+﻿@page
+@model ReporteriaMovistar.Clients.BlazorServerSide.Pages.ErrorModel
+
+<!DOCTYPE html>
+<html>
+
+<head lang="es">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Error</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="content px-4">
+            <h1 class="text-danger">Error.</h1>
+            <h2 class="text-danger">Se produjo un error mientras se procesaba su solicitud.</h2>
+
+            @if (Model.ShowRequestId)
+            {
+                <p>
+                    <strong>ID petición:</strong> <code>@Model.RequestId</code>
+                </p>
+            }
+
+            <h3>Modo Desarrollo</h3>
+            <p>
+                Cambiar al ambiente de <strong>desarrollo</strong> mostrará información más detallada sobre el error que ocurrió.
+            </p>
+            <p>
+                <strong>El ambiente de desarrollo no debería ser activado para aplicaciones desplegadas.</strong>
+                Puede resultar en mostrar información sensible de excepciones a usuarios finales.
+                Para depuración local, active el ambiente de <strong>desarrollo</strong> configurando la variable de entorno <strong>ASPNETCORE_ENVIRONMENT</strong> a <strong>Development</strong>
+                y reiniciando la aplicación.
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

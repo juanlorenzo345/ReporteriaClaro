@@ -1,0 +1,1687 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="ReporteriaMovistar.Infrastructure.Data.DataProviders" namespace="ReporteriaMovistar.Domain.Models.Entities" p1:name="ReporteriaMovistarDbContext" p1:Guid="b4545ae6-2714-42cd-9112-8bfec3d2cd16" p1:DoNotGenerateDefaultConstructor="True" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="$ComplexTypes">
+    <component class="SPSeguimientoDespachoEntityResult" p1:Guid="c96fe25a-c304-416c-bb31-1a653ff43108">
+      <property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="368647c7-e613-411e-877a-02f983afec9b">
+        <column name="Id" not-null="True" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="5b1b7371-25f2-485b-8f0a-4e4315f6b68d">
+        <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+      </property>
+      <property name="Esn" type="String" p1:ValidateRequired="true" p1:Guid="dba6d518-4bb1-422f-a9a6-575e6318f693">
+        <column name="Esn" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Guia" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="a866ce1e-1898-47dc-891c-23e1b17173b3">
+        <column name="Guia" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="EstadoDespacho" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8d071515-a64e-49f4-b359-caa2b74efa63">
+        <column name="EstadoDespacho" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Caja" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b1c4ba79-96cb-4ca3-add5-21afc9e972c2">
+        <column name="Caja" not-null="False" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="Pallet" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="eb573898-aac9-4d4d-a1a8-45e570fbed8d">
+        <column name="Pallet" not-null="False" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="Derivada" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="333e240d-626a-4bed-af46-7b6d60385e3d">
+        <column name="Derivada" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="EstadoUtp" type="String" p1:ValidateRequired="true" p1:Guid="81a3708d-c3fc-4070-8f7e-8a9b30aa14a5">
+        <column name="EstadoUtp" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="EstadoFuentePoder" type="String" p1:ValidateRequired="true" p1:Guid="c5237536-e412-43cd-bfad-ad30285c16c9">
+        <column name="EstadoFuentePoder" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="EstadoControlRemoto" type="String" p1:ValidateRequired="true" p1:Guid="8ccf2521-0de7-4370-ab62-bb58350decb2">
+        <column name="EstadoControlRemoto" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="EstadoHdmi" type="String" p1:ValidateRequired="true" p1:Guid="1b88f5bb-bc56-43b0-a3a7-aecfba19befa">
+        <column name="EstadoHdmi" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="EstadoRca" type="String" p1:ValidateRequired="true" p1:Guid="71f5e39d-39bb-48f3-bd35-c4c7224bbd4f">
+        <column name="EstadoRca" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Pintura" type="Boolean" p1:ValidateRequired="true" p1:Guid="ec27ce2f-00ed-49e9-a414-f56fe9f2faf5">
+        <column name="Pintura" not-null="True" sql-type="bit" p1:unicode="False" />
+      </property>
+      <property name="ControlCalidad" type="Boolean" p1:ValidateRequired="true" p1:Guid="18d25e60-0f1b-4557-a535-0deb126ab951">
+        <column name="ControlCalidad" not-null="True" sql-type="bit" p1:unicode="False" />
+      </property>
+      <property name="ProcesoFinalizado" type="Boolean" p1:ValidateRequired="true" p1:Guid="f16cafe4-6b28-402a-b322-726b49631136">
+        <column name="ProcesoFinalizado" not-null="True" sql-type="bit" p1:unicode="False" />
+      </property>
+    </component>
+    <component class="SPSeguimientoEquipoEntityResult" p1:Guid="c5238e79-1797-4269-a431-352bbabb9214">
+      <property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="4193c38f-39e6-4b01-955e-e4e8e530e437">
+        <column name="Id" not-null="True" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="FechaRecepcion" type="DateTime" p1:ValidateRequired="true" p1:Guid="caf517b7-2747-40b2-98c7-f71d18e79423">
+        <column name="FechaRecepcion" not-null="True" sql-type="datetime" p1:unicode="False" />
+      </property>
+      <property name="Esn" type="String" p1:ValidateRequired="true" p1:Guid="b3d973a3-0618-4f4b-b665-02b7948154b7">
+        <column name="Esn" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Marca" type="String" p1:ValidateRequired="true" p1:Guid="b05d3f41-7254-4946-89cf-caffa2e13ed6">
+        <column name="Marca" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Modelo" type="String" p1:ValidateRequired="true" p1:Guid="a9399b33-b180-4138-a91d-16a93fb31c28">
+        <column name="Modelo" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Color" type="String" p1:ValidateRequired="true" p1:Guid="4a17c44d-ed9f-49a7-b7c5-8e832974cabf">
+        <column name="Color" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Tecnologia" type="String" p1:ValidateRequired="true" p1:Guid="8c08ddee-f3d8-43cf-bfd9-abea0718c017">
+        <column name="Tecnologia" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Configuracion" type="String" p1:ValidateRequired="true" p1:Guid="d4e961e9-3775-43db-969e-722ed2d6f5ac">
+        <column name="Configuracion" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="DetalleConfiguracion" type="String" p1:ValidateRequired="true" p1:Guid="ebf96ed3-2cc8-409d-9285-559870bf897e">
+        <column name="DetalleConfiguracion" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+    </component>
+    <component class="SPInformacionEquipoEntityResult" p1:Guid="5938c323-573c-4ec3-86b9-78b33c5942ff">
+      <property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="b9ec2bf7-0bda-4ca0-bb4a-2da92beb5a44">
+        <column name="Id" not-null="True" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="Esn" type="String" p1:ValidateRequired="true" p1:Guid="fea95e03-12b4-4830-ac75-2dfc246d0606">
+        <column name="Esn" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Marca" type="String" p1:ValidateRequired="true" p1:Guid="55066a87-f632-4bee-8f20-8e7ba0376280">
+        <column name="Marca" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Modelo" type="String" p1:ValidateRequired="true" p1:Guid="d632d451-97bb-49c6-aa75-0f26cdcdaab4">
+        <column name="Modelo" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Color" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ed12a9cc-d4d7-485c-8dc0-8134f55a8bcf">
+        <column name="Color" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="TecnologiaId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="82911a5a-c8b8-459c-aeff-04fb2367464a">
+        <column name="TecnologiaId" not-null="False" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="Tecnologia" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="45ed5cb5-506f-4552-a52f-04827c0bd2a0">
+        <column name="Tecnologia" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+    </component>
+    <component class="SPUltimoOperarioEtapaEntityResult" p1:Guid="c92aa50a-b7f1-4762-808c-e387bd09331b">
+      <property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="acbc7eb4-c74b-4271-a530-025976e46090">
+        <column name="Id" not-null="True" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="Nombre" type="String" p1:ValidateRequired="true" p1:Guid="40453144-bbc4-4d32-a870-cd934c9686cc">
+        <column name="Nombre" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+    </component>
+    <component class="SPSeguimientoUltimoMovimientoEntityResult" p1:Guid="ed328065-0dd2-4937-9eab-19eba16f0cdb">
+      <property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="6c87e9e4-6253-4831-bc39-7e3253d5449f">
+        <column name="Id" not-null="True" sql-type="int" p1:unicode="False" />
+      </property>
+      <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="ce79711b-fd8c-4c31-9575-9d6b8ead22f8">
+        <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+      </property>
+      <property name="Esn" type="String" p1:ValidateRequired="true" p1:Guid="66ea60dc-5547-4d1d-ac7f-3bd6e4f4ea92">
+        <column name="Esn" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Origen" type="String" p1:ValidateRequired="true" p1:Guid="a390ecb8-2f84-4f17-ada8-e373157c40b9">
+        <column name="Origen" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Destino" type="String" p1:ValidateRequired="true" p1:Guid="ec862a0d-5523-4da9-901e-d656e2718740">
+        <column name="Destino" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Operario" type="String" p1:ValidateRequired="true" p1:Guid="c83c3bdf-abb5-4611-a2cf-a0a29cfaccf6">
+        <column name="Operario" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="OperarioDevolucion" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="5fe9de90-cf6c-4546-80e4-61bfaeb49b66">
+        <column name="OperarioDevolucion" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+      <property name="Observacion" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9a29487e-340c-4fd4-aa3a-9a760bdabf59">
+        <column name="Observacion" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+      </property>
+    </component>
+  </class>
+  <class name="IdentityRoleEntity" entity-set="IdentityRoleEntities" table="IdentityRole" schema="dbo" p1:Guid="4d916cce-c778-484d-8e7b-5f21505ad864">
+    <id name="Id" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="6e8a054b-5caa-4596-917e-ce9f083f0a0a">
+      <column name="Id" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </id>
+    <property name="AvailableAsAdmin" type="Boolean" p1:ValidateRequired="true" p1:Guid="d07e8f3d-60cc-4dd8-8a4e-70eb175dc351">
+      <column name="AvailableAsAdmin" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="AvailableAsSuperAdmin" type="Boolean" p1:ValidateRequired="true" p1:Guid="5f8166f8-abf3-4d0c-afd3-2f944e76602d">
+      <column name="AvailableAsSuperAdmin" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="8536d974-396a-45c1-9e09-494018cf442d">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="5f37542c-9ef6-47cd-876f-b8882507b0bc">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7f91e58d-6d0b-4f61-96ce-25d9a9cffcb6">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="2d3ff9bb-7dd9-40fc-93d5-a578b4882dc9">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="0d21f2de-4ea4-463c-b337-aa685f8aae3b">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="7afccd51-ef92-4220-80aa-3b72ec82fd19">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="Name" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="93f9825d-4b2a-4e79-9d3a-8822a75d8dd6">
+      <column name="Name" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="NormalizedName" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="64b90b45-48d8-4e9d-8972-3b8fc64dfbcb">
+      <column name="NormalizedName" not-null="False" length="256" sql-type="nvarchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="ConcurrencyStamp" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="32330b57-6c05-4394-9b2b-143b87fa4851">
+      <column name="ConcurrencyStamp" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="IdentityRoleClaimEntity" entity-set="IdentityRoleClaimEntities" table="IdentityRoleClaim" schema="dbo" p1:Guid="bed2127a-2888-45b2-beb9-4c2f2ba7d979">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="746c77ad-57af-41bb-a8e9-1fc4afab053f">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="b68eb5c1-f271-46f9-9547-4aab24ce3bec">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="3e8375eb-2d37-4063-8295-8d688f230a96">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="c6e462e7-01b6-437a-bbbb-2da0829907b8">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="709186b8-a42d-4583-9f99-18b58d185089">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="53dbe449-60e0-4784-83d6-72541f9dd5eb">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="3239b5ca-0bb3-4d0f-b416-4dff20f1a008">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="RoleId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="c6ff232b-7964-4f41-b7ec-54c6694d8506">
+      <column name="RoleId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ClaimType" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d5bf13ea-c8ea-42aa-bd7c-0437b5224e1b">
+      <column name="ClaimType" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="ClaimValue" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="4e6370c4-d52a-406a-9945-883e2c0aaef8">
+      <column name="ClaimValue" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="IdentityUserEntity" entity-set="IdentityUserEntities" table="IdentityUser" schema="dbo" p1:Guid="76121603-1cb6-4aba-8388-1dc91a96915a">
+    <id name="Id" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="491b2964-5205-49f0-aea4-7c1666282037">
+      <column name="Id" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </id>
+    <property name="FullName" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="5f6fa19b-ee2e-4666-95dd-77257c7a92b7">
+      <column name="FullName" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="NormalizedFullName" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="0ef5f152-3d5a-41ce-81e8-17ffe6bacd9c">
+      <column name="NormalizedFullName" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="a2b9cc7b-94bd-41e9-ae7b-24de9db430ab">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="1599e8bf-db14-4218-9619-a6900207dfb8">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ce66d470-f4ee-4adb-939a-f21ab99185ad">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="46172179-a34a-4427-b37c-c24864c0f89b">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="34596e81-1723-4f91-ba79-cc9e0334697a">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="df9d8e4c-38e8-42e3-a573-d73ae4d27948">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="Reason" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="2f50c250-8999-4116-92c2-6fbd356dfd9c">
+      <column name="Reason" not-null="False" length="200" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="Active" type="Boolean" p1:ValidateRequired="true" p1:Guid="0d30ac51-da6d-478f-b525-69b02d5a2825">
+      <column name="Active" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="UserName" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="10aa97fb-d395-4a8a-a2ef-97034f6f4046">
+      <column name="UserName" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="NormalizedUserName" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="f16f5735-48ff-44b5-bc34-2dc81713deac">
+      <column name="NormalizedUserName" not-null="False" length="256" sql-type="nvarchar" unique="True" p1:unicode="True" />
+    </property>
+    <property name="Email" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="d5be352c-23c4-4c67-9a9a-ff7c13fb38cb">
+      <column name="Email" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="NormalizedEmail" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="ef0d7d61-683c-412a-8f87-2cef67913df0">
+      <column name="NormalizedEmail" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="EmailConfirmed" type="Boolean" p1:ValidateRequired="true" p1:Guid="ae1c9c10-4c9b-4866-ad49-519b10df271b">
+      <column name="EmailConfirmed" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="PasswordHash" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="34be1deb-05f0-4548-a588-5c5f10af59ed">
+      <column name="PasswordHash" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="SecurityStamp" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="eaec3203-beda-4d3e-8884-e43ca95db2ac">
+      <column name="SecurityStamp" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="ConcurrencyStamp" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="62fd211b-6d0f-4fbc-b093-d911ffbd9dfb">
+      <column name="ConcurrencyStamp" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="PhoneNumber" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8b7ffca7-bde9-4cde-adbb-789a71fc9f21">
+      <column name="PhoneNumber" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="PhoneNumberConfirmed" type="Boolean" p1:ValidateRequired="true" p1:Guid="3783bffb-814c-4947-a77d-537a9bb73f5a">
+      <column name="PhoneNumberConfirmed" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="TwoFactorEnabled" type="Boolean" p1:ValidateRequired="true" p1:Guid="c68f99d5-74ac-4201-ab9b-1c775ca1fd1b">
+      <column name="TwoFactorEnabled" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="LockoutEnd" type="DateTimeOffset" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="73855247-17a5-4662-808b-0b6519ba3e26">
+      <column name="LockoutEnd" not-null="False" sql-type="datetimeoffset" p1:unicode="False" />
+    </property>
+    <property name="LockoutEnabled" type="Boolean" p1:ValidateRequired="true" p1:Guid="66944b3c-6373-44c7-af8a-85b964c6bb77">
+      <column name="LockoutEnabled" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="AccessFailedCount" type="Int32" p1:ValidateRequired="true" p1:Guid="b64c8f1c-f813-4960-854b-bc9a55a8aa9e">
+      <column name="AccessFailedCount" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="IdentityUserAccessLogEntity" entity-set="IdentityUserAccessLogEntities" table="IdentityUserAccessLog" schema="dbo" p1:Guid="af4a0239-d846-410a-a9af-4324beb7bc8e">
+    <id name="Id" type="Int64" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="2df53a83-ba7f-4c84-a5f7-69e1d3a839b4">
+      <column name="Id" not-null="True" precision="19" scale="0" sql-type="bigint" p1:unicode="False" />
+    </id>
+    <property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="074e2a86-b5df-465a-aefb-5854a679f154">
+      <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="IpAddress" type="String" p1:ValidateMaxLength="45" p1:ValidateRequired="true" p1:Guid="67696145-bc0f-4c73-9879-2d8903d9dbd6">
+      <column name="IpAddress" not-null="True" length="45" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="AccessAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="4172cf54-1f9e-4423-88f8-3901fdd997e7">
+      <column name="AccessAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="SuccessfulLogin" type="Boolean" p1:ValidateRequired="true" p1:Guid="a709d195-b617-40b5-a7ea-760dee784ffc">
+      <column name="SuccessfulLogin" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="Detail" type="String" p1:nullable="True" p1:ValidateMaxLength="100" p1:ValidateRequired="false" p1:Guid="d80c83a3-3990-4f2c-bc95-f5a2d0fee9ef">
+      <column name="Detail" not-null="False" length="100" sql-type="varchar" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="IdentityUserClaimEntity" entity-set="IdentityUserClaimEntities" table="IdentityUserClaim" schema="dbo" p1:Guid="960719da-52d5-4382-82de-69804de9aa48">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="1038165e-7e40-4b3d-bccf-f24c805a2171">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="92fe158c-ae00-47c4-96f7-b9d2afdd9f27">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="e8f68844-c09b-4465-b88a-f68143083b38">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9f3aba1c-adf5-44d5-9607-0cc51e2cbb87">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="7bd58c98-2baa-4fdd-be83-d969b10f47c5">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9688eaa6-fd4d-4c07-842b-7eac5c25391d">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="e3dd8854-4237-442b-be90-7995bf2ae5ff">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="527f481c-9054-4c8a-985d-35db8ad9300e">
+      <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ClaimType" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9b836a76-4241-4efc-8216-3a728b8b7dde">
+      <column name="ClaimType" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="ClaimValue" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="029ea832-7a89-4793-9e93-7ed355f6281b">
+      <column name="ClaimValue" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="IdentityUserExceptionLogEntity" entity-set="IdentityUserExceptionLogEntities" table="IdentityUserExceptionLog" schema="dbo" p1:Guid="989f80a0-ff33-492d-9086-2a46e33ec487">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="625a57b7-a0cf-40d5-801d-c1c254bc14fc">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="d055177b-cfca-4175-8da6-861d80595850">
+      <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="Message" type="String" p1:ValidateRequired="true" p1:Guid="07a239cd-fe6f-4764-9a95-fe45fdfb66d7">
+      <column name="Message" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+    </property>
+    <property name="Type" type="String" p1:ValidateMaxLength="200" p1:ValidateRequired="true" p1:Guid="9c066f30-8454-4a49-98f9-f737c0f1c314">
+      <column name="Type" not-null="True" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Source" type="String" p1:ValidateRequired="true" p1:Guid="74783e58-6705-4429-8061-ad496807230d">
+      <column name="Source" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+    </property>
+    <property name="Url" type="String" p1:ValidateMaxLength="2048" p1:ValidateRequired="true" p1:Guid="bca670a1-8f30-4716-949b-b0427ec362b7">
+      <column name="Url" not-null="True" length="2048" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="e617cd2e-caae-48fd-86fe-72f4baa9168b">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="IdentityUserLoginEntity" entity-set="IdentityUserLoginEntities" table="IdentityUserLogin" schema="dbo" p1:Guid="4d51c534-8523-4631-86c8-19240a77234b">
+    <composite-id>
+      <key-property name="LoginProvider" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="79f1ee9d-66f3-4131-aa56-94ed1aeddeda">
+        <column name="LoginProvider" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+      <key-property name="ProviderKey" type="String" primary-key-index="1" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="fe347dc7-7c89-4703-a00a-8641ef73781f">
+        <column name="ProviderKey" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+    </composite-id>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="ca697402-f241-4dcb-9cf6-6518e9b3cab4">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="5c9af4c7-8a08-42bc-bd00-7e485fa881fd">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="63e21c44-b517-4d04-b2c8-73aa43343ee6">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="e67b97b8-44df-49cf-a434-18e9179b5b24">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2ef43a6b-9195-4de6-9015-7bad1afbe60e">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="9557a2c4-725e-41e5-9f44-2944e6c8a267">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ProviderDisplayName" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="da45e223-b06d-42bd-ae3a-99211294f8ff">
+      <column name="ProviderDisplayName" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+    <property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="f9523d1e-e52a-40f0-ad83-e471a48ca70d">
+      <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="IdentityUserOperationLogEntity" entity-set="IdentityUserOperationLogEntities" table="IdentityUserOperationLog" schema="dbo" p1:Guid="c72f1902-9a83-4947-bf65-bfdaa3850bb7">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="45983aed-1cf7-4db9-8328-e2c5285ebb3b">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="8fcb88d2-9ad4-4059-914e-c52dde04fac7">
+      <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="Detail" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9b6396d9-9fa5-4eaa-b0bd-86ddc471b2f4">
+      <column name="Detail" not-null="False" sql-type="varchar(max)" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="d53bb648-34c0-4e80-8cbf-95ffaa68b594">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="IdentityUserRoleEntity" entity-set="IdentityUserRoleEntities" table="IdentityUserRole" schema="dbo" p1:Guid="d72af332-3a87-4690-82f2-2d0e6e8559f7">
+    <composite-id>
+      <key-property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="7abf5488-5b12-4fd7-949a-0cbc8b6d309f">
+        <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+      <key-property name="RoleId" type="String" primary-key-index="1" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="ac601b9b-b669-4aac-ba3d-3127bb36afb6">
+        <column name="RoleId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+    </composite-id>
+    <property name="CreatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e5be1803-7fb1-459a-a974-f99a4e34c82a">
+      <column name="CreatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="9ac42b70-7dd0-4727-8b42-03c00e7d4ff0">
+      <column name="CreatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="99cbe408-9722-4f30-a9d9-e541caecf586">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="19ff6462-c85f-4be2-9e9f-f37c5a0fdd35">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d29e3cc9-40b6-40fb-9eb6-a756a264ee49">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="ed9f1731-0002-48f7-b2db-3594cba971de">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="IdentityUserTokenEntity" entity-set="IdentityUserTokenEntities" table="IdentityUserToken" schema="dbo" p1:Guid="894cb4da-6470-4f0f-ac4d-103f871660f7">
+    <composite-id>
+      <key-property name="UserId" type="String" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="a918713e-818a-4fae-a2a3-1cbfd3d6e459">
+        <column name="UserId" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+      <key-property name="LoginProvider" type="String" primary-key-index="1" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="f51af363-1455-4f51-9eca-d70ed1cef50e">
+        <column name="LoginProvider" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+      <key-property name="Name" type="String" primary-key-index="2" p1:ValidateMaxLength="450" p1:ValidateRequired="true" p1:Guid="95fd5434-9aa1-47a2-b6b1-129d04fba1a2">
+        <column name="Name" not-null="True" length="450" sql-type="nvarchar" p1:unicode="True" />
+      </key-property>
+    </composite-id>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="44550ac3-cadc-4e17-bc11-09428dede45d">
+      <column name="CreatedAt" not-null="True" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="54942ded-c8dd-4a5e-ab87-f4a92b4cb893">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e46f102a-4bdc-4749-a155-d8a20b2393a9">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="6052dd52-eedf-4b74-a89c-71ed2f2d5ee7">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="58917095-4c2b-4701-8813-6141ac4205af">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime2" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="58a1c12f-bc83-4be8-9aac-ed1a64879696">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+    <property name="Value" type="String" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="26aa2411-672a-4cfc-8614-73f9ebef3292">
+      <column name="Value" not-null="False" sql-type="nvarchar(max)" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="EFMigrationsHistoryEntity" entity-set="EFMigrationsHistoryEntities" table="`__EFMigrationsHistory`" schema="dbo" p1:Guid="3a6ebad6-8ea7-4cf6-b47d-f5489bbeb4a6">
+    <id name="MigrationId" type="String" p1:ValidateMaxLength="150" p1:ValidateRequired="true" p1:Guid="6897fd3c-9e49-427e-88ac-46b00c54f38c">
+      <column name="MigrationId" not-null="True" length="150" sql-type="nvarchar" p1:unicode="True" />
+    </id>
+    <property name="ProductVersion" type="String" p1:ValidateMaxLength="32" p1:ValidateRequired="true" p1:Guid="1cca3cf6-adf5-4dc7-9895-ae813c025d85">
+      <column name="ProductVersion" not-null="True" length="32" sql-type="nvarchar" p1:unicode="True" />
+    </property>
+  </class>
+  <class name="EquipoColorEntity" entity-set="EquipoColorEntities" table="EquipoColor" schema="dbo" p1:Guid="f71491b1-9147-432b-bff9-479e403ce849">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="547a0138-a8a6-450a-ac1d-21f696562299">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="30" p1:ValidateRequired="true" p1:Guid="675bc2cc-c6f0-4f63-bf39-ba5f20d58e43">
+      <column name="Nombre" not-null="True" length="30" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="4961299d-0062-4319-8066-f1d50af89c37">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="7abe2b3d-1a36-46b1-84dd-41461585c2b1">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="1b9f47f9-6a3d-4282-a774-baa9a4edfb11">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="769d8419-8c2f-43f3-a07d-eace7cd6b156">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="e749aded-295c-417b-aa86-4e6abf45ccb6">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="ddd7114e-0eb5-4867-85af-7cf2e3239bbe">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="88394f41-20b9-4197-8704-fdc2650a1d54">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EquipoMarcaEntity" entity-set="EquipoMarcaEntities" table="EquipoMarca" schema="dbo" p1:Guid="f5c097f6-49b2-4517-8aa0-f00815e6ef93">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="60b0d2a0-09f8-4e05-98c5-544bbd83838e">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="0b40dd39-02bf-45c7-ab3a-ec03a9d1c97d">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="1441bedd-28d9-419a-a2a8-ee68b2bb55f4">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="4c582774-6814-447e-87fa-849ea0ee80f1">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d7e7defb-0015-46ba-94d6-f13d33f55a6f">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="36a79199-3c8f-45ba-a11c-1a4c5b6cc4ea">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="6f7219b4-34db-4399-b4c8-45171f0efa0d">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="19112f10-24af-452d-90fd-e2b79977c85b">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="77ccb59f-9988-4c82-8a67-83a7732b5274">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EquipoModeloEntity" entity-set="EquipoModeloEntities" table="EquipoModelo" schema="dbo" p1:Guid="25e20ecb-fac9-457f-bdaf-b895c23cd22a">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="c141c024-faf0-4cad-a157-9ca547fb9421">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="bf6cee57-e235-4790-bb26-093d647865c2">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="MarcaId" type="Int32" p1:ValidateRequired="true" p1:Guid="92fdbfbf-65bd-459e-8995-8dfb60d38418">
+      <column name="MarcaId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="TecnologiaId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="df489a8a-c48b-4f10-a785-4b5b3d633e49">
+      <column name="TecnologiaId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="5d35bb58-0fcc-46e7-8980-c1bc2e4d455f">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="f5750261-6463-40cd-8b74-aab47f1a8846">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="f9fd606d-d48e-4482-baed-39365fddbb84">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="89a52e8f-21d2-4fc4-88cc-dc46db0b4e5e">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="4516c13d-fdb4-4a1b-8753-842fc4ecdfe6">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="641b8f9b-55f5-4a7b-82e3-342dd37982f8">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="af4925fb-52ab-4dc1-8ca8-dca395dad2f7">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EquipoMovimientoEntity" entity-set="EquipoMovimientoEntities" table="EquipoMovimiento" schema="dbo" p1:Guid="8cede020-e85d-4cae-8654-aae835496846">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="b57265cd-f213-475e-a4d4-654abcb4bbce">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="477b7827-1bbd-4186-a2cf-466263a58d84">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="EquipoId" type="Int32" p1:ValidateRequired="true" p1:Guid="af161634-5af2-4c70-9cd8-cd42f715c86b">
+      <column name="EquipoId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="EtapaOrigenId" type="Int32" p1:ValidateRequired="true" p1:Guid="3fc42b5e-29da-412b-a8ca-374e0228f671">
+      <column name="EtapaOrigenId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="EtapaDestinoId" type="Int32" p1:ValidateRequired="true" p1:Guid="1bff7f51-6284-4b25-b42a-a1cccb9dcbfe">
+      <column name="EtapaDestinoId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="OperarioId" type="Int32" p1:ValidateRequired="true" p1:Guid="3daf3af8-f647-4074-8c0e-73288ac2d262">
+      <column name="OperarioId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="OperarioDevolucionId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="c1ad8e22-ad76-4c27-ad27-e058acb63550">
+      <column name="OperarioDevolucionId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Observacion" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="67a310ec-70f7-42e4-8a30-f03e4c821beb">
+      <column name="Observacion" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="c678dcb7-78b4-4d0d-bbb2-7ed5b3bdc26e">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="5f997be1-fdd7-4da8-adfe-3729bc2bdcab">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="f3eb98d0-7d40-4ca7-b1bc-cda265cca49d">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="339452c2-19e6-404c-83f5-18c402dd32f0">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="6c635ca7-8bcf-44df-a499-fd97713d4acf">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="07d432f8-0e42-4d7d-87e5-88db5145802c">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="5a01c139-ff5d-43cd-91ae-175430e72c96">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EtapaEntity" entity-set="EtapaEntities" table="Etapa" schema="dbo" p1:Guid="2217b280-eaca-4015-abcc-3761ebd3ded9">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="9b2156f0-5dec-430f-80b5-d76daa98091b">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="77973f08-6680-4f00-81f4-f6fa35b95a1e">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Posicion" type="Int32" p1:ValidateRequired="true" p1:Guid="43defc99-2fb8-49de-aeca-6e58c7b57387">
+      <column name="Posicion" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ZonaId" type="Int32" p1:ValidateRequired="true" p1:Guid="3d670bc8-e3c1-42aa-9656-c82a2ebb48cb">
+      <column name="ZonaId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="516f8e0e-f68b-47ce-a668-8d4bf8c27f2b">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="1271a950-075d-4bb6-9be7-3c5993c0b91c">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="5e4e5d87-4441-46b4-962c-3ff09c6fcc2b">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="18238964-3bc2-432b-bd50-aab610e34845">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2fed83eb-2e54-4b44-a18a-abb2530c40b8">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="e8ff463c-5241-4f21-b6be-91e386872760">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="a9280985-37ed-4bde-b870-ea9d34659e10">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ComponenteEstadoEntity" entity-set="ComponenteEstadoEntities" table="ComponenteEstado" schema="dbo" p1:Guid="128cb562-e9c6-449c-81f5-30e678407ff0">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="8ba7a663-5087-4d9e-9ba2-c4fff3952b49">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="55d74421-8850-4f20-9ac9-c3353562cba2">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Posicion" type="Int32" p1:ValidateRequired="true" p1:Guid="ce2a1905-ccb6-4b8f-ba09-72f5b1c5c2b2">
+      <column name="Posicion" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="f2dd2a4c-8420-4bb8-a016-cc964aa3fa92">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="08ba0163-c0f2-4add-9662-cb9dc1db1a66">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="cfcc730f-19e3-441e-90c4-3cd870629bca">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="bd11ba26-e376-4182-88ac-a4b67d6b581e">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="58a885d8-140c-4dc8-81db-9d01fb0d4352">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="8d67e5ee-6d72-4c52-a72c-b7d5b25af803">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="21404ad6-deff-4b70-9acb-6183a80948a3">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="DespachoEstadoEntity" entity-set="DespachoEstadoEntities" table="DespachoEstado" schema="dbo" p1:Guid="25ac7d62-3c8a-460f-b1b2-b55aa9ac5d8e">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="d1310ea8-493f-446f-bdb5-cf6871f04946">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="3c4f3c04-71ab-44b1-9847-ef610717d03c">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Posicion" type="Int32" p1:ValidateRequired="true" p1:Guid="144454c2-b1a4-4399-a081-c322412cc0c7">
+      <column name="Posicion" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="592f1e10-973e-41f6-ad69-46217d225d7a">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="ef38d79d-c11d-480e-b073-9f9f511b2d45">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="a28e64d8-c2eb-4a56-82f0-cf12035c9916">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="c9c8505d-6fc0-41f7-aee7-83e9cb87a638">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="540944a0-a184-441b-ba4f-40c833b9faa5">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="c6e718df-be9d-45b6-a4b0-264d48948212">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="514ea57d-1766-467d-bae2-ff5bd8665a18">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EtapaEstadoEntity" entity-set="EtapaEstadoEntities" table="EtapaEstado" schema="dbo" p1:Guid="e3143c6f-c928-4606-bd83-618153b58dad">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="38e81fe6-64e1-4b2f-ab40-7ff8273794d4">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="1dab9ac7-0df3-46c2-aa18-6d5af064d0e2">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Posicion" type="Int32" p1:ValidateRequired="true" p1:Guid="4230b85d-ddb3-4132-b848-4e47bde25b80">
+      <column name="Posicion" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="87614630-bcfb-4672-bb59-191561449010">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="6cfc8760-8260-4930-aced-10f95670f8a2">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="969bbdd7-b3ff-4f1b-a794-1cbfd81abf2e">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="4b9b383a-d3dc-4c4c-aedf-88b2539ce315">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="12733831-7e1a-4f4e-ae9d-543e223fa661">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="74529cda-8d0a-43d5-a9a4-2ec9e7788bdc">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="2d20b9fa-e597-4d2a-a76e-ca2319edee00">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="PronosticoEntity" entity-set="PronosticoEntities" table="Pronostico" schema="dbo" p1:Guid="cf2966d6-2d2f-407b-8d62-28047d329a72">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="3dfc0b52-d567-4cbc-8f49-af205e80a69e">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Mes" type="Byte" p1:ValidateRequired="true" p1:Guid="1d37ec73-de5c-4134-b273-ee053bb8c358">
+      <column name="Mes" not-null="True" precision="3" scale="0" sql-type="tinyint" p1:unicode="False" />
+    </property>
+    <property name="Ano" type="Int16" p1:ValidateRequired="true" p1:Guid="76c26d31-e99e-46b0-8c8f-e92107735a5f">
+      <column name="Ano" not-null="True" precision="5" scale="0" sql-type="smallint" p1:unicode="False" />
+    </property>
+    <property name="TecnologiaId" type="Int32" p1:ValidateRequired="true" p1:Guid="d42a3379-015d-40d2-8794-b4ec06bd8aa1">
+      <column name="TecnologiaId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Estimacion" type="Decimal" p1:ValidateRequired="true" p1:Guid="261cb679-016a-44a9-ba6b-eac71612a080">
+      <column name="Estimacion" not-null="True" precision="12" scale="4" sql-type="decimal" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="49ba8f84-0c50-4b4c-b7ef-af678b71dc41">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="6e6be71f-be66-46b5-a557-161c7053b3fa">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ff689c10-83f6-4347-97ab-539ae792c608">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="927be920-b731-492e-aa31-07d798c3ad46">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7f35757c-c76e-49e9-84c8-4c0cd26eb421">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="ff68f0c3-85b3-49fc-a556-1cc576a9c479">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="3cfae7ba-c79b-4238-8152-9a214a5b0fd5">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ZonaEntity" entity-set="ZonaEntities" table="Zona" schema="dbo" p1:Guid="ff0f18ed-1330-4433-a1cf-2d4b447e3c27">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="fcb85806-d5f5-4911-839c-f2450c2ea803">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="d7023e83-d772-453a-8ffc-4607a5b87016">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="699afe41-b536-47d8-941a-454aacc846d6">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="63fdc353-b033-40f8-922d-cd665361a750">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="78377471-1e4a-4020-ad84-74024bf213d6">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="aeb70c4c-1f1b-4ede-8c7c-55cc2ee52e28">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="35332608-566d-4622-84d9-6267d6f7ac72">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="8c35f54a-7572-4f9f-8807-0d045bfb95d2">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="6bb9f8a9-40b9-490c-b5be-b9d5422e39fd">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EquipoTecnologiaEntity" entity-set="EquipoTecnologiaEntities" table="EquipoTecnologia" schema="dbo" p1:Guid="d562d4c9-6926-46f9-b215-1b787044b02d">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="f00416d9-88ed-4777-baac-4df4638b7d4e">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="da8060c4-3572-4810-bfb3-f64b38484ec6">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="d53e5fa8-041e-4b63-9a6e-a3c810a177a4">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="8e44aad1-8582-4813-a5c6-e42a5a70f48e">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="cb725019-ac30-4428-9275-ebd0a5b6014c">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="667a65ea-cb00-4500-8cc3-7d07bc9bd03e">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="3ab1bee6-325c-4c9f-8e6c-dad3507e62be">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="37b46922-09bb-4f50-817c-5675ed5e40ed">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="48a8f451-c17e-455e-b0bd-0304f711d9ad">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EquipoConfiguracionEntity" entity-set="EquipoConfiguracionEntities" table="EquipoConfiguracion" schema="dbo" p1:Guid="890bb2af-e1c4-45df-9aab-b07a4a33647a">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="bbbac2ff-e151-4aa7-8204-a58149ffe69e">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="9bc1c7f5-8ec5-4ea6-b8ef-415ecb751689">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Detalle" type="String" p1:ValidateMaxLength="200" p1:ValidateRequired="true" p1:Guid="d12a0fac-9d86-42ff-88d0-11c5884a9c27">
+      <column name="Detalle" not-null="True" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="TecnologiaId" type="Int32" p1:ValidateRequired="true" p1:Guid="338eaa32-8b7d-4396-b52e-9aa1f969c93b">
+      <column name="TecnologiaId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="67889515-ef03-493f-8c93-d38acd2a8419">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="14f1c232-823f-4d08-ae49-dafada18da01">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9d663953-7929-4854-98d5-8398d91168b1">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="2bd0b973-6dd0-484d-bf38-8bf6ef27aa91">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7d3296a8-3920-4bf8-8aa0-56200d412ce2">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="8783cf62-aae6-4ee7-9478-f08ef1ddeb40">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="fb214a4c-af2a-4888-928f-aa2885d5e6bd">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EquipoEntity" entity-set="EquipoEntities" table="Equipo" schema="dbo" p1:Guid="9bfd8df7-1229-4fa7-ac20-6a5dfce81d23">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="137a7b3d-b900-4149-a212-40d48e5901ad">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="HeaderId" type="Decimal" p1:ValidateRequired="true" p1:Guid="0f5eb69f-7da1-409f-847d-65e182a93ba8">
+      <column name="HeaderId" not-null="True" precision="18" scale="0" sql-type="numeric" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="83b240db-851c-42d2-936c-7f46ed2c4379">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="20bc9f53-2934-4fc1-8c2f-bd1d9e1b7bdc">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="NumeroReferencia" type="String" p1:ValidateMaxLength="20" p1:ValidateRequired="true" p1:Guid="cd4aee78-b9fe-44ca-84ce-7489dbe2835d">
+      <column name="NumeroReferencia" not-null="True" length="20" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ModeloId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="5b838a36-86e7-40ee-b920-ffb011d2a6b1">
+      <column name="ModeloId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ColorId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="aac1128f-e1e8-4ab2-8320-62c9b1fb509b">
+      <column name="ColorId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Tipo" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="616c7645-fc83-47bc-9fb6-7a3bf67968ed">
+      <column name="Tipo" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Subtipo" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="a168ef93-e50b-46cf-ac4b-4db9050b9114">
+      <column name="Subtipo" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Categoria" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="0397eacf-a56a-4380-8298-0b9f03fd798f">
+      <column name="Categoria" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Subcategoria" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="0d9f4a25-0bf0-46e4-ba68-9a2af227f181">
+      <column name="Subcategoria" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Estado" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="d34f343f-1a86-4d27-9652-dfd81cd413bc">
+      <column name="Estado" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Subestado" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="1232c5a6-6c36-4240-9efa-789d82e8af57">
+      <column name="Subestado" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FuentePoderEstadoId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="1d9481cc-142f-4c54-8f64-113b31363d51">
+      <column name="FuentePoderEstadoId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="UtpEstadoId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="613cfb4d-2ed8-4677-b351-b960786be860">
+      <column name="UtpEstadoId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="ControlRemotoEstadoId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7f6d5b99-7750-4115-860a-1d3f0ae73831">
+      <column name="ControlRemotoEstadoId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="HdmiEstadoId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="10476556-d2b9-44b6-93ef-d2306c6150b8">
+      <column name="HdmiEstadoId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="RcaEstadoId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7729a61f-02e4-4305-8fcf-540bae5c7cbf">
+      <column name="RcaEstadoId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Pintura" type="Boolean" p1:ValidateRequired="true" p1:Guid="17704f2b-10d5-457c-b60f-c14198d789ed">
+      <column name="Pintura" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="Derivada" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="4e17e896-b005-462f-9fb1-b24a71607530">
+      <column name="Derivada" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ProcesoFinalizado" type="Boolean" p1:ValidateRequired="true" p1:Guid="eb887f0e-2ec1-4ceb-b4fd-fcc73ba98750">
+      <column name="ProcesoFinalizado" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="f68e398c-e7f5-4408-8ac7-e04d9c65ba3f">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="a637089c-a82b-415a-95dc-ba9cd45a43b4">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="733fffc4-9065-4220-b7ab-131e400b82e9">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="46afe85e-c92c-4218-82a3-7b26639a26e7">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="61fdc6d6-13ef-426c-aff3-902fce845bf1">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="6a8c1e3c-6de1-4aea-b3a8-7faa2640e394">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="87076c8b-7899-4aa0-a9d3-77912eb44ad7">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="DespachoDetalleEntity" entity-set="DespachoDetalleEntities" table="DespachoDetalle" schema="dbo" p1:Guid="56533e32-0522-4d4e-ae1b-3b9094906d6d">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="38e2c472-5036-47e5-ad2a-29b0a29c9c35">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="EquipoId" type="Int32" p1:ValidateRequired="true" p1:Guid="0ea6e920-ab73-42dd-aedb-7fa6f91b4fcf">
+      <column name="EquipoId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="EncabezadoId" type="Int32" p1:ValidateRequired="true" p1:Guid="0436d497-b306-451a-8ad8-2f09949370c3">
+      <column name="EncabezadoId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Caja" type="Int32" p1:ValidateRequired="true" p1:Guid="b465cda8-20f8-4f0c-9ca6-14fa99e2eb40">
+      <column name="Caja" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Pallet" type="Int32" p1:ValidateRequired="true" p1:Guid="b6e7dd60-fec0-4c96-ae4c-1b3db1e7794c">
+      <column name="Pallet" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="5ed7e3ca-cf61-4bd6-9e80-677076ee7ee9">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="50825d0d-7514-47f9-b25c-6b35ca965ead">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d4ad3926-4bb8-4644-918a-f99465c97217">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="fd21f80b-97d5-4bc8-a325-535f3e625d30">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="c29a6b0a-0c58-4780-9626-07d6fe7094de">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="f89c7093-07da-43f6-beb6-8b98a66d4ecd">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="ba90391e-29a6-4ee7-b0d4-659ee793795b">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="DespachoEncabezadoEntity" entity-set="DespachoEncabezadoEntities" table="DespachoEncabezado" schema="dbo" p1:Guid="386f3e33-f62c-44b9-9138-a34675fed50b">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="74b92395-a433-4976-83f5-788d79ebc84f">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Guia" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="156938cf-3804-41ff-a92b-a22f0252959c">
+      <column name="Guia" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="8b1933d0-3916-4408-aabb-9af1ee99a714">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="EstadoId" type="Int32" p1:ValidateRequired="true" p1:Guid="0aed950f-34cc-494c-954c-37bd495e36c4">
+      <column name="EstadoId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="ca315a12-2d57-4792-a224-3357c9a0f4fd">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="418984ae-8f6a-41a7-a336-543844b9c6f7">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="b0cfd91e-c6b7-4e0c-994d-8735da376f56">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="ceb06e9d-43f1-464d-bce8-04f9b657afda">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8677ba09-359d-40cd-9caf-2872f0bf9f89">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="a4ac3672-ccb1-4d2b-b6a9-3e6fedadc8ae">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="20265413-9a8c-41d0-bb42-b5c8db15ddac">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EquipoScrapEntity" entity-set="EquipoScrapEntities" table="EquipoScrap" schema="dbo" p1:Guid="ebc41e68-b5d3-4b72-becd-0dc0325a6e47">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="3e5c2e7f-99a6-43b1-9b94-01f301411690">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="7035a6be-11f4-46ae-a863-3f907bfa2aaa">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="EquipoId" type="Int32" p1:ValidateRequired="true" p1:Guid="89fe2ce1-6fd7-4428-9701-28df551f110e">
+      <column name="EquipoId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Origen" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="a2dd66e8-40fc-4a68-9ef2-8319d65ef4c0">
+      <column name="Origen" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Detalle" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="540d63fb-6560-4bad-a035-c9aa27cb64e5">
+      <column name="Detalle" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="84b34bd7-e0e4-4323-bb20-c9e467a111a3">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="3e308ad1-30e3-4ec3-b7de-d7e46a8f12b3">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7d8f78b9-53cf-4104-b633-f36b8694be88">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="b52c8415-5d18-4305-a73b-458aeee1c67b">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9888d489-cc49-4747-8c19-883e0933d7a1">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="4de23ecc-bf8e-4883-9b00-b6d372860668">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="78e0af90-f7d8-4a0f-b1a3-a6f4488c54d0">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VWMovimientoEquipoEntity" entity-set="VWMovimientoEquipoEntities" table="VW_MovimientoEquipo" schema="dbo" query-type="True" p1:Guid="d680543b-817b-4e3c-92e9-03b0854e806e">
+    <property name="Id" type="Int32" p1:ValidateRequired="true" p1:Guid="590992a9-edbc-4648-a6a5-162c79aefb2e">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="9f51c884-a4ed-4d60-b69d-83b7b2069619">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="fd34510b-1cb0-4cc8-84a0-f653b280b375">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Marca" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="0806233d-541c-4d57-9c3c-4ca7ab67c47f">
+      <column name="Marca" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Modelo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="cddf9eaa-66cf-48a0-80bd-73780660f478">
+      <column name="Modelo" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Color" type="String" p1:ValidateMaxLength="30" p1:ValidateRequired="true" p1:Guid="bfa223ca-c72e-4bec-bd89-f384bb4e6be3">
+      <column name="Color" not-null="True" length="30" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="OrigenId" type="Int32" p1:ValidateRequired="true" p1:Guid="192f5deb-6dd5-4700-ad5c-37b3cb0f96cd">
+      <column name="OrigenId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Origen" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="a1830231-894c-4de6-9f90-f393c3991493">
+      <column name="Origen" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="DestinoId" type="Int32" p1:ValidateRequired="true" p1:Guid="f0b6a950-93a0-43a4-b617-ce8799666195">
+      <column name="DestinoId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Destino" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="d372a4fd-380d-4390-aece-2ccdc07f7f13">
+      <column name="Destino" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Operario" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="b40ccb69-1dc2-4b21-8813-9c701cfb0981">
+      <column name="Operario" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="OperarioDevolucion" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="d9df68b1-fab4-4a0c-931c-04cfe723c601">
+      <column name="OperarioDevolucion" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Observacion" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="4591cf95-fda4-460d-8b0d-d37d46a14f73">
+      <column name="Observacion" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="2fd7e62d-9db7-43b3-824d-980dc2e91491">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="9b899d7f-0e64-426c-bd6e-de13a892b98c">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="99c021ff-27c5-4aa2-b543-9aea0a1d217e">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="3ef30cab-f48d-4c42-8d73-7b86ec8af27a">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="905fd296-e8ce-4275-aace-871033b7fad8">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="a618b27d-7e10-483d-a2c0-fe66910567dc">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="d107a9b2-1db1-4e52-be95-4cb7e89787cf">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="OperarioEntity" entity-set="OperarioEntities" table="Operario" schema="dbo" p1:Guid="7df5e4e3-e8d6-4afa-a74e-cc297bb2f12a">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="1e503af8-f39c-44a7-ab8e-6164270ecd2d">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Nombre" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="0e554a78-483f-4c1c-ad6f-ccbee93f1dd5">
+      <column name="Nombre" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="218f2c01-27ed-4175-9565-4a24f2df7ab4">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="cceb4dd6-9c1f-4c79-8d45-2d8c519bb9bc">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="14d48c0a-9bb0-466e-9e91-2a113596b061">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="cfbae5d6-6278-429b-b5ed-fc3d1b75a12f">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7bf6ec8a-1ecb-4660-842a-244f637a1e70">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="1059c63c-488d-4310-b907-24106dd0cc1b">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="a73cbe62-9d35-44fb-a4eb-c4d500c2428b">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="TempDespachoCsvEntity" entity-set="TempDespachoCsvEntities" table="TempDespachoCsv" schema="dbo" p1:Guid="171035e1-b589-4a21-af9e-e0530a77b103">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="7d353061-1c80-4574-954d-3e42c9f95ebf">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="65b16177-50a5-40d3-8437-4fa98004762b">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="725546d2-2dd6-4197-a70e-b46848d83e4b">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Guia" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="dce07965-08e9-4031-971a-e36d77155ab8">
+      <column name="Guia" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EstadoDespacho" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="42cdb4e2-c697-47e2-a283-316ccf37d68b">
+      <column name="EstadoDespacho" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Operario" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="3169ba35-3122-478f-9929-61011198495e">
+      <column name="Operario" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Caja" type="Int32" p1:ValidateRequired="true" p1:Guid="aec141f7-665e-4a3b-a689-54488d55e4a5">
+      <column name="Caja" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Pallet" type="Int32" p1:ValidateRequired="true" p1:Guid="b4e4c0aa-fbfb-4799-88f9-3dc91210e83b">
+      <column name="Pallet" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="EstadoFuentePoder" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="e334fab5-17d2-4b9b-9321-ac349673ae0f">
+      <column name="EstadoFuentePoder" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EstadoUtp" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="a67907a1-eb25-4342-80f4-49422f44607e">
+      <column name="EstadoUtp" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EstadoControlRemoto" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="f7f98659-ce7c-48c3-9177-9d0698d8d8ab">
+      <column name="EstadoControlRemoto" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EstadoHdmi" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="6183eb39-106c-4d21-bfb5-f36815af8b60">
+      <column name="EstadoHdmi" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EstadoRca" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="89ad096f-8a8a-4e6c-9949-caf4a8ba98fb">
+      <column name="EstadoRca" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Pintura" type="Boolean" p1:ValidateRequired="true" p1:Guid="99adf786-aef6-4f0b-9ceb-f49e436fdd2e">
+      <column name="Pintura" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="Derivada" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="9c9057e1-26fe-41dc-b327-209df98cc0df">
+      <column name="Derivada" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ProcesoFinalizado" type="Boolean" p1:ValidateRequired="true" p1:Guid="b831efce-6678-4e0f-8b2a-940996f4bb3d">
+      <column name="ProcesoFinalizado" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="EquipoId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="9cc22e4f-fac4-43a3-9826-5637f80a99a4">
+      <column name="EquipoId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="c67e9919-3b07-4df9-a1e5-7ce5a3767703">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="1ae70e85-33d7-4706-9058-e42e45bc08de">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="CargaExitosa" type="Boolean" p1:ValidateRequired="true" p1:Guid="07f3f9a4-ca3b-4c28-996e-e2897434ebb3">
+      <column name="CargaExitosa" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="ApiUserEntity" entity-set="ApiUserEntities" table="ApiUser" schema="dbo" p1:Guid="f2ef6eac-49b7-45ce-81da-eef8ab2e5137">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="93043233-98f0-4faf-b9f3-a6c20c61985f">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="KeyHash" type="String" p1:ValidateRequired="true" p1:Guid="e7dc805e-d059-4db2-9ef5-0742b0f6da44">
+      <column name="KeyHash" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+    </property>
+    <property name="Comments" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="d1063142-2b0a-4a38-b062-9ed995d634f9">
+      <column name="Comments" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="f7b3b856-6b11-480b-bc1d-92c64a0eaba1">
+      <column name="CreatedAt" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="118e8645-553d-4dc2-9e03-5493ffa8399f">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="2e63feff-5334-4c76-8440-ae42b6804733">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="150effaa-9623-4010-9570-25e18a78e3f2">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="793bd9b6-0f20-456f-bee7-30e8cdd87d36">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="7d0832b8-2aee-4dae-aa64-c1ab793fce5d">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedReason" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="7b618310-efdd-429a-bab6-c6a76592e8f3">
+      <column name="DeactivatedReason" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Active" type="Boolean" p1:ValidateRequired="true" p1:Guid="c83fa745-0904-4dc7-86dd-0213c15e8bc1">
+      <column name="Active" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="EtapaSecuenciaEntity" entity-set="EtapaSecuenciaEntities" table="EtapaSecuencia" schema="dbo" p1:Guid="367f0d6c-b4f9-4b55-a861-389d3948a1e7">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="c8c19d9a-945d-4138-b543-d809917d837f">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="EtapaId" type="Int32" p1:ValidateRequired="true" p1:Guid="6cea3128-38cd-4543-9a5a-d26ad2c7d0fb">
+      <column name="EtapaId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="EtapaAnteriorPosteriorId" type="Int32" p1:ValidateRequired="true" p1:Guid="59c5466e-0940-45d4-bbb9-9983a24aff9b">
+      <column name="EtapaAnteriorPosteriorId" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="EsEtapaAnterior" type="Boolean" p1:ValidateRequired="true" p1:Guid="22d14ce7-2248-4a76-911f-aa7e5ae5336c">
+      <column name="EsEtapaAnterior" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="3eafede2-0451-40d0-b1db-52a053815913">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="a606e431-fe4b-487a-9632-6ba1bb0a1502">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaModificacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="fa4487a3-0243-42cf-892e-1bdb24d046c5">
+      <column name="FechaModificacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioModificacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="79fba683-576d-46f7-8b4f-63241ca3ccd3">
+      <column name="UsuarioModificacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaEliminacionRegistro" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="399d8724-6c10-4385-9be6-69c73cde4794">
+      <column name="FechaEliminacionRegistro" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioEliminacionRegistro" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="623a0964-e916-4e18-906a-d7761ee9d587">
+      <column name="UsuarioEliminacionRegistro" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Activo" type="Boolean" p1:ValidateRequired="true" p1:Guid="b76a6f62-8261-4000-8a0c-9e0cb37905f7">
+      <column name="Activo" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="TempEquipoMovimientoCsvEntity" entity-set="TempEquipoMovimientoCsvEntities" table="TempEquipoMovimientoCsv" schema="dbo" p1:Guid="b47d6f7e-f1cf-41f6-af9d-b52546b6a528">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="a95d512a-c2c4-46b9-bb16-0e2f24651559">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="63d1861f-564f-455a-93ff-48afbe8ef6c9">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="b14cece6-db2d-4a6c-832a-1b57422cb11a">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Operario" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="b2324756-f753-4ccb-a3c5-f2592e55a5d1">
+      <column name="Operario" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="OperarioDevolucion" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="71c3976a-b422-4978-9c4c-051b4737abb2">
+      <column name="OperarioDevolucion" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Observacion" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="0221adff-e62b-441e-925c-5d25b7399209">
+      <column name="Observacion" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EquipoId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="79d5ae4b-3e22-4a63-9d5b-c1ffef0f8833">
+      <column name="EquipoId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="OperarioId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="d80fb29e-cfc2-4c7e-b9fd-4c9e3fa633e0">
+      <column name="OperarioId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="OperarioDevolucionId" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="bc9efe8f-3745-4f2b-b3a6-13a6461102a7">
+      <column name="OperarioDevolucionId" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="FechaCreacionRegistro" type="DateTime" p1:ValidateRequired="true" p1:Guid="5b869e61-7d78-487a-9e4b-b92b74a4fedc">
+      <column name="FechaCreacionRegistro" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="UsuarioCreacionRegistro" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="ba45abdf-6755-4934-9058-ee61561d2a7f">
+      <column name="UsuarioCreacionRegistro" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="CargaExitosa" type="Boolean" p1:ValidateRequired="true" p1:Guid="eb4d5816-39f1-4186-a6c0-ff54b7aa63a8">
+      <column name="CargaExitosa" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <associations>
+    <association name="IdentityRoleEntity_IdentityRoleClaimEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="6135ff66-b88a-49af-ab19-de11b9531b2d">
+      <end1 multiplicity="One" name="IdentityRoleEntity" class="IdentityRoleClaimEntity" relation-class="IdentityRoleEntity" constrained="True" lazy="False" p1:Guid="c3667306-00e4-48e8-8499-2dced4b9a8cb">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityRoleClaimEntities" class="IdentityRoleEntity" relation-class="IdentityRoleClaimEntity" lazy="False" p1:Guid="c1737130-f365-408e-b1e0-f52e7b9115f5">
+        <property name="RoleId" />
+      </end2>
+    </association>
+    <association name="IdentityUserEntity_IdentityUserAccessLogEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="e0589d5b-2187-4871-939e-12255e469de9">
+      <end1 multiplicity="One" name="IdentityUserEntity" class="IdentityUserAccessLogEntity" relation-class="IdentityUserEntity" constrained="True" lazy="False" p1:Guid="0dc1f10c-74b1-4be8-be1c-6d0ace6789df">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserAccessLogEntities" class="IdentityUserEntity" relation-class="IdentityUserAccessLogEntity" lazy="False" p1:Guid="3882e5ab-7aa5-44b6-a22f-08c28b43d4dc">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="IdentityUserEntity_IdentityUserClaimEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="9eb13717-a531-43dd-a8c3-c1a8e9dae5c2">
+      <end1 multiplicity="One" name="IdentityUserEntity" class="IdentityUserClaimEntity" relation-class="IdentityUserEntity" constrained="True" lazy="False" p1:Guid="e165a6ce-a9e8-41d7-8e64-f87948f46a19">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserClaimEntities" class="IdentityUserEntity" relation-class="IdentityUserClaimEntity" lazy="False" p1:Guid="abc7fe5a-8a31-4dd4-a485-4766751729f7">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="IdentityUserEntity_IdentityUserExceptionLogEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="88a1a571-5688-407f-924e-cab7a06bb8f4">
+      <end1 multiplicity="One" name="IdentityUserEntity" class="IdentityUserExceptionLogEntity" relation-class="IdentityUserEntity" constrained="True" lazy="False" p1:Guid="c5a47cb3-0a8d-43b9-bfa9-aa3f83126813">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserExceptionLogEntities" class="IdentityUserEntity" relation-class="IdentityUserExceptionLogEntity" lazy="False" p1:Guid="972fedfe-aa0b-4030-bf23-d18878c08ca5">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="IdentityUserEntity_IdentityUserLoginEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="6b2c3c25-05ac-4e98-8c09-6393ffe1285c">
+      <end1 multiplicity="One" name="IdentityUserEntity" class="IdentityUserLoginEntity" relation-class="IdentityUserEntity" constrained="True" lazy="False" p1:Guid="baa4ee04-6616-474d-9680-1b5ca25104cd">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserLoginEntities" class="IdentityUserEntity" relation-class="IdentityUserLoginEntity" lazy="False" p1:Guid="135c774b-bca0-4a3d-8c0d-f2e54c09a390">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="IdentityUserEntity_IdentityUserOperationLogEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="40e236a8-3814-4725-84fe-1a38b6470e81">
+      <end1 multiplicity="One" name="IdentityUserEntity" class="IdentityUserOperationLogEntity" relation-class="IdentityUserEntity" constrained="True" lazy="False" p1:Guid="b44063db-ffd5-4d61-9e9d-0cffc311fbe0">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserOperationLogEntities" class="IdentityUserEntity" relation-class="IdentityUserOperationLogEntity" lazy="False" p1:Guid="91760070-1b23-4e8a-957d-25738ae6ed72">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="IdentityRoleEntity_IdentityUserRoleEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="ac2ea412-7521-4730-9da7-8a44fa1d00b7">
+      <end1 multiplicity="One" name="IdentityRoleEntity" class="IdentityUserRoleEntity" relation-class="IdentityRoleEntity" constrained="True" lazy="False" p1:Guid="06c174be-14ac-4cd3-899c-9f390aad2157">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserRoleEntities" class="IdentityRoleEntity" relation-class="IdentityUserRoleEntity" lazy="False" p1:Guid="a2235284-a30e-46b3-9b5c-131f2bcb4caf">
+        <property name="RoleId" />
+      </end2>
+    </association>
+    <association name="IdentityUserEntity_IdentityUserRoleEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="ed559d00-8fcf-484a-9438-1047ad4bd3d1">
+      <end1 multiplicity="One" name="IdentityUserEntity" class="IdentityUserRoleEntity" relation-class="IdentityUserEntity" constrained="True" lazy="False" p1:Guid="224e1fc8-e873-46a8-ad42-0682239aac62">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserRoleEntities" class="IdentityUserEntity" relation-class="IdentityUserRoleEntity" lazy="False" p1:Guid="2527f1a9-db45-4e59-8531-3495b53096f7">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="IdentityUserEntity_IdentityUserTokenEntity" cardinality="OneToMany" on-delete="Cascade" p1:Guid="6f4be722-f391-4aab-9cb7-a661d046c741">
+      <end1 multiplicity="One" name="IdentityUserEntity" class="IdentityUserTokenEntity" relation-class="IdentityUserEntity" constrained="True" lazy="False" p1:Guid="935060f3-790e-43f3-a587-27991923fea3">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="IdentityUserTokenEntities" class="IdentityUserEntity" relation-class="IdentityUserTokenEntity" lazy="False" p1:Guid="ffb193d3-24d0-4237-82ce-d27e7821955f">
+        <property name="UserId" />
+      </end2>
+    </association>
+    <association name="EquipoMarcaEntity_EquipoModeloEntity" cardinality="OneToMany" p1:Guid="4370cfa8-2c4c-4241-80dc-bdd9b23ce318">
+      <end1 multiplicity="One" name="EquipoMarcaEntity" class="EquipoModeloEntity" relation-class="EquipoMarcaEntity" constrained="True" lazy="False" p1:Guid="4fb8e2ac-9069-47f0-8112-0f2b15b75ba0">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoModeloEntities" class="EquipoMarcaEntity" relation-class="EquipoModeloEntity" lazy="False" p1:Guid="fcbea828-8925-4d0e-843b-8688d3c44783">
+        <property name="MarcaId" />
+      </end2>
+    </association>
+    <association name="EtapaEntity_EquipoMovimientoEntity" cardinality="OneToMany" p1:Guid="10cd3353-aae5-44da-a9c4-7a1c07cc34c6">
+      <end1 multiplicity="One" name="EtapaEntity_EtapaOrigenId" class="EquipoMovimientoEntity" relation-class="EtapaEntity" constrained="True" lazy="False" p1:Guid="67c57a02-bb2a-470c-b52b-36eeeac464c9">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoMovimientoEntities_EtapaOrigenId" class="EtapaEntity" relation-class="EquipoMovimientoEntity" lazy="False" p1:Guid="e926a5c1-f781-49a8-b775-ab39cb54d7aa">
+        <property name="EtapaOrigenId" />
+      </end2>
+    </association>
+    <association name="EtapaEntity_EquipoMovimientoEntity1" cardinality="OneToMany" p1:Guid="e68b08a0-4e32-45a6-836d-da9a4089332b">
+      <end1 multiplicity="One" name="EtapaEntity_EtapaDestinoId" class="EquipoMovimientoEntity" relation-class="EtapaEntity" constrained="True" lazy="False" p1:Guid="6ea2bc67-6788-475c-9345-bb2f53c7dfdf">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoMovimientoEntities_EtapaDestinoId" class="EtapaEntity" relation-class="EquipoMovimientoEntity" lazy="False" p1:Guid="1e206e14-a3cc-4ce2-9c04-488fa718a7e9">
+        <property name="EtapaDestinoId" />
+      </end2>
+    </association>
+    <association name="ZonaEntity_EtapaEntity" cardinality="OneToMany" p1:Guid="11fb9734-6cca-4812-a460-83fdbc6fe7d6">
+      <end1 multiplicity="One" name="ZonaEntity" class="EtapaEntity" relation-class="ZonaEntity" constrained="True" lazy="False" p1:Guid="8f2cf328-7c27-47df-b98c-dcfb9399da15">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EtapaEntities" class="ZonaEntity" relation-class="EtapaEntity" lazy="False" p1:Guid="0ed6d9a2-2b05-4370-a938-5f94a23775b5">
+        <property name="ZonaId" />
+      </end2>
+    </association>
+    <association name="EquipoTecnologiaEntity_EquipoModeloEntity" cardinality="OneToMany" p1:Guid="e2fe3f26-d88b-4b9a-8823-0031aa4cab82">
+      <end1 multiplicity="ZeroOrOne" name="EquipoTecnologiaEntity" class="EquipoModeloEntity" relation-class="EquipoTecnologiaEntity" constrained="True" lazy="False" p1:Guid="90608a26-b3ff-4f0f-ba4d-e93169f5678c">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoModeloEntities" class="EquipoTecnologiaEntity" relation-class="EquipoModeloEntity" lazy="False" p1:Guid="b6a475a4-f73c-4cd8-991d-32af55d7381a">
+        <property name="TecnologiaId" />
+      </end2>
+    </association>
+    <association name="EquipoTecnologiaEntity_EquipoConfiguracionEntity" cardinality="OneToMany" p1:Guid="5cbb1e22-91a5-434e-80e7-c465ee7e270d">
+      <end1 multiplicity="One" name="EquipoTecnologiaEntity" class="EquipoConfiguracionEntity" relation-class="EquipoTecnologiaEntity" constrained="True" lazy="False" p1:Guid="394f2000-4a62-4e8e-b6ca-615fce3dc24b">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoConfiguracionEntities" class="EquipoTecnologiaEntity" relation-class="EquipoConfiguracionEntity" lazy="False" p1:Guid="32ef0e1d-e040-4c62-858c-df151ca16e37">
+        <property name="TecnologiaId" />
+      </end2>
+    </association>
+    <association name="EquipoTecnologiaEntity_PronosticoEntity" cardinality="OneToMany" p1:Guid="1a2cdaeb-d7ba-4c3d-a8fc-b81d7de5fb1c">
+      <end1 multiplicity="One" name="EquipoTecnologiaEntity" class="PronosticoEntity" relation-class="EquipoTecnologiaEntity" constrained="True" lazy="False" p1:Guid="8e3c1ac7-f67d-47ad-be26-d053d8e65455">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="PronosticoEntities" class="EquipoTecnologiaEntity" relation-class="PronosticoEntity" lazy="False" p1:Guid="8f2373bc-68c4-4d26-9e7b-4479bc1fc758">
+        <property name="TecnologiaId" />
+      </end2>
+    </association>
+    <association name="EquipoColorEntity_EquipoEntity" cardinality="OneToMany" p1:Guid="adebf550-45f6-4256-9baf-8732eabd7ce5">
+      <end1 multiplicity="ZeroOrOne" name="EquipoColorEntity" class="EquipoEntity" relation-class="EquipoColorEntity" constrained="True" lazy="False" p1:Guid="a099779a-018e-4084-8b4c-abaa093c534f">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoEntities" class="EquipoColorEntity" relation-class="EquipoEntity" lazy="False" p1:Guid="294de6af-ecfd-409c-bd9b-4ded237cd806">
+        <property name="ColorId" />
+      </end2>
+    </association>
+    <association name="EquipoModeloEntity_EquipoEntity" cardinality="OneToMany" p1:Guid="7fdb9187-38f0-419f-b267-15ae75b33b6a">
+      <end1 multiplicity="ZeroOrOne" name="EquipoModeloEntity" class="EquipoEntity" relation-class="EquipoModeloEntity" constrained="True" lazy="False" p1:Guid="18067680-7a32-48bc-b6f7-e8888e8970ee">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoEntities" class="EquipoModeloEntity" relation-class="EquipoEntity" lazy="False" p1:Guid="6b638085-bf7b-4744-81e8-c51d91d5ecb3">
+        <property name="ModeloId" />
+      </end2>
+    </association>
+    <association name="EquipoEntity_EquipoMovimientoEntity" cardinality="OneToMany" p1:Guid="dd1c0242-bd6b-4e6f-b937-3fc823980452">
+      <end1 multiplicity="One" name="EquipoEntity" class="EquipoMovimientoEntity" relation-class="EquipoEntity" constrained="True" lazy="False" p1:Guid="0c5fc5ca-4528-4346-9190-d5189e6beda0">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoMovimientoEntities" class="EquipoEntity" relation-class="EquipoMovimientoEntity" lazy="False" p1:Guid="46480c7a-64f8-4689-860f-9267894bb252">
+        <property name="EquipoId" />
+      </end2>
+    </association>
+    <association name="DespachoEncabezadoEntity_DespachoDetalleEntity" cardinality="OneToMany" p1:Guid="3aa43285-90a6-4a92-8a3c-10e94a41637e">
+      <end1 multiplicity="One" name="DespachoEncabezadoEntity" class="DespachoDetalleEntity" relation-class="DespachoEncabezadoEntity" constrained="True" lazy="False" p1:Guid="65265149-590c-4b03-b2e1-4e733f6acf97">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="DespachoDetalleEntities" class="DespachoEncabezadoEntity" relation-class="DespachoDetalleEntity" lazy="False" p1:Guid="234f5193-e354-4fc9-9bc0-2d44bb73d20d">
+        <property name="EncabezadoId" />
+      </end2>
+    </association>
+    <association name="DespachoEstadoEntity_DespachoEncabezadoEntity" cardinality="OneToMany" p1:Guid="8d06bea4-1314-46b1-a29b-37707bcd09fd">
+      <end1 multiplicity="One" name="DespachoEstadoEntity" class="DespachoEncabezadoEntity" relation-class="DespachoEstadoEntity" constrained="True" lazy="False" p1:Guid="6cf77fb6-7de6-4574-b206-b25ed7629f25">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="DespachoEncabezadoEntities" class="DespachoEstadoEntity" relation-class="DespachoEncabezadoEntity" lazy="False" p1:Guid="b662dde7-6043-4bb9-b658-8eacfd6a4712">
+        <property name="EstadoId" />
+      </end2>
+    </association>
+    <association name="EquipoEntity_DespachoDetalleEntity" cardinality="OneToMany" p1:Guid="5605d31d-d469-4542-9d85-444767ac65c7">
+      <end1 multiplicity="One" name="EquipoEntity" class="DespachoDetalleEntity" relation-class="EquipoEntity" constrained="True" lazy="False" p1:Guid="9731e532-06d9-4d66-b4aa-5495aeb8b914">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="DespachoDetalleEntities" class="EquipoEntity" relation-class="DespachoDetalleEntity" lazy="False" p1:Guid="f1784c95-1e80-4904-ab11-4b9a3cd76634">
+        <property name="EquipoId" />
+      </end2>
+    </association>
+    <association name="EquipoEntity_EquipoScrapEntity" cardinality="OneToMany" p1:Guid="f4d871d5-14bc-4728-ab63-85ad0382eb96">
+      <end1 multiplicity="One" name="EquipoEntity" class="EquipoScrapEntity" relation-class="EquipoEntity" constrained="True" lazy="False" p1:Guid="ec76109d-ccc4-4f1a-bbbb-93f71a4ba8d7">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoScrapEntities" class="EquipoEntity" relation-class="EquipoScrapEntity" lazy="False" p1:Guid="9661a36a-7655-460c-94c3-372a2084fb2d">
+        <property name="EquipoId" />
+      </end2>
+    </association>
+    <association name="OperarioEntity_EquipoMovimientoEntity" cardinality="OneToMany" p1:Guid="3260ebe4-79f9-415a-a5d4-30649ae1d771">
+      <end1 multiplicity="One" name="OperarioEntity_OperarioId" class="EquipoMovimientoEntity" relation-class="OperarioEntity" constrained="True" lazy="False" p1:Guid="03f502d5-54e8-4874-a401-0dd113f23c83">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoMovimientoEntities_OperarioId" class="OperarioEntity" relation-class="EquipoMovimientoEntity" lazy="False" p1:Guid="35dfd1b3-b41f-4fc2-bee2-efca915c8aba">
+        <property name="OperarioId" />
+      </end2>
+    </association>
+    <association name="ComponenteEstadoEntity_EquipoEntity" cardinality="OneToMany" p1:Guid="9079829d-2449-4a73-bc14-91f0a6ff1fd2">
+      <end1 multiplicity="ZeroOrOne" name="ComponenteEstadoEntity_FuentePoderEstadoId" class="EquipoEntity" relation-class="ComponenteEstadoEntity" constrained="True" lazy="False" p1:Guid="59a989af-f3ca-4c8c-8e30-9966bd469a1c">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoEntities_FuentePoderEstadoId" class="ComponenteEstadoEntity" relation-class="EquipoEntity" lazy="False" p1:Guid="f4405012-0fa3-412f-97e4-67a43862827a">
+        <property name="FuentePoderEstadoId" />
+      </end2>
+    </association>
+    <association name="ComponenteEstadoEntity_EquipoEntity1" cardinality="OneToMany" p1:Guid="e39e2d28-a6d7-4e25-b806-de37f8ebe32a">
+      <end1 multiplicity="ZeroOrOne" name="ComponenteEstadoEntity_UtpEstadoId" class="EquipoEntity" relation-class="ComponenteEstadoEntity" constrained="True" lazy="False" p1:Guid="a636b38a-0bce-40f3-ae41-1cd760dbd21d">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoEntities_UtpEstadoId" class="ComponenteEstadoEntity" relation-class="EquipoEntity" lazy="False" p1:Guid="9ce90ac1-9a46-4bb8-a225-20871c892be6">
+        <property name="UtpEstadoId" />
+      </end2>
+    </association>
+    <association name="ComponenteEstadoEntity_EquipoEntity2" cardinality="OneToMany" p1:Guid="ec8bc627-1df4-4a07-a2ec-ace3df64be97">
+      <end1 multiplicity="ZeroOrOne" name="ComponenteEstadoEntity_ControlRemotoEstadoId" class="EquipoEntity" relation-class="ComponenteEstadoEntity" constrained="True" lazy="False" p1:Guid="93db08d0-4dc0-4d7d-bbbe-0e227c4fc849">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoEntities_ControlRemotoEstadoId" class="ComponenteEstadoEntity" relation-class="EquipoEntity" lazy="False" p1:Guid="64ed3fbe-ad1b-4871-bb48-c558c58606a4">
+        <property name="ControlRemotoEstadoId" />
+      </end2>
+    </association>
+    <association name="ComponenteEstadoEntity_EquipoEntity3" cardinality="OneToMany" p1:Guid="6037b500-6291-4866-b92b-180af9b8a926">
+      <end1 multiplicity="ZeroOrOne" name="ComponenteEstadoEntity_HdmiEstadoId" class="EquipoEntity" relation-class="ComponenteEstadoEntity" constrained="True" lazy="False" p1:Guid="513a95cc-c8b5-42a6-80da-67bec487e303">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoEntities_HdmiEstadoId" class="ComponenteEstadoEntity" relation-class="EquipoEntity" lazy="False" p1:Guid="0e06a716-f283-49e8-bdff-6118f686131d">
+        <property name="HdmiEstadoId" />
+      </end2>
+    </association>
+    <association name="ComponenteEstadoEntity_EquipoEntity4" cardinality="OneToMany" p1:Guid="731dd6de-8fe6-411e-967a-eac99f728c15">
+      <end1 multiplicity="ZeroOrOne" name="ComponenteEstadoEntity_RcaEstadoId" class="EquipoEntity" relation-class="ComponenteEstadoEntity" constrained="True" lazy="False" p1:Guid="b9b3fe31-188f-4566-be07-86aaa632a443">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoEntities_RcaEstadoId" class="ComponenteEstadoEntity" relation-class="EquipoEntity" lazy="False" p1:Guid="53c90132-afa1-4031-9b74-1181c0d7c693">
+        <property name="RcaEstadoId" />
+      </end2>
+    </association>
+    <association name="EtapaEntity_EtapaSecuenciaEntity" cardinality="OneToMany" p1:Guid="7319fbd1-3c0a-4f23-bc5a-bd95e068419b">
+      <end1 multiplicity="One" name="EtapaEntity_EtapaId" class="EtapaSecuenciaEntity" relation-class="EtapaEntity" constrained="True" lazy="False" p1:Guid="b669c5af-01dd-4a16-87d4-ab8911ad7f17">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EtapaSecuenciaEntities_EtapaId" class="EtapaEntity" relation-class="EtapaSecuenciaEntity" lazy="False" p1:Guid="7a5468c3-00a0-4590-b79c-c90d15730d09">
+        <property name="EtapaId" />
+      </end2>
+    </association>
+    <association name="EtapaEntity_EtapaSecuenciaEntity1" cardinality="OneToMany" p1:Guid="588ec956-37a5-4510-851e-f89cfda578fe">
+      <end1 multiplicity="One" name="EtapaEntity_EtapaAnteriorPosteriorId" class="EtapaSecuenciaEntity" relation-class="EtapaEntity" constrained="True" lazy="False" p1:Guid="cac872eb-4e88-4cf2-b31a-553e6f7ac088">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EtapaSecuenciaEntities_EtapaAnteriorPosteriorId" class="EtapaEntity" relation-class="EtapaSecuenciaEntity" lazy="False" p1:Guid="923e588e-b1c9-4c2c-a1e5-bc3e9e6084c0">
+        <property name="EtapaAnteriorPosteriorId" />
+      </end2>
+    </association>
+    <association name="OperarioEntity_EquipoMovimientoEntity1" cardinality="OneToMany" p1:Guid="ac484961-6499-4043-9d4b-3f5449c20af6">
+      <end1 multiplicity="ZeroOrOne" name="OperarioEntity_OperarioDevolucionId" class="EquipoMovimientoEntity" relation-class="OperarioEntity" constrained="True" lazy="False" p1:Guid="df6d9318-5e3f-46ed-8e0e-2e25ebc79908">
+        <property name="Id" />
+      </end1>
+      <end2 multiplicity="Many" name="EquipoMovimientoEntities_OperarioDevolucionId" class="OperarioEntity" relation-class="EquipoMovimientoEntity" lazy="False" p1:Guid="7c9b5f40-c262-46b5-9126-85f0233cb603">
+        <property name="OperarioDevolucionId" />
+      </end2>
+    </association>
+  </associations>
+  <method name="SPMergeEquipoEntity" p1:procedure="dbo.SP_MergeEquipo" p1:Guid="8de21b3d-74dc-487c-a0ae-20c234cca012">
+    <parameter name="fechaMes" type="DateTime" sql-type="date" />
+    <parameter name="fecha" type="DateTime" sql-type="datetime" />
+    <parameter name="usuario" type="String" sql-type="varchar" length="256" />
+    <parameter name="cantidadFilasEquipoComparadas" p1:parameter-direction="InOut" type="Int32" sql-type="int" precision="10" scale="0" />
+    <parameter name="cantidadFilasEquipoInsertadas" p1:parameter-direction="InOut" type="Int32" sql-type="int" precision="10" scale="0" />
+    <parameter name="cantidadFilasEquipoActualizadas" p1:parameter-direction="InOut" type="Int32" sql-type="int" precision="10" scale="0" />
+    <parameter name="fechaInicioRecepcion" p1:parameter-direction="InOut" type="DateTime" sql-type="date" />
+    <parameter name="fechaTerminoRecepcion" p1:parameter-direction="InOut" type="DateTime" sql-type="date" />
+  </method>
+  <method name="SPMergeDespachoYEquipoEntity" p1:procedure="dbo.SP_MergeDespachoYEquipo" p1:Guid="d0390d07-8f2f-431d-ac26-569236d1e5d1">
+    <parameter name="fechaCreacion" type="DateTime" sql-type="datetime" />
+    <parameter name="usuarioCreacion" type="String" sql-type="varchar" length="256" />
+  </method>
+  <method name="SPSeguimientoDespachoEntity" p1:procedure="dbo.SP_SeguimientoDespacho" p1:Guid="2f95e94f-4b8a-47e5-9e4f-4bb13aa7c0cb">
+    <return class="SPSeguimientoDespachoEntityResult">
+      <return-property name="Id" column="Id" />
+      <return-property name="Fecha" column="Fecha" />
+      <return-property name="Esn" column="Esn" />
+      <return-property name="Guia" column="Guia" />
+      <return-property name="EstadoDespacho" column="EstadoDespacho" />
+      <return-property name="Caja" column="Caja" />
+      <return-property name="Pallet" column="Pallet" />
+      <return-property name="Derivada" column="Derivada" />
+      <return-property name="EstadoUtp" column="EstadoUtp" />
+      <return-property name="EstadoFuentePoder" column="EstadoFuentePoder" />
+      <return-property name="EstadoControlRemoto" column="EstadoControlRemoto" />
+      <return-property name="EstadoHdmi" column="EstadoHdmi" />
+      <return-property name="EstadoRca" column="EstadoRca" />
+      <return-property name="Pintura" column="Pintura" />
+      <return-property name="ControlCalidad" column="ControlCalidad" />
+      <return-property name="ProcesoFinalizado" column="ProcesoFinalizado" />
+    </return>
+    <parameter name="esn" type="String" sql-type="varchar" length="50" />
+  </method>
+  <method name="SPSeguimientoEquipoEntity" p1:procedure="dbo.SP_SeguimientoEquipo" p1:Guid="cc2c6ec4-84d5-4392-bcb6-11549b7e70ee">
+    <return class="SPSeguimientoEquipoEntityResult">
+      <return-property name="Id" column="Id" />
+      <return-property name="FechaRecepcion" column="FechaRecepcion" />
+      <return-property name="Esn" column="Esn" />
+      <return-property name="Marca" column="Marca" />
+      <return-property name="Modelo" column="Modelo" />
+      <return-property name="Color" column="Color" />
+      <return-property name="Tecnologia" column="Tecnologia" />
+      <return-property name="Configuracion" column="Configuracion" />
+      <return-property name="DetalleConfiguracion" column="DetalleConfiguracion" />
+    </return>
+    <parameter name="esn" type="String" sql-type="varchar" length="50" />
+  </method>
+  <method name="SPInformacionEquipoEntity" p1:procedure="dbo.SP_InformacionEquipo" p1:Guid="e41c3371-5803-4821-9bd9-9c3a367bccac">
+    <return class="SPInformacionEquipoEntityResult">
+      <return-property name="Id" column="Id" />
+      <return-property name="Esn" column="Esn" />
+      <return-property name="Marca" column="Marca" />
+      <return-property name="Modelo" column="Modelo" />
+      <return-property name="Color" column="Color" />
+      <return-property name="TecnologiaId" column="TecnologiaId" />
+      <return-property name="Tecnologia" column="Tecnologia" />
+    </return>
+    <parameter name="esn" type="String" sql-type="varchar" length="50" />
+  </method>
+  <method name="SPUltimoOperarioEtapaEntity" p1:procedure="dbo.SP_UltimoOperarioEtapa" p1:Guid="86afddef-75dd-463b-bf55-e2bb6eccc13c">
+    <return class="SPUltimoOperarioEtapaEntityResult">
+      <return-property name="Id" column="Id" />
+      <return-property name="Nombre" column="Nombre" />
+    </return>
+    <parameter name="equipoId" type="Int32" sql-type="int" precision="10" scale="0" />
+    <parameter name="etapaId" type="Int32" sql-type="int" precision="10" scale="0" />
+  </method>
+  <method name="SPBulkInsertMovimientoEquipoEntity" p1:procedure="dbo.SP_BulkInsertMovimientoEquipo" p1:Guid="df6f9e6b-3816-4c20-8838-52932645f314">
+    <parameter name="etapaOrigenId" type="Int32" sql-type="int" precision="10" scale="0" />
+    <parameter name="etapaDestinoId" type="Int32" sql-type="int" precision="10" scale="0" />
+    <parameter name="fechaCreacion" type="DateTime" sql-type="datetime" />
+    <parameter name="usuarioCreacion" type="String" sql-type="varchar" length="256" />
+  </method>
+  <method name="SPSeguimientoUltimoMovimientoEntity" p1:procedure="dbo.SP_SeguimientoUltimoMovimiento" p1:Guid="8390a5a0-c775-4d83-839b-561f32b83449">
+    <return class="SPSeguimientoUltimoMovimientoEntityResult">
+      <return-property name="Id" column="Id" />
+      <return-property name="Fecha" column="Fecha" />
+      <return-property name="Esn" column="Esn" />
+      <return-property name="Origen" column="Origen" />
+      <return-property name="Destino" column="Destino" />
+      <return-property name="Operario" column="Operario" />
+      <return-property name="OperarioDevolucion" column="OperarioDevolucion" />
+      <return-property name="Observacion" column="Observacion" />
+    </return>
+    <parameter name="esn" type="String" sql-type="varchar" length="50" />
+  </method>
+</efcore>

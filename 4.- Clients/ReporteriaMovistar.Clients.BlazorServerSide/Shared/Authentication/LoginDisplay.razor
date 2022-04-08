@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ReporteriaMovistar.Clients.BlazorServerSide.IdentityData.Models
+@inject NavigationManager navigationManager
+@inject SignInManager<ApplicationUser> signInManager
+@inject IHostEnvironmentAuthenticationStateProvider hostEnvironmentAuthenticationStateProvider
+@inject IJSRuntime jsRuntime
+
+<AuthorizeView>
+    <Authorized>
+        <MudText Typo="Typo.subtitle2">Bienvenido(a), @(string.IsNullOrEmpty(context.User.FindFirst("FullName")?.Value) ? "Desconocido(a)" : context.User.FindFirst("FullName")?.Value)</MudText>
+        <MudTooltip Text="Cerrar sesión">
+            <MudIconButton ButtonType="ButtonType.Submit" Icon="@Icons.Material.Sharp.PowerSettingsNew" Color="Color.Inherit" Link="@PageRoutes.Logout" />
+        </MudTooltip>
+    </Authorized>
+    <NotAuthorized>
+        <MudTooltip Text="Iniciar sesión">
+            <MudIconButton Icon="@Icons.Material.Sharp.Login" Color="Color.Inherit" Link="@PageRoutes.Login" />
+        </MudTooltip>
+    </NotAuthorized>
+</AuthorizeView>

@@ -1,0 +1,33 @@
+﻿@using ReporteriaMovistar.Application.Models.Validation.Insert
+@using ReporteriaMovistar.Application.Interfaces.Services.Data
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject NewOperarioModelValidator validator
+@inject IOperarioService operarioService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudForm @ref="formulario" Model="@modelo">
+    <MudDialog>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                  Label="Nombre"
+                                  @bind-Value="modelo.Nombre"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.Nombre)"
+                                  InputType="InputType.Text" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudTooltip Text="Guardar">
+                <MudFab Color="Color.Primary" Icon="@Icons.Material.Sharp.Save" OnClick="GuardarAsync" />
+            </MudTooltip>
+            <MudTooltip Text="Cancelar">
+                <MudFab Color="Color.Error" Icon="@Icons.Material.Sharp.Close" OnClick="CancelarAsync" />
+            </MudTooltip>
+        </DialogActions>
+    </MudDialog>
+</MudForm>
