@@ -1,0 +1,17 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.Usuarios)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador)]
+
+@switch (vista)
+{
+    case MainUsuario.VerRolUsuario:
+        {
+            <VerRolUsuario @bind-Vista="vista" Usuario="@usuario" />
+            break;
+        }
+    default:
+        {
+            <VerUsuario @bind-Vista="vista" @bind-Usuario="@usuario" />
+            break;
+        }
+}

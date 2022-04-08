@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<efcore context-namespace="ReporteriaClaro.Clients.ApiPowerBi.DataProviders" namespace="ReporteriaClaro.Clients.ApiPowerBi.Models" p1:name="ReporteriaClaroDbContext" p1:Guid="9bd31212-29ad-48a6-8dcc-913cf4995889" p1:DoNotGenerateDefaultConstructor="True" xmlns:p1="http://devart.com/schemas/EntityDeveloper/1.0">
+  <class name="ApiUserEntity" entity-set="ApiUserEntities" table="ApiUser" schema="dbo" p1:Guid="13f4ea65-949d-416c-9fb1-88786c31fcd8">
+    <id name="Id" type="Int32" value-generated="OnAdd" p1:ValidateRequired="true" p1:Guid="53fefc5d-d687-4295-bdec-3e823e1f27f2">
+      <column name="Id" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </id>
+    <property name="KeyHash" type="String" p1:ValidateRequired="true" p1:Guid="ad1dc5e5-953e-4565-9959-752540022cea">
+      <column name="KeyHash" not-null="True" sql-type="varchar(max)" p1:unicode="False" />
+    </property>
+    <property name="Comments" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="48d2fbc2-6c2d-4e82-9473-4151faa62fa6">
+      <column name="Comments" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="CreatedAt" type="DateTime" p1:ValidateRequired="true" p1:Guid="5986b1a7-2ddd-4948-9912-ddbb0b21e0d5">
+      <column name="CreatedAt" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="CreatedBy" type="String" p1:ValidateMaxLength="256" p1:ValidateRequired="true" p1:Guid="b11221f5-15e6-49ca-b0e4-75daa3a220a4">
+      <column name="CreatedBy" not-null="True" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ModifiedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="39266124-999b-403f-a1a0-3be4b6e0d6a5">
+      <column name="ModifiedAt" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="ModifiedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="cb5ec7d8-777a-482e-a9d1-b045f2b923d1">
+      <column name="ModifiedBy" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedAt" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="25b5abc0-5809-4feb-93e8-278effe17375">
+      <column name="DeactivatedAt" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedBy" type="String" p1:nullable="True" p1:ValidateMaxLength="256" p1:ValidateRequired="false" p1:Guid="d942c0fa-1c7a-49f7-a791-a23cd9b5192d">
+      <column name="DeactivatedBy" not-null="False" length="256" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="DeactivatedReason" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="51a618cf-abe3-47b4-9293-391b1a669e7c">
+      <column name="DeactivatedReason" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Active" type="Boolean" p1:ValidateRequired="true" p1:Guid="489ee5ed-63c8-49df-92a0-1f850d2b6af3">
+      <column name="Active" not-null="True" sql-type="bit" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VWDetallePronosticoEquipoPowerBiEntity" entity-set="VWDetallePronosticoEquipoPowerBiEntities" table="VW_DetallePronosticoEquipoPowerBi" schema="dbo" query-type="True" p1:Guid="99e5ae20-d1c8-4e41-b72a-913bd2f2442d">
+    <property name="Periodo" type="String" p1:nullable="True" p1:ValidateMaxLength="7" p1:ValidateRequired="false" p1:Guid="d5a7356e-56c9-4690-b4a5-1d7c714dc41a">
+      <column name="Periodo" not-null="False" length="7" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Pronostico" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="ca8e0f02-fb32-4b38-8272-b3fa24582e7d">
+      <column name="Pronostico" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Tecnologia" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="deee8790-901c-4405-b1bc-0bb31d62e8bc">
+      <column name="Tecnologia" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="CantidadDiagnostico" type="Int32" p1:ValidateRequired="true" p1:Guid="b7625809-b53a-466d-a515-dba846cdc999">
+      <column name="CantidadDiagnostico" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CantidadAceptados" type="Int32" p1:ValidateRequired="true" p1:Guid="00895d05-5145-43fa-9608-2e5f19c1ec6b">
+      <column name="CantidadAceptados" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CantidadRechazados" type="Int32" p1:ValidateRequired="true" p1:Guid="e3855446-9da8-48bf-9801-690a800da86c">
+      <column name="CantidadRechazados" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CantidadPendientes" type="Int32" p1:ValidateRequired="true" p1:Guid="cff2a8c6-2a12-4472-9e76-83d81f5eab8e">
+      <column name="CantidadPendientes" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CantidadScrap" type="Int32" p1:ValidateRequired="true" p1:Guid="0dbf1688-6ded-4ea0-8cca-05807f7729a3">
+      <column name="CantidadScrap" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CantidadRemozados" type="Int32" p1:ValidateRequired="true" p1:Guid="f81533ad-4aa7-482e-ab53-bfea2bcf5313">
+      <column name="CantidadRemozados" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="CantidadDespachados" type="Int32" p1:ValidateRequired="true" p1:Guid="c42bd80e-7c34-44bf-b86f-4e030a505a08">
+      <column name="CantidadDespachados" not-null="True" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VWHistorialMovimientoEquipoPowerBiEntity" entity-set="VWHistorialMovimientoEquipoPowerBiEntities" table="VW_HistorialMovimientoEquipoPowerBi" schema="dbo" query-type="True" p1:Guid="8c6dfe39-a665-48d5-8463-27242076aa70">
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="b3e52de1-0ccc-42a1-be53-5e1af44c9deb">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaRecepcion" type="DateTime" p1:ValidateRequired="true" p1:Guid="d76d2c19-2a8d-40f6-9e44-99816f4813d9">
+      <column name="FechaRecepcion" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Marca" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="740fe299-d1bb-4892-ba86-f5a799c958ed">
+      <column name="Marca" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Modelo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="0e7bfedf-4748-46d5-82e1-52e068ac1f31">
+      <column name="Modelo" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Color" type="String" p1:ValidateMaxLength="30" p1:ValidateRequired="true" p1:Guid="3defdd10-45a1-4804-a9a3-4f138c952a76">
+      <column name="Color" not-null="True" length="30" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Tipo" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="f761ce8d-eafc-498a-b819-961b10c695d7">
+      <column name="Tipo" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Subtipo" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="fbb26ec9-6441-432a-9463-7c1bcbe2fc7d">
+      <column name="Subtipo" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="NumeroReferencia" type="String" p1:ValidateMaxLength="20" p1:ValidateRequired="true" p1:Guid="ceff0f61-706a-4b11-8341-0cc7e59fda95">
+      <column name="NumeroReferencia" not-null="True" length="20" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Categoria" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="942d39f8-89b8-4f3f-93e3-89c4cd182bbc">
+      <column name="Categoria" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Subcategoria" type="String" p1:nullable="True" p1:ValidateMaxLength="10" p1:ValidateRequired="false" p1:Guid="71b0b14e-004f-4753-9f00-2b7fac415671">
+      <column name="Subcategoria" not-null="False" length="10" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Operario" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="a541986e-3918-424e-a72d-f521b24d79a0">
+      <column name="Operario" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Origen" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="0a98e9c8-ec54-4ae8-a18d-485c19439c03">
+      <column name="Origen" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Destino" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="8c328f28-edfe-4748-a160-c3577f125d05">
+      <column name="Destino" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Observacion" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="89542208-39e4-4759-9993-26b6503ef5ec">
+      <column name="Observacion" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Caja" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="7c68060b-44cf-4dce-9f1c-4e0c601cb53d">
+      <column name="Caja" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Pallet" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8e467102-f9e1-4c57-ae63-f56889312ef1">
+      <column name="Pallet" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="TipoConfiguracion" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="295470e5-6746-4026-9517-245addc36738">
+      <column name="TipoConfiguracion" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="DetalleTipoConfiguracion" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="bcf0b62e-99cc-4e4d-819e-7c5751dd6719">
+      <column name="DetalleTipoConfiguracion" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Tecnologia" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="e30fb0e0-7d3b-4082-b100-4061e6fed91b">
+      <column name="Tecnologia" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ProcesoFinalizado" type="String" p1:ValidateMaxLength="2" p1:ValidateRequired="true" p1:Guid="5b8f05c7-cbce-4654-b079-02fa2c814f6d">
+      <column name="ProcesoFinalizado" not-null="True" length="2" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Derivada" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="775eeadc-05b3-44f4-a349-7fc9a415b2f0">
+      <column name="Derivada" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Guia" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="cd57e510-b9fa-4e80-bce6-4958b1c89b57">
+      <column name="Guia" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="e0b8423a-b223-4046-9a7b-4d247a0693ae">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Pintura" type="String" p1:ValidateMaxLength="2" p1:ValidateRequired="true" p1:Guid="aeeb60f5-fc39-48c7-9287-631c5ba343de">
+      <column name="Pintura" not-null="True" length="2" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ControlRemoto" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="fc707261-80cd-4e23-9a4d-5c3f4fb7d3c1">
+      <column name="ControlRemoto" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FuentePoder" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="33e77962-e73f-4183-ae03-4544c04a2f11">
+      <column name="FuentePoder" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Hdmi" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="c6a673a1-0926-4539-ab0f-ba46ca0bfbbb">
+      <column name="Hdmi" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Rca" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="3a0bcda0-cf59-4f73-ae01-60d668977920">
+      <column name="Rca" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Utp" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="69ec08c5-9726-431a-9a83-8a4c998a2909">
+      <column name="Utp" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EstadoDespacho" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="c815ab75-0154-441e-b760-024237b0b87c">
+      <column name="EstadoDespacho" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VWRechazoLimpiezaPowerBiEntity" entity-set="VWRechazoLimpiezaPowerBiEntities" table="VW_RechazoLimpiezaPowerBi" schema="dbo" query-type="True" p1:Guid="37303285-a27a-426e-b031-4b2973fa1af9">
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="c3a0319b-a344-43ee-b579-ad1ff0ad914a">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="fab12f52-b0fa-49b6-a637-b2d59a64f294">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Origen" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="1683de39-2e89-495b-8d2c-0bb0b811a647">
+      <column name="Origen" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Destino" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="aa3e0367-c921-4303-a81f-d831397e5762">
+      <column name="Destino" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Operario" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="209f0b29-edb7-452a-867d-9a4a211cc679">
+      <column name="Operario" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VWUltimoEstadoEquipoPowerBiEntity" entity-set="VWUltimoEstadoEquipoPowerBiEntities" table="VW_UltimoEstadoEquipoPowerBi" schema="dbo" query-type="True" p1:Guid="7cf465b7-535e-4453-8e28-c4ba53d82a93">
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="7e5294d8-e936-47fb-b094-a5133a2e7c1a">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaRecepcion" type="DateTime" p1:ValidateRequired="true" p1:Guid="d8574e04-19e1-4e6d-97bb-e6da4ceea172">
+      <column name="FechaRecepcion" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Marca" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="92945003-9123-460d-8054-9c4d09590e06">
+      <column name="Marca" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Modelo" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="7611189b-3502-4386-b414-c044f43265a5">
+      <column name="Modelo" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Operario" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="c564bc34-fe76-46fc-aabf-867c99f0df97">
+      <column name="Operario" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Origen" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="feb6c12d-d860-4e7f-987e-318456ad9040">
+      <column name="Origen" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Destino" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="20e91240-3bf0-47d4-b5e0-148c7356170d">
+      <column name="Destino" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Observacion" type="String" p1:nullable="True" p1:ValidateMaxLength="200" p1:ValidateRequired="false" p1:Guid="9d3990fe-0430-4306-bc3f-98ea2b19071d">
+      <column name="Observacion" not-null="False" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Caja" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="c7e7c3e3-72ec-4929-aaae-e71fb89a4610">
+      <column name="Caja" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="Pallet" type="Int32" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="8475108a-500c-4998-8b15-a6740f5c58f6">
+      <column name="Pallet" not-null="False" precision="10" scale="0" sql-type="int" p1:unicode="False" />
+    </property>
+    <property name="TipoConfiguracion" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="3a09e5e0-409f-4f55-a20f-792c6ad6d9e2">
+      <column name="TipoConfiguracion" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="DetalleTipoConfiguracion" type="String" p1:ValidateMaxLength="200" p1:ValidateRequired="true" p1:Guid="5bea4b81-17cb-4d06-a33f-a2cf67926401">
+      <column name="DetalleTipoConfiguracion" not-null="True" length="200" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Tecnologia" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="0d96108f-ef89-4135-9d49-72003fc5b91e">
+      <column name="Tecnologia" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ProcesoFinalizado" type="String" p1:ValidateMaxLength="2" p1:ValidateRequired="true" p1:Guid="718d58e7-3012-4b8e-9120-5cf93c5aff82">
+      <column name="ProcesoFinalizado" not-null="True" length="2" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Derivada" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="7dbb121d-d913-4d55-9152-84afd0f970bc">
+      <column name="Derivada" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Guia" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="03e75f3d-3a0c-4eb4-b3b1-0bba3e1faba6">
+      <column name="Guia" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Fecha" type="DateTime" p1:ValidateRequired="true" p1:Guid="2baecca9-6bb5-49e7-9ac4-fae6f42c0d79">
+      <column name="Fecha" not-null="True" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="Pintura" type="String" p1:ValidateMaxLength="2" p1:ValidateRequired="true" p1:Guid="57226913-d692-41d1-8838-82130ab99631">
+      <column name="Pintura" not-null="True" length="2" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="ControlRemoto" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="ea30f1fe-a760-4cca-9ce9-f3403beb5127">
+      <column name="ControlRemoto" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FuentePoder" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="42ca5baa-c642-4119-8a63-6f9379bfed8f">
+      <column name="FuentePoder" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Hdmi" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="8d3d04ff-8a46-420c-abc2-fc4198da385e">
+      <column name="Hdmi" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Rca" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="22d45ad2-1c54-423f-b1fa-4bf7c6a1403f">
+      <column name="Rca" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Utp" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="e3c63c6e-60a4-448a-8bfc-cfb688f766d1">
+      <column name="Utp" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="EstadoDespacho" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="eb560ca9-80ec-4886-a4d5-78f1cdfa922a">
+      <column name="EstadoDespacho" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+  </class>
+  <class name="VWEstadoLimpiezaPowerBiEntity" entity-set="VWEstadoLimpiezaPowerBiEntities" table="VW_EstadoLimpiezaPowerBi" schema="dbo" query-type="True" p1:Guid="f5ce2ef6-9d5c-4c9d-8af8-6ea6f9686f65">
+    <property name="Esn" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="f5211d53-2b75-4698-adce-c01d2adec585">
+      <column name="Esn" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaLimpieza" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="378a947c-9aa5-4052-95a2-2a0307d68d11">
+      <column name="FechaLimpieza" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="OperarioLimpieza" type="String" p1:ValidateMaxLength="50" p1:ValidateRequired="true" p1:Guid="c83df616-e0ae-4974-9380-38091e1787da">
+      <column name="OperarioLimpieza" not-null="True" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="FechaRechazo" type="DateTime" p1:nullable="True" p1:ValidateRequired="false" p1:Guid="454fa26f-11f2-4b16-b382-04d9db60db59">
+      <column name="FechaRechazo" not-null="False" sql-type="datetime" p1:unicode="False" />
+    </property>
+    <property name="OperarioRechazo" type="String" p1:nullable="True" p1:ValidateMaxLength="50" p1:ValidateRequired="false" p1:Guid="904f47f1-e673-4c22-bce4-d0806bf65813">
+      <column name="OperarioRechazo" not-null="False" length="50" sql-type="varchar" p1:unicode="False" />
+    </property>
+    <property name="Rechazado" type="String" p1:ValidateMaxLength="2" p1:ValidateRequired="true" p1:Guid="43baf466-ff2e-4e44-b384-e6b4dd878ab7">
+      <column name="Rechazado" not-null="True" length="2" sql-type="varchar" p1:unicode="False" />
+    </property>
+  </class>
+</efcore>

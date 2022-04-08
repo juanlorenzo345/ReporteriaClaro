@@ -1,0 +1,60 @@
+﻿@using ReporteriaClaro.Application.Models.Validation.Insert
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Application.Models.Input.Choice
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject NewSecuenciaEtapaModelValidator validator
+@inject ISecuenciaEtapaService secuenciaEtapaService
+@inject EtapaData etapaData
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudForm @ref="formulario" Model="@modelo">
+    <MudDialog>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudSelect T="ChoiceEtapaModel"
+                               Label="Origen"
+                               @bind-Value="modelo.EtapaOrigen"
+                               Validation="validator.ValidateValue"
+                               For="@(() => modelo.EtapaOrigen)"
+                               ToStringFunc="@((item) => item is null ? null : $"{item.Nombre} ({item.Zona})")">
+                        @foreach (ChoiceEtapaModel etapaOrigen in etapasOrigen)
+                        {
+                            <MudSelectItem T="ChoiceEtapaModel" Value="etapaOrigen">@etapaOrigen.Nombre (@etapaOrigen.Zona)</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudSelect T="ChoiceEtapaModel"
+                               Label="Destino"
+                               @bind-Value="modelo.EtapaDestino"
+                               Validation="validator.ValidateValue"
+                               For="@(() => modelo.EtapaDestino)"
+                               ToStringFunc="@((item) => item is null ? null : $"{item.Nombre} ({item.Zona})")">
+                        @foreach (ChoiceEtapaModel etapaDestino in etapasDestino)
+                        {
+                            <MudSelectItem T="ChoiceEtapaModel" Value="etapaDestino">@etapaDestino.Nombre (@etapaDestino.Zona)</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="12">
+                    <MudCheckBox T="bool"
+                                 Label="Es etapa anterior"
+                                 @bind-Checked="modelo.EsEtapaAnterior"
+                                 Validation="validator.ValidateValue"
+                                 For="@(() => modelo.EsEtapaAnterior)" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudTooltip Text="Guardar">
+                <MudFab Color="Color.Primary" Icon="@Icons.Material.Sharp.Save" OnClick="GuardarAsync" />
+            </MudTooltip>
+            <MudTooltip Text="Cancelar">
+                <MudFab Color="Color.Error" Icon="@Icons.Material.Sharp.Close" OnClick="CancelarAsync" />
+            </MudTooltip>
+        </DialogActions>
+    </MudDialog>
+</MudForm>

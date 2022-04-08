@@ -1,0 +1,7 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.Pages.Proceso.Shared
+@using ReporteriaClaro.Application.Models.Enums
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.Diagnostico)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador, Roles.Diagnostico)]
+
+<VerMovimientoEquipo NombreEtapa="Diagnóstico" Etapa="Etapa.Diagnostico" />

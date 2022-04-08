@@ -1,0 +1,36 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+<AuthorizeView Context="authContext">
+    <MudNavGroup Title="Mantenimiento"
+                 Expanded="false"
+                 ExpandIcon="@Icons.Material.Sharp.ExpandMore"
+                 Class="primary-item-mudnavgroup">
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.MarcasEquipo" Match="NavLinkMatch.All">Marcas de Equipo</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.ModelosEquipo" Match="NavLinkMatch.All">Modelos de Equipo</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.ColoresEquipo" Match="NavLinkMatch.All">Colores de Equipo</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.TecnologiasEquipo" Match="NavLinkMatch.All">Tecnologías de Equipo</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.ConfiguracionesEquipo" Match="NavLinkMatch.All">Configuraciones de Equipo</MudNavLink>
+        </AuthorizeView>
+        <MudNavLink Href="@PageRoutes.EstadosDespacho" Match="NavLinkMatch.All">Estados de Despacho</MudNavLink>
+        <MudNavLink Href="@PageRoutes.EstadosComponente" Match="NavLinkMatch.All">Estados de Componente</MudNavLink>
+        <MudNavLink Href="@PageRoutes.Operarios" Match="NavLinkMatch.All">Operarios</MudNavLink>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.Etapas" Match="NavLinkMatch.All">Etapas</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Roles="@Roles.SuperAdministrador">
+            <MudNavLink Href="@PageRoutes.SecuenciasEtapa" Match="NavLinkMatch.All">Secuencias de Etapa</MudNavLink>
+        </AuthorizeView>
+        @*<MudNavLink Href="@PageRoutes.EstadosEtapa" Match="NavLinkMatch.All">Estados de Etapa</MudNavLink>*@
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudNavLink Href="@PageRoutes.Zonas" Match="NavLinkMatch.All">Zonas</MudNavLink>
+        </AuthorizeView>
+    </MudNavGroup>
+</AuthorizeView>

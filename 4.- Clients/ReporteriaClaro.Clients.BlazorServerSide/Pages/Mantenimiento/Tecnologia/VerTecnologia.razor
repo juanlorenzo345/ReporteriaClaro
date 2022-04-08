@@ -1,0 +1,88 @@
+﻿@using ReporteriaClaro.Application.Models.View
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.Configuration
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.TecnologiasEquipo)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador)]
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject ITecnologiaEquipoService tecnologiaEquipoService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<AuthorizeView Roles="@Roles.SuperAdministrador">
+    <div class="d-flex justify-end">
+        <MudSwitch T="bool" Checked="mostrarEliminados" CheckedChanged="MostrarEliminadosChangedAsync" Color="Color.Primary" Label="Mostrar registros eliminados" />
+    </div>
+</AuthorizeView>
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewTecnologiaEquipoModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Tecnologías de Equipo</MudText>
+        <MudSpacer />
+    </ToolBarContent>
+    <ColGroup>
+        @*<col style="width: 145px;" />*@
+    </ColGroup>
+    <HeaderContent>
+        @*<MudTh Style="text-align:center">Acción</MudTh>*@
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewTecnologiaEquipoModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="tecnologia" T="ViewTecnologiaEquipoModel">Tecnología</MudTableSortLabel></MudTh>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)" Context="authContext">
+            <MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewTecnologiaEquipoModel">Fecha creación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_creacion" T="ViewTecnologiaEquipoModel">Usuario creación</MudTableSortLabel></MudTh>
+        </AuthorizeView>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTh><MudTableSortLabel SortLabel="fecha_modificacion" T="ViewTecnologiaEquipoModel">Fecha modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_modificacion" T="ViewTecnologiaEquipoModel">Usuario modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="eliminado" T="ViewTecnologiaEquipoModel">Eliminado</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="fecha_eliminacion" T="ViewTecnologiaEquipoModel">Fecha eliminación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_eliminacion" T="ViewTecnologiaEquipoModel">Usuario eliminación</MudTableSortLabel></MudTh>
+        </AuthorizeView>
+    </HeaderContent>
+    <RowTemplate>
+        @*<MudTd Style="text-align: center; overflow: hidden;">
+                @if (!context.Eliminado)
+                {
+                    <MudTooltip Text="Editar">
+                        <MudIconButton Icon="@Icons.Material.Sharp.Edit" Color="Color.Warning" OnClick="() => EditarTecnologiaAsync(context.Id)" />
+                    </MudTooltip>
+                    <MudTooltip Text="Eliminar">
+                        <MudIconButton Icon="@Icons.Material.Sharp.Delete" Color="Color.Error" OnClick="() => EliminarTecnologiaAsync(context)" />
+                    </MudTooltip>
+                }
+            </MudTd>*@
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Tecnologia</MudTd>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)" Context="authContext">
+            <MudTd>@context.FechaCreacionRegistro</MudTd>
+            <MudTd>@context.UsuarioCreacionRegistro</MudTd>
+        </AuthorizeView>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTd>@context.FechaModificacionRegistro</MudTd>
+            <MudTd>@context.UsuarioModificacionRegistro</MudTd>
+            <MudTd><MudCheckBox T="bool" Checked="@context.Eliminado" ReadOnly="true" /></MudTd>
+            <MudTd>@context.FechaEliminacionRegistro</MudTd>
+            <MudTd>@context.UsuarioEliminacionRegistro</MudTd>
+        </AuthorizeView>
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>
+@*<MudFab Class="create-button" Icon="@Icons.Material.Sharp.Add" Color="Color.Success" Label="Crear" OnClick="CrearTecnologiaAsync" />*@

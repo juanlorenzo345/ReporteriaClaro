@@ -1,0 +1,7 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.Pages.Proceso.Shared
+@using ReporteriaClaro.Application.Models.Enums
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.Limpieza)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador, Roles.Limpieza)]
+
+<VerMovimientoEquipo NombreEtapa="Limpieza" Etapa="Etapa.Limpieza" />

@@ -1,0 +1,23 @@
+﻿@inject IJSRuntime jsRuntime
+
+<MudDialog>
+    <DialogContent>
+        <MudGrid>
+            <MudItem xs="12">
+                <MudText>La API key generada es la siguiente:</MudText>
+            </MudItem>
+            <MudItem xs="12">
+                <MudTextField T="string"
+                              Value="@this.ApiKey"
+                              InputType="InputType.Text"
+                              ReadOnly="true"
+                              Adornment="Adornment.End"
+                              AdornmentIcon="@Icons.Material.Sharp.CopyAll"
+                              OnAdornmentClick="CopiarAlPortapapelesAsync"/>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Ok">OK</MudButton>
+    </DialogActions>
+</MudDialog>

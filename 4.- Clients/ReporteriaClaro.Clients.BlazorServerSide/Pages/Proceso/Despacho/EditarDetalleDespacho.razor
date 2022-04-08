@@ -1,0 +1,154 @@
+﻿@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Application.Models.Enums
+@using ReporteriaClaro.Application.Models.Input.Choice
+@using ReporteriaClaro.Application.Models.Validation.Update
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject UpdateDetalleDespachoModelValidator validator
+@inject IDetalleDespachoService detalleDespachoService
+@inject EquipoData equipoData
+@inject EstadoComponenteData estadoComponenteData
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudForm @ref="formulario" Model="@modelo">
+    <MudDialog>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTextField T="int"
+                                  Label="ID"
+                                  @bind-Value="modelo.Id"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.Id)"
+                                  InputType="InputType.Number"
+                                  ReadOnly="true" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudAutocomplete T="ChoiceEquipoModel"
+                                     Label="Equipo"
+                                     @bind-Value="modelo.Equipo"
+                                     Validation="validator.ValidateValue"
+                                     For="@(() => modelo.Equipo)"
+                                     SearchFunc="@(async esn => await this.equipoData.BuscarEquipoAsync(esn, this.AuthenticationStateTask))"
+                                     ToStringFunc="@((item) => item is null || string.IsNullOrWhiteSpace(item.Esn) ? null : $"{item.Esn} ({item.Marca} {item.Modelo} {item.Color})")"
+                                     MaxItems="null"
+                                     DebounceInterval="1000"
+                                     AutoFocus="true" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudNumericField T="int"
+                                     Label="Caja"
+                                     @bind-Value="modelo.Caja"
+                                     Validation="validator.ValidateValue"
+                                     For="@(() => modelo.Caja)" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudNumericField T="int"
+                                     Label="Pallet"
+                                     @bind-Value="modelo.Pallet"
+                                     Validation="validator.ValidateValue"
+                                     For="@(() => modelo.Pallet)" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudTextField T="string"
+                                  Label="Derivada"
+                                  @bind-Value="modelo.Derivada"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.Derivada)"
+                                  InputType="InputType.Text" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudCheckBox T="bool"
+                                 Label="Pintura"
+                                 @bind-Checked="modelo.Pintura"
+                                 Validation="validator.ValidateValue"
+                                 For="@(() => modelo.Pintura)" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudCheckBox T="bool"
+                                 Label="Proceso finalizado"
+                                 @bind-Checked="modelo.ProcesoFinalizado"
+                                 Validation="validator.ValidateValue"
+                                 For="@(() => modelo.ProcesoFinalizado)" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudSelect T="ChoiceEstadoComponenteModel"
+                               Label="Fuente de poder"
+                               @bind-Value="modelo.EstadoFuentePoder"
+                               Validation="validator.ValidateValue"
+                               For="@(() => modelo.EstadoFuentePoder)"
+                               ToStringFunc="@((item) => item is null ? null : $" {item.Nombre}")">
+                        @foreach (ChoiceEstadoComponenteModel estadoFuentePoder in estadosFuentePoder)
+                        {
+                            <MudSelectItem T="ChoiceEstadoComponenteModel" Value="estadoFuentePoder">@estadoFuentePoder.Nombre</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                <MudItem xs="6">
+                    <MudSelect T="ChoiceEstadoComponenteModel"
+                               Label="UTP"
+                               @bind-Value="modelo.EstadoUtp"
+                               Validation="validator.ValidateValue"
+                               For="@(() => modelo.EstadoUtp)"
+                               ToStringFunc="@((item) => item is null ? null : $" {item.Nombre}")">
+                        @foreach (ChoiceEstadoComponenteModel estadoUtp in estadosUtp)
+                        {
+                            <MudSelectItem T="ChoiceEstadoComponenteModel" Value="estadoUtp">@estadoUtp.Nombre</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+                @if (this.modelo.Equipo?.IdTecnologia == (int)Tecnologia.IpTv)
+                {
+                    <MudItem xs="6">
+                        <MudSelect T="ChoiceEstadoComponenteModel"
+                                   Label="Control remoto"
+                                   @bind-Value="modelo.EstadoControlRemoto"
+                                   Validation="validator.ValidateValue"
+                                   For="@(() => modelo.EstadoControlRemoto)"
+                                   ToStringFunc="@((item) => item is null ? null : $" {item.Nombre}")">
+                            @foreach (ChoiceEstadoComponenteModel estadoControlRemoto in estadosControlRemoto)
+                            {
+                                <MudSelectItem T="ChoiceEstadoComponenteModel" Value="estadoControlRemoto">@estadoControlRemoto.Nombre</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect T="ChoiceEstadoComponenteModel"
+                                   Label="HDMI"
+                                   @bind-Value="modelo.EstadoHdmi"
+                                   Validation="validator.ValidateValue"
+                                   For="@(() => modelo.EstadoHdmi)"
+                                   ToStringFunc="@((item) => item is null ? null : $" {item.Nombre}")">
+                            @foreach (ChoiceEstadoComponenteModel estadoHdmi in estadosHdmi)
+                            {
+                                <MudSelectItem T="ChoiceEstadoComponenteModel" Value="estadoHdmi">@estadoHdmi.Nombre</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                    <MudItem xs="6">
+                        <MudSelect T="ChoiceEstadoComponenteModel"
+                                   Label="RCA"
+                                   @bind-Value="modelo.EstadoRca"
+                                   Validation="validator.ValidateValue"
+                                   For="@(() => modelo.EstadoRca)"
+                                   ToStringFunc="@((item) => item is null ? null : $" {item.Nombre}")">
+                            @foreach (ChoiceEstadoComponenteModel estadoRca in estadosRca)
+                            {
+                                <MudSelectItem T="ChoiceEstadoComponenteModel" Value="estadoRca">@estadoRca.Nombre</MudSelectItem>
+                            }
+                        </MudSelect>
+                    </MudItem>
+                }
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudTooltip Text="Guardar">
+                <MudFab Color="Color.Primary" Icon="@Icons.Material.Sharp.Save" OnClick="GuardarAsync" />
+            </MudTooltip>
+            <MudTooltip Text="Cancelar">
+                <MudFab Color="Color.Error" Icon="@Icons.Material.Sharp.Close" OnClick="CancelarAsync" />
+            </MudTooltip>
+        </DialogActions>
+    </MudDialog>
+</MudForm>

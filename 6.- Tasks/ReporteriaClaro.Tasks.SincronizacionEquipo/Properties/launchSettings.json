@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "ReporteriaClaro.Tasks.SincronizacionEquipo": {
+      "commandName": "Project"
+    },
+    "SincronizacionEquipo (dev)": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "SincronizacionEquipo (prod)": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Production"
+      }
+    }
+  }
+}

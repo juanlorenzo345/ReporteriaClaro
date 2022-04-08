@@ -1,0 +1,11 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.Pages.Proceso.Shared
+@using ReporteriaClaro.Application.Models.Enums
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.Pages.Shared
+@attribute [Route(PageRoutes.Etiquetado)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador, Roles.Etiquetado)]
+@inject IMovimientoEtiquetadoACalidadService movimientoEtiquetadoACalidadService
+
+<VerMovimientoEquipo NombreEtapa="Etiquetado" Etapa="Etapa.Etiquetado" @ref="movimientoEquipo" />
+<CargaMasiva CargaMasivaService="this.movimientoEtiquetadoACalidadService" Titulo="Carga masiva equipos desde etiquetado a control de calidad" TamanoMaximoArchivo="@FileHelper.ConvertMegabytesToBytes(10D)" ProcesamientoArchivoChanged="RecargarDatosArchivoProcesadoAsync" />

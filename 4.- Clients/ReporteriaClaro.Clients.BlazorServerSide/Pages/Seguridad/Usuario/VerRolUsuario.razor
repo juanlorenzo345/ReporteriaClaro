@@ -1,0 +1,60 @@
+﻿@using ReporteriaClaro.Application.Models.View
+@using ReporteriaClaro.Clients.BlazorServerSide.Configuration
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador)]
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IRolService rolService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewRolUsuarioModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudTooltip Text="Volver a usuarios">
+            <MudIconButton Icon="@Icons.Material.Sharp.ArrowBack" Color="Color.Success" OnClick="VolverAUsuario" />
+        </MudTooltip>
+        <MudText Typo="Typo.h6">Roles asociados al usuario <MudText Typo="Typo.h6" Style="font-weight: 900">@this.Usuario.Usuario</MudText> (ID: @this.Usuario.Id)</MudText>
+    </ToolBarContent>
+    <ColGroup>
+        <col style="width: 145px;" />
+    </ColGroup>
+    <HeaderContent>
+        <MudTh>Acción</MudTh>
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewRolUsuarioModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="rol" T="ViewRolUsuarioModel">Rol</MudTableSortLabel></MudTh>
+        @*<MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewUsuarioModel">Fecha asignación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario_creacion" T="ViewUsuarioModel">Usuario asignación</MudTableSortLabel></MudTh>*@
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd Style="text-align: center; overflow: hidden;">
+            <MudTooltip Text="Quitar">
+                <MudIconButton Icon="@Icons.Material.Sharp.Delete" Color="Color.Error" OnClick="() => EliminarRolUsuarioAsync(context)" />
+            </MudTooltip>
+        </MudTd>
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Rol</MudTd>
+        @*<MudTd>@context.FechaCreacionRegistro</MudTd>
+        <MudTd>@context.UsuarioCreacionRegistro</MudTd>*@
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">Este usuario no tiene roles asignados.</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>
+<MudFab Class="create-button" Icon="@Icons.Material.Sharp.Add" Color="Color.Success" Label="Crear" OnClick="CrearRolUsuarioAsync" />

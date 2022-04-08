@@ -1,0 +1,115 @@
+﻿@using ReporteriaClaro.Application.Models.View
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.Configuration
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IDetalleDespachoService detalleDespachoService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewDetalleDespachoModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudTooltip Text="Volver a despachos">
+            <MudIconButton Icon="@Icons.Material.Sharp.ArrowBack" Color="Color.Success" OnClick="VolverADespacho" />
+        </MudTooltip>
+        <MudText Typo="Typo.h6">Detalle del despacho <MudText Typo="Typo.h6" Style="font-weight: 900">@this.Registro.Guia</MudText> (ID: @this.Registro.Id)</MudText>
+        <MudSpacer />
+        <AuthorizeView Roles="@Roles.SuperAdministrador">
+            <MudSwitch T="bool" Checked="mostrarEliminados" CheckedChanged="MostrarEliminadosChangedAsync" Color="Color.Primary">Mostrar registros eliminados</MudSwitch>
+        </AuthorizeView>
+    </ToolBarContent>
+    <ColGroup>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <col style="width: 145px;" />
+        </AuthorizeView>
+    </ColGroup>
+    <HeaderContent>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudTh Style="text-align: center">Acción</MudTh>
+        </AuthorizeView>
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewDetalleDespachoModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="esn" T="ViewDetalleDespachoModel">ESN</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="marca" T="ViewDetalleDespachoModel">Marca</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="modelo" T="ViewDetalleDespachoModel">Modelo</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="color" T="ViewDetalleDespachoModel">Color</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="caja" T="ViewDetalleDespachoModel">Caja</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="pallet" T="ViewDetalleDespachoModel">Pallet</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="derivada" T="ViewDetalleDespachoModel">Derivada</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="pintura" T="ViewDetalleDespachoModel">Pintura</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="proceso_finalizado" T="ViewDetalleDespachoModel">Proceso finalizado</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fuente_poder" T="ViewDetalleDespachoModel">Fuente de poder</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="utp" T="ViewDetalleDespachoModel">UTP</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="control_remoto" T="ViewDetalleDespachoModel">Control remoto</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="hdmi" T="ViewDetalleDespachoModel">HDMI</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="rca" T="ViewDetalleDespachoModel">RCA</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewDetalleDespachoModel">Fecha creación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario_creacion" T="ViewDetalleDespachoModel">Usuario creación</MudTableSortLabel></MudTh>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTh><MudTableSortLabel SortLabel="fecha_modificacion" T="ViewDetalleDespachoModel">Fecha modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_modificacion" T="ViewDetalleDespachoModel">Usuario modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="eliminado" T="ViewDetalleDespachoModel">Eliminado</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="fecha_eliminacion" T="ViewDetalleDespachoModel">Fecha eliminación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_eliminacion" T="ViewDetalleDespachoModel">Usuario eliminación</MudTableSortLabel></MudTh>
+        </AuthorizeView>
+    </HeaderContent>
+    <RowTemplate>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)" Context="authContext">
+            <MudTd Style="text-align: center; overflow: hidden;">
+                @if (!context.Eliminado)
+                {
+                    <MudTooltip Text="Editar">
+                        <MudIconButton Icon="@Icons.Material.Sharp.Edit" Color="Color.Warning" OnClick="() => EditarDetalleAsync(context.Id)" />
+                    </MudTooltip>
+                    <MudTooltip Text="Eliminar">
+                        <MudIconButton Icon="@Icons.Material.Sharp.Delete" Color="Color.Error" OnClick="() => EliminarDetalleAsync(context)" />
+                    </MudTooltip>
+                }
+            </MudTd>
+        </AuthorizeView>
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Esn</MudTd>
+        <MudTd>@context.Marca</MudTd>
+        <MudTd>@context.Modelo</MudTd>
+        <MudTd>@context.Color</MudTd>
+        <MudTd>@($"{context.Caja:N0}")</MudTd>
+        <MudTd>@($"{context.Pallet:N0}")</MudTd>
+        <MudTd>@context.Derivada</MudTd>
+        <MudTd><MudCheckBox T="bool" Checked="@context.Pintura" ReadOnly="true" /></MudTd>
+        <MudTd><MudCheckBox T="bool" Checked="@context.ProcesoFinalizado" ReadOnly="true" /></MudTd>
+        <MudTd>@context.FuentePoder</MudTd>
+        <MudTd>@context.Utp</MudTd>
+        <MudTd>@context.ControlRemoto</MudTd>
+        <MudTd>@context.Hdmi</MudTd>
+        <MudTd>@context.Rca</MudTd>
+        <MudTd>@context.FechaCreacionRegistro</MudTd>
+        <MudTd>@context.UsuarioCreacionRegistro</MudTd>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTd>@context.FechaModificacionRegistro</MudTd>
+            <MudTd>@context.UsuarioModificacionRegistro</MudTd>
+            <MudTd><MudCheckBox T="bool" Checked="@context.Eliminado" ReadOnly="true" /></MudTd>
+            <MudTd>@context.FechaEliminacionRegistro</MudTd>
+            <MudTd>@context.UsuarioEliminacionRegistro</MudTd>
+        </AuthorizeView>
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>
+<MudFab Class="create-button" Icon="@Icons.Material.Sharp.Add" Color="Color.Success" Label="Crear" OnClick="CrearDetalleAsync" />

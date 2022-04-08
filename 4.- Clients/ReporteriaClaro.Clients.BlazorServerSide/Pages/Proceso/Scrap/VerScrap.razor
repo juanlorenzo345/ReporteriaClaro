@@ -1,0 +1,88 @@
+﻿@using ReporteriaClaro.Application.Models.View
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.Configuration
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.Scrap)]
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IMovimientoEquipoService movimientoEquipoService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<AuthorizeView Roles="@Roles.SuperAdministrador">
+    <div class="d-flex justify-end">
+        <MudSwitch T="bool" Checked="mostrarEliminados" CheckedChanged="MostrarEliminadosChangedAsync" Color="Color.Primary" Label="Mostrar registros eliminados" />
+    </div>
+</AuthorizeView>
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewScrapModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Scrap</MudText>
+        <MudSpacer />
+        <MudTextField T="string"
+                      ValueChanged="BuscarPorEsnAsync"
+                      Placeholder="Buscar por ESN"
+                      Adornment="Adornment.Start"
+                      AdornmentIcon="@Icons.Material.Filled.Search"
+                      IconSize="Size.Medium"
+                      Clearable="true" />
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewScrapModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha" T="ViewScrapModel">Fecha</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="esn" T="ViewScrapModel">ESN</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="marca" T="ViewScrapModel">Marca</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="modelo" T="ViewScrapModel">Modelo</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="color" T="ViewScrapModel">Color</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="origen" T="ViewScrapModel">Origen</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="operario" T="ViewScrapModel">Operario</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="observacion" T="ViewScrapModel">Observación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewScrapModel">Fecha creación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario_creacion" T="ViewScrapModel">Usuario creación</MudTableSortLabel></MudTh>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTh><MudTableSortLabel SortLabel="fecha_modificacion" T="ViewScrapModel">Fecha modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_modificacion" T="ViewScrapModel">Usuario modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="eliminado" T="ViewScrapModel">Eliminado</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="fecha_eliminacion" T="ViewScrapModel">Fecha eliminación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_eliminacion" T="ViewScrapModel">Usuario eliminación</MudTableSortLabel></MudTh>
+        </AuthorizeView>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Fecha</MudTd>
+        <MudTd>@context.Esn</MudTd>
+        <MudTd>@context.Marca</MudTd>
+        <MudTd>@context.Modelo</MudTd>
+        <MudTd>@context.Color</MudTd>
+        <MudTd>@context.Origen</MudTd>
+        <MudTd>@context.Operario</MudTd>
+        <MudTd>@context.Observacion</MudTd>
+        <MudTd>@context.FechaCreacionRegistro</MudTd>
+        <MudTd>@context.UsuarioCreacionRegistro</MudTd>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTd>@context.FechaModificacionRegistro</MudTd>
+            <MudTd>@context.UsuarioModificacionRegistro</MudTd>
+            <MudTd><MudCheckBox T="bool" Checked="@context.Eliminado" ReadOnly="true" /></MudTd>
+            <MudTd>@context.FechaEliminacionRegistro</MudTd>
+            <MudTd>@context.UsuarioEliminacionRegistro</MudTd>
+        </AuthorizeView>
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>

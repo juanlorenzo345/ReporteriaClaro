@@ -1,0 +1,189 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Transfer\ComponenteDetalleEntityDto.cs" />
+    <Compile Remove="Transfer\ComponenteEntityDto.cs" />
+    <Compile Remove="Transfer\ControlCalidadEstadoEntityDto.cs" />
+    <Compile Remove="Transfer\EquipoDespachoEntityDto.cs" />
+    <Compile Remove="Transfer\EquipoFamiliaEntityDto.cs" />
+    <Compile Remove="Transfer\EquipoRecepcionEntityDto.cs" />
+    <Compile Remove="Transfer\FaceplateEstadoEntityDto.cs" />
+    <Compile Remove="Transfer\GuiaDespachoMovimientoEntityDto.cs" />
+    <Compile Remove="Transfer\GuiaEstadoEntityDto.cs" />
+    <Compile Remove="Transfer\HdmiEstadoEntityDto.cs" />
+    <Compile Remove="Transfer\RcaEstadoEntityDto.cs" />
+    <Compile Remove="Transfer\SPSeguimientoUltimoMovimientoEntityResult1Dto.cs" />
+    <Compile Remove="Transfer\SPUltimoOperarioPinturaEntityResultDto.cs" />
+    <Compile Remove="Transfer\UtpEstadoEntityDto.cs" />
+    <Compile Remove="Transfer\VWDetalleDespachoYComponentesEntityDto.cs" />
+    <Compile Remove="Transfer\VWDetalleMovimientoEquipoPowerBiEntityDto.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Transfer\ApiUserEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\ComponenteEstadoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\DespachoDetalleEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\DespachoEncabezadoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\DespachoEstadoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EFMigrationsHistoryEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoColorEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoConfiguracionEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoMarcaEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoModeloEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoMovimientoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoScrapEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EquipoTecnologiaEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EtapaEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EtapaEstadoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\EtapaSecuenciaEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\IdentityRoleClaimEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityRoleEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserAccessLogEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserClaimEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserExceptionLogEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserLoginEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserOperationLogEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserRoleEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\IdentityUserTokenEntityDto.cs">
+      <DependentUpon>Transfer</DependentUpon>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Transfer\OperarioEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\PronosticoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\SPInformacionEquipoEntityResultDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\SPSeguimientoDespachoEntityResultDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\SPSeguimientoEquipoEntityResultDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\SPSeguimientoUltimoMovimientoEntityResultDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\SPUltimoOperarioEtapaEntityResultDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\TempDespachoCsvEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\TempEquipoMovimientoCsvEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\VWMovimientoEquipoEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+    <Compile Update="Transfer\ZonaEntityDto.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Transfer</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="File\" />
+  </ItemGroup>
+
+</Project>

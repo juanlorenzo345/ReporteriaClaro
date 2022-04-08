@@ -1,0 +1,193 @@
+﻿@using ReporteriaClaro.Application.Models.View
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.Configuration
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.Seguimiento)]
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IMovimientoEquipoService movimientoEquipoService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudGrid>
+    <MudItem xs="12">
+        <MudCard>
+            <MudCardContent>
+                <MudTextField T="string"
+                              @bind-Value="this.esnBuscado"
+                              Placeholder="Buscar por ESN"
+                              Adornment="Adornment.Start"
+                              AdornmentIcon="@Icons.Material.Filled.Search"
+                              IconSize="Size.Medium"
+                              Clearable="true"
+                              @ref="textFieldEsn"
+                              OnKeyUp="ValidarTeclaPresionadaAsync"/>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12">
+        <MudCard>
+            <MudCardContent>
+                <MudGrid>
+                    <MudItem xs="4">
+                        <MudText Typo="Typo.h6">Equipo</MudText>
+                        <MudText>Fecha recepción: @($"{this.modeloEquipo.Fecha:g}")</MudText>
+                        <MudText>ESN: @this.modeloEquipo.Esn</MudText>
+                        <MudText>Marca: @this.modeloEquipo.Marca</MudText>
+                        <MudText>Modelo: @this.modeloEquipo.Modelo</MudText>
+                        <MudText>Color: @this.modeloEquipo.Color</MudText>
+                        <MudText>Tecnología: @this.modeloEquipo.Tecnologia</MudText>
+                        <MudText>Configuración: @this.modeloEquipo.Configuracion</MudText>
+                        <MudText>Detalle de configuración: @this.modeloEquipo.DetalleConfiguracion</MudText>
+                    </MudItem>
+                    <MudItem xs="4">
+                        <MudText Typo="Typo.h6">Último movimiento</MudText>
+                        <MudText>Fecha: @($"{this.modeloMovimiento.Fecha:g}")</MudText>
+                        <MudText>Origen: @this.modeloMovimiento.Origen</MudText>
+                        <MudText>Destino: @this.modeloMovimiento.Destino</MudText>
+                        <MudText>Operario: @this.modeloMovimiento.Operario</MudText>
+                        <MudText>Operario a devolver: @this.modeloMovimiento.OperarioDevolucion</MudText>
+                        <MudText>Observación: @this.modeloMovimiento.Observacion</MudText>
+                    </MudItem>
+                    <MudItem xs="4">
+                        <MudText Typo="Typo.h6">Despacho</MudText>
+                        <MudText>Fecha: @($"{this.modeloDespacho.Fecha:g}")</MudText>
+                        <MudText>Guía: @this.modeloDespacho.Guia</MudText>
+                        <MudText>Estado de guía: @this.modeloDespacho.EstadoDespacho</MudText>
+                        <MudText>Caja: @($"{this.modeloDespacho.Caja:N0}")</MudText>
+                        <MudText>Pallet: @($"{this.modeloDespacho.Pallet:N0}")</MudText>
+                        <MudText>Derivada: @this.modeloDespacho.Derivada</MudText>
+                        <MudText>UTP: @this.modeloDespacho.EstadoUtp</MudText>
+                        <MudText>Fuente de poder: @this.modeloDespacho.EstadoFuentePoder</MudText>
+                        <MudText>Control remoto: @this.modeloDespacho.EstadoControlRemoto</MudText>
+                        <MudText>HDMI: @this.modeloDespacho.EstadoHdmi</MudText>
+                        <MudText>RCA: @this.modeloDespacho.EstadoRca</MudText>
+                        <MudText>Pintura: @(this.modeloDespacho.Pintura ? "Sí" : "No")</MudText>
+                        <MudText>Proceso finalizado: @(this.modeloDespacho.ProcesoFinalizado ? "Sí" : "No")</MudText>
+                    </MudItem>
+                </MudGrid>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12">
+        <MudTable @ref="tabla"
+                  ServerData="@(new Func<TableState, Task<TableData<ViewSeguimientoMovimientoEquipoModel>>>(ObtenerDatosAsync))"
+                  Bordered="MudBlazorTableConfiguration.Bordered"
+                  Dense="MudBlazorTableConfiguration.Dense"
+                  Hover="MudBlazorTableConfiguration.Hover"
+                  Striped="MudBlazorTableConfiguration.Striped"
+                  FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+                  FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+                  Height="@MudBlazorTableConfiguration.Height">
+            <ToolBarContent>
+                <MudText Typo="Typo.h6">Movimientos</MudText>
+                <MudSpacer />
+                <AuthorizeView Roles="@Roles.SuperAdministrador">
+                    <MudSwitch T="bool" Checked="mostrarEliminados" CheckedChanged="MostrarEliminadosChangedAsync" Color="Color.Primary">Mostrar registros eliminados</MudSwitch>
+                </AuthorizeView>
+            </ToolBarContent>
+            <HeaderContent>
+                <MudTh>#</MudTh>
+                <MudTh>ID</MudTh>
+                <MudTh>Fecha</MudTh>
+                <MudTh>Origen</MudTh>
+                <MudTh>Destino</MudTh>
+                <MudTh>Operario</MudTh>
+                <MudTh>Operario a devolver</MudTh>
+                <MudTh>Observación</MudTh>
+                <MudTh>Fecha creación</MudTh>
+                <MudTh>Usuario creación</MudTh>
+                <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+                    <MudTh>Fecha modificación</MudTh>
+                    <MudTh>Usuario modificación</MudTh>
+                    <MudTh>Eliminado</MudTh>
+                    <MudTh>Fecha eliminación</MudTh>
+                    <MudTh>Usuario eliminación</MudTh>
+                </AuthorizeView>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+                <MudTd>@context.Id</MudTd>
+                <MudTd>@context.Fecha</MudTd>
+                <MudTd>@context.Origen</MudTd>
+                <MudTd>@context.Destino</MudTd>
+                <MudTd>@context.Operario</MudTd>
+                <MudTd>@context.OperarioDevolucion</MudTd>
+                <MudTd>@context.Observacion</MudTd>
+                <MudTd>@context.FechaCreacionRegistro</MudTd>
+                <MudTd>@context.UsuarioCreacionRegistro</MudTd>
+                <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+                    <MudTd>@context.FechaModificacionRegistro</MudTd>
+                    <MudTd>@context.UsuarioModificacionRegistro</MudTd>
+                    <MudTd><MudCheckBox T="bool" Checked="@context.Eliminado" ReadOnly="true" /></MudTd>
+                    <MudTd>@context.FechaEliminacionRegistro</MudTd>
+                    <MudTd>@context.UsuarioEliminacionRegistro</MudTd>
+                </AuthorizeView>
+            </RowTemplate>
+            <NoRecordsContent>
+                <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+            </NoRecordsContent>
+            <LoadingContent>
+                <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+            </LoadingContent>
+            <PagerContent>
+                <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="new[] {0}" />
+            </PagerContent>
+        </MudTable>
+    </MudItem>
+</MudGrid>
+    @*<MudGrid>
+        <MudItem xs="4">
+                        <MudCard>
+                            <MudCardHeader>
+                                <MudText Typo="Typo.h6">Equipo</MudText>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText>Fecha recepción: @($"{this.modeloEquipo.Fecha:g}")</MudText>
+                                <MudText>ESN: @this.modeloEquipo.Esn</MudText>
+                                <MudText>Marca: @this.modeloEquipo.Marca</MudText>
+                                <MudText>Modelo: @this.modeloEquipo.Modelo</MudText>
+                                <MudText>Color: @this.modeloEquipo.Color</MudText>
+                                <MudText>Tecnología: @this.modeloEquipo.Tecnologia</MudText>
+                                <MudText>Configuración: @this.modeloEquipo.Configuracion</MudText>
+                                <MudText>Detalle de configuración: @this.modeloEquipo.DetalleConfiguracion</MudText>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="4">
+                        <MudCard>
+                            <MudCardHeader>
+                                <MudText Typo="Typo.h6">Último movimiento</MudText>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText>Fecha: @($"{this.modeloMovimiento.Fecha:g}")</MudText>
+                                <MudText>Origen: @this.modeloMovimiento.Origen</MudText>
+                                <MudText>Destino: @this.modeloMovimiento.Destino</MudText>
+                                <MudText>Operario: @this.modeloMovimiento.Operario</MudText>
+                                <MudText>Observación: @this.modeloMovimiento.Observacion</MudText>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem xs="4">
+                        <MudCard>
+                            <MudCardHeader>
+                                <MudText Typo="Typo.h6">Despacho</MudText>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <MudText>Fecha: @($"{this.modeloDespacho.Fecha:g}")</MudText>
+                                <MudText>Guía: @this.modeloDespacho.Guia</MudText>
+                                <MudText>Estado de guía: @this.modeloDespacho.EstadoDespacho</MudText>
+                                <MudText>Caja: @($"{this.modeloDespacho.Caja:N0}")</MudText>
+                                <MudText>Pallet: @($"{this.modeloDespacho.Pallet:N0}")</MudText>
+                                <MudText>Derivada: @this.modeloDespacho.Derivada</MudText>
+                                <MudText>UTP: @this.modeloDespacho.EstadoUtp</MudText>
+                                <MudText>Fuente de poder: @this.modeloDespacho.EstadoFuentePoder</MudText>
+                                <MudText>Control remoto: @this.modeloDespacho.EstadoControlRemoto</MudText>
+                                <MudText>HDMI: @this.modeloDespacho.EstadoHdmi</MudText>
+                                <MudText>RCA: @this.modeloDespacho.EstadoRca</MudText>
+                                <MudText>Pintura: @(this.modeloDespacho.Pintura ? "Sí" : "No")</MudText>
+                                <MudText>Proceso finalizado: @(this.modeloDespacho.ProcesoFinalizado ? "Sí" : "No")</MudText>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+            </MudGrid>*@

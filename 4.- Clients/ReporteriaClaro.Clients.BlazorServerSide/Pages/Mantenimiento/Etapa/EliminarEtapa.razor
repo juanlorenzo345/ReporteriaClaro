@@ -1,0 +1,16 @@
+﻿@using ReporteriaClaro.Application.Interfaces.Services.Data
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IEtapaService etapaService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudDialog>
+    <DialogContent>
+        <MudText>¿Desea eliminar la etapa '@this.Modelo.Etapa' (ID @this.Modelo.Id)?</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="EliminarAsync">Si</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Cancelar">No</MudButton>
+    </DialogActions>
+</MudDialog>

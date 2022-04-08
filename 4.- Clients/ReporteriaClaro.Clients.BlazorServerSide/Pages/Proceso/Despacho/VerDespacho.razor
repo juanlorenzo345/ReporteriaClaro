@@ -1,0 +1,17 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.Despacho)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador, Roles.Administrador, Roles.Despacho)]
+
+@switch (vista)
+{
+    case Despacho.VerEncabezadoDespacho:
+    {
+        <VerEncabezadoDespacho @bind-Vista="vista" @bind-Registro="encabezadoDespacho" @bind-AbrirAgregarDetalle="abrirAgregarDetalle" />
+        break;
+    }
+    default:
+    {
+        <VerDetalleDespacho @bind-Vista="vista" Registro="encabezadoDespacho" AbrirAgregarDetalle="abrirAgregarDetalle" />
+        break;
+    }
+}

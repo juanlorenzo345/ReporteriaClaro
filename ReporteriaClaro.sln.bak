@@ -1,0 +1,116 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.- Domain", "1.- Domain", "{9780031D-D20A-4C48-8D8B-3B78BFE14EF6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.- Application", "2.- Application", "{35FC7729-FF55-43CF-896F-50AAC261879D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.- Infrastructure", "3.- Infrastructure", "{B04CB4D6-F7D2-40A9-A6D2-1360AE143D61}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.- Clients", "4.- Clients", "{E545914F-5433-4FA9-9BBA-CB28A046B31F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.- Tests", "5.- Tests", "{8EAEAB41-E01F-4A89-9BE7-0BF44D3ED17D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "6.- Tasks", "6.- Tasks", "{05A8E72B-4FA8-4F9E-ABCB-D9258D7CE509}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Domain.Models", "1.- Domain\ReporteriaMovistar.Domain.Models\ReporteriaClaro.Domain.Models.csproj", "{CAA9CE1F-836E-490A-998C-9C18ADF569CC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Application.Models", "2.- Application\ReporteriaMovistar.Application.Models\ReporteriaClaro.Application.Models.csproj", "{F01A2A83-9732-41FB-9042-A01DB43E25D2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Domain.Interfaces", "1.- Domain\ReporteriaMovistar.Domain.Interfaces\ReporteriaClaro.Domain.Interfaces.csproj", "{302F11B0-248F-45CC-AB55-D278176C5F3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Application.Interfaces", "2.- Application\ReporteriaMovistar.Application.Interfaces\ReporteriaClaro.Application.Interfaces.csproj", "{8C092E99-4B6F-425F-97D5-E1DC03A26F96}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Infrastructure.Data", "3.- Infrastructure\ReporteriaMovistar.Infrastructure.Data\ReporteriaClaro.Infrastructure.Data.csproj", "{66895EA8-AE34-4DC4-9FF2-DFE19BE8A8B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Infrastructure.Business", "3.- Infrastructure\ReporteriaMovistar.Infrastructure.Business\ReporteriaClaro.Infrastructure.Business.csproj", "{F919A533-67DD-49F9-A4FB-35D1467BF791}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Clients.BlazorServerSide", "4.- Clients\ReporteriaMovistar.Clients.BlazorServerSide\ReporteriaClaro.Clients.BlazorServerSide.csproj", "{5BBBA6D8-02EE-4FE7-836E-A0D0AA378FAC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Tasks.SincronizacionEquipo", "6.- Tasks\ReporteriaMovistar.Tasks.SincronizacionEquipo\ReporteriaClaro.Tasks.SincronizacionEquipo.csproj", "{0A29D28B-7B06-4458-B791-8CBA2F8C1834}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Tasks.Common", "6.- Tasks\ReporteriaMovistar.Tasks.Common\ReporteriaClaro.Tasks.Common.csproj", "{1B09F340-318B-4919-B2D0-8BF43E4EAF29}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Clients.ApiPowerBi", "4.- Clients\ReporteriaMovistar.Clients.ApiPowerBi\ReporteriaClaro.Clients.ApiPowerBi.csproj", "{5D779073-5C62-4859-8D9F-CE75F1E98FB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReporteriaClaro.Tasks.ApiUtilities", "6.- Tasks\ReporteriaMovistar.Tasks.ApiUtilities\ReporteriaClaro.Tasks.ApiUtilities.csproj", "{57AA2223-6558-4983-93EA-1EE37790C7DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "7.- Extras", "7.- Extras", "{0B75C11C-C449-4140-A6E1-7BA1E7505AA3}"
+	ProjectSection(SolutionItems) = preProject
+		7.- Extras\Plantilla Informe Decos Claro (Reportería Claro) - Development.pbit = 7.- Extras\Plantilla Informe Decos Claro (Reportería Claro) - Development.pbit
+		7.- Extras\Plantilla Informe Decos Claro (Reportería Claro).pbit = 7.- Extras\Plantilla Informe Decos Claro (Reportería Claro).pbit
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CAA9CE1F-836E-490A-998C-9C18ADF569CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAA9CE1F-836E-490A-998C-9C18ADF569CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAA9CE1F-836E-490A-998C-9C18ADF569CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAA9CE1F-836E-490A-998C-9C18ADF569CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F01A2A83-9732-41FB-9042-A01DB43E25D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F01A2A83-9732-41FB-9042-A01DB43E25D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F01A2A83-9732-41FB-9042-A01DB43E25D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F01A2A83-9732-41FB-9042-A01DB43E25D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{302F11B0-248F-45CC-AB55-D278176C5F3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{302F11B0-248F-45CC-AB55-D278176C5F3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{302F11B0-248F-45CC-AB55-D278176C5F3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{302F11B0-248F-45CC-AB55-D278176C5F3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C092E99-4B6F-425F-97D5-E1DC03A26F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C092E99-4B6F-425F-97D5-E1DC03A26F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C092E99-4B6F-425F-97D5-E1DC03A26F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C092E99-4B6F-425F-97D5-E1DC03A26F96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66895EA8-AE34-4DC4-9FF2-DFE19BE8A8B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66895EA8-AE34-4DC4-9FF2-DFE19BE8A8B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66895EA8-AE34-4DC4-9FF2-DFE19BE8A8B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66895EA8-AE34-4DC4-9FF2-DFE19BE8A8B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F919A533-67DD-49F9-A4FB-35D1467BF791}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F919A533-67DD-49F9-A4FB-35D1467BF791}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F919A533-67DD-49F9-A4FB-35D1467BF791}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F919A533-67DD-49F9-A4FB-35D1467BF791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5BBBA6D8-02EE-4FE7-836E-A0D0AA378FAC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5BBBA6D8-02EE-4FE7-836E-A0D0AA378FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5BBBA6D8-02EE-4FE7-836E-A0D0AA378FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5BBBA6D8-02EE-4FE7-836E-A0D0AA378FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A29D28B-7B06-4458-B791-8CBA2F8C1834}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A29D28B-7B06-4458-B791-8CBA2F8C1834}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A29D28B-7B06-4458-B791-8CBA2F8C1834}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A29D28B-7B06-4458-B791-8CBA2F8C1834}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B09F340-318B-4919-B2D0-8BF43E4EAF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B09F340-318B-4919-B2D0-8BF43E4EAF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B09F340-318B-4919-B2D0-8BF43E4EAF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B09F340-318B-4919-B2D0-8BF43E4EAF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D779073-5C62-4859-8D9F-CE75F1E98FB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D779073-5C62-4859-8D9F-CE75F1E98FB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D779073-5C62-4859-8D9F-CE75F1E98FB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D779073-5C62-4859-8D9F-CE75F1E98FB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57AA2223-6558-4983-93EA-1EE37790C7DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57AA2223-6558-4983-93EA-1EE37790C7DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57AA2223-6558-4983-93EA-1EE37790C7DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57AA2223-6558-4983-93EA-1EE37790C7DC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAA9CE1F-836E-490A-998C-9C18ADF569CC} = {9780031D-D20A-4C48-8D8B-3B78BFE14EF6}
+		{F01A2A83-9732-41FB-9042-A01DB43E25D2} = {35FC7729-FF55-43CF-896F-50AAC261879D}
+		{302F11B0-248F-45CC-AB55-D278176C5F3C} = {9780031D-D20A-4C48-8D8B-3B78BFE14EF6}
+		{8C092E99-4B6F-425F-97D5-E1DC03A26F96} = {35FC7729-FF55-43CF-896F-50AAC261879D}
+		{66895EA8-AE34-4DC4-9FF2-DFE19BE8A8B9} = {B04CB4D6-F7D2-40A9-A6D2-1360AE143D61}
+		{F919A533-67DD-49F9-A4FB-35D1467BF791} = {B04CB4D6-F7D2-40A9-A6D2-1360AE143D61}
+		{5BBBA6D8-02EE-4FE7-836E-A0D0AA378FAC} = {E545914F-5433-4FA9-9BBA-CB28A046B31F}
+		{0A29D28B-7B06-4458-B791-8CBA2F8C1834} = {05A8E72B-4FA8-4F9E-ABCB-D9258D7CE509}
+		{1B09F340-318B-4919-B2D0-8BF43E4EAF29} = {05A8E72B-4FA8-4F9E-ABCB-D9258D7CE509}
+		{5D779073-5C62-4859-8D9F-CE75F1E98FB5} = {E545914F-5433-4FA9-9BBA-CB28A046B31F}
+		{57AA2223-6558-4983-93EA-1EE37790C7DC} = {05A8E72B-4FA8-4F9E-ABCB-D9258D7CE509}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE5F23F6-11EA-414A-959F-0A2E960259C7}
+	EndGlobalSection
+EndGlobal

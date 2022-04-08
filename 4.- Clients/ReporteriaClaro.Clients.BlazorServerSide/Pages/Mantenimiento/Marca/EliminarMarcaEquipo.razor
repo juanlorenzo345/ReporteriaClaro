@@ -1,0 +1,16 @@
+﻿@using ReporteriaClaro.Application.Interfaces.Services.Data
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IMarcaEquipoService marcaEquipoService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudDialog>
+    <DialogContent>
+        <MudText>¿Desea eliminar la marca '@this.Modelo.Marca' (ID @this.Modelo.Id)?</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="EliminarAsync">Si</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Cancelar">No</MudButton>
+    </DialogActions>
+</MudDialog>

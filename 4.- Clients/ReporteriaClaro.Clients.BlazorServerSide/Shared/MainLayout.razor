@@ -1,0 +1,75 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.Extensions
+@using ReporteriaClaro.Clients.BlazorServerSide.Shared.Authentication
+@using ReporteriaClaro.Clients.BlazorServerSide.Shared.NavMenu
+@inherits LayoutComponentBase
+@inject NavigationManager navigationManager
+
+<MudLayout>
+    <MudAppBar Elevation="25">
+        <AuthorizeView>
+            <MudIconButton Icon="@Icons.Material.Sharp.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
+        </AuthorizeView>
+        <MudText Typo="Typo.h5" Class="mudblazor-appbar-brand-text">Reportería Claro</MudText>
+        <MudSpacer />
+        <LoginDisplay />
+        <MudTooltip Text="Acerca de">
+            <MudIconButton Icon="@Icons.Material.Sharp.Info" Color="Color.Inherit" Link="@PageRoutes.About" />
+        </MudTooltip>
+    </MudAppBar>
+    <AuthorizeView>
+        <MudDrawer @bind-Open=drawerOpen Elevation="25">
+            <MudDrawerHeader LinkToIndex="true">
+                <img src="image/LogoLogytechMobile.png" alt="Logytech Mobile" />
+            </MudDrawerHeader>
+            <NavMenuBase />
+        </MudDrawer>
+    </AuthorizeView>
+    <MudMainContent Class="content" px="4">
+        <MudContainer Class="mt-6" MaxWidth="MaxWidth.False">
+            @Body
+            <div class="push"></div>
+        </MudContainer>
+    </MudMainContent>
+    <footer class="footer">
+        <FooterMenu />
+    </footer>
+    <MudScrollToTop Class="scroll-to-top" TopOffset="400">
+        <MudFab Icon="@Icons.Material.Sharp.KeyboardArrowUp" Color="Color.Primary" />
+    </MudScrollToTop>
+</MudLayout>
+
+@code {
+
+    [CascadingParameter]
+    Task<AuthenticationState> AuthenticationState
+    {
+        get;
+        set;
+    }
+
+    /*protected override async Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        if (!(await AuthenticationState).User.Identity.IsAuthenticated)
+        {
+            this.navigationManager.NavigateTo("/login");
+        }
+    }*/
+
+    private bool drawerOpen = false;
+
+    private void DrawerToggle()
+    {
+        drawerOpen = !drawerOpen;
+    }
+
+    protected override void OnInitialized()
+    {
+        //if not home page, the navbar starts open
+        if (!this.navigationManager.IsHomePage())
+        {
+            drawerOpen = true;
+        }
+    }
+}

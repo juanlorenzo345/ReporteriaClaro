@@ -1,0 +1,53 @@
+﻿@using ReporteriaClaro.Application.Models.View
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.Configuration
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@attribute [Route(PageRoutes.LogExcepciones)]
+@attribute [AuthorizeByRoles(Roles.SuperAdministrador)]
+@inject ISnackbar snackbar
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewLogExcepcionUsuarioModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Log Excepciones</MudText>
+        <MudSpacer />
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewLogExcepcionUsuarioModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario" T="ViewLogExcepcionUsuarioModel">Usuario</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewLogExcepcionUsuarioModel">Fecha creación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="mensaje" T="ViewLogExcepcionUsuarioModel">Mensaje</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="tipo" T="ViewLogExcepcionUsuarioModel">Tipo</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="origen" T="ViewLogExcepcionUsuarioModel">Origen</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="url" T="ViewLogExcepcionUsuarioModel">URL</MudTableSortLabel></MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@context.Usuario</MudTd>
+        <MudTd>@context.FechaCreacionRegistro</MudTd>
+        <MudTd>@context.Mensaje</MudTd>
+        <MudTd>@context.Tipo</MudTd>
+        <MudTd>@context.Origen</MudTd>
+        <MudTd>@context.Url</MudTd>
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>

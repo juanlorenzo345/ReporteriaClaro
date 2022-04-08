@@ -1,0 +1,18 @@
+﻿@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+<AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)" Context="authContext">
+    <MudNavGroup Title="Seguridad"
+                 Expanded="false"
+                 ExpandIcon="@Icons.Material.Sharp.ExpandMore"
+                 Class="primary-item-mudnavgroup">
+        <AuthorizeView Roles="@Roles.SuperAdministrador">
+            <MudNavLink Href="@PageRoutes.LogAccesos" Match="NavLinkMatch.All">Log Accesos</MudNavLink>
+        </AuthorizeView>
+        <AuthorizeView Roles="@Roles.SuperAdministrador">
+            <MudNavLink Href="@PageRoutes.LogExcepciones" Match="NavLinkMatch.All">Log Excepciones</MudNavLink>
+        </AuthorizeView>
+        <MudNavLink Href="@PageRoutes.Usuarios" Match="NavLinkMatch.All">Usuarios</MudNavLink>
+        <AuthorizeView Roles="@Roles.SuperAdministrador">
+            <MudNavLink Href="@PageRoutes.UsuariosApi" Match="NavLinkMatch.All">Usuarios API</MudNavLink>
+        </AuthorizeView>
+    </MudNavGroup>
+</AuthorizeView>

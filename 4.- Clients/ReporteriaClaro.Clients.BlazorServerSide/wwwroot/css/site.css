@@ -1,0 +1,132 @@
+﻿html, body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+}
+
+.valid.modified:not([type=checkbox]) {
+    outline: 1px solid #26b050;
+}
+
+.invalid {
+    outline: 1px solid red;
+}
+
+.validation-message {
+    color: red;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.my-reconnect-modal > div {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: hidden;
+    background-color: #fff;
+    opacity: 0.8;
+    text-align: center;
+    font-weight: bold;
+}
+
+.components-reconnect-hide > div {
+    display: none;
+}
+
+.components-reconnect-show > div {
+    display: none;
+}
+
+.components-reconnect-show > .show {
+    display: block;
+    z-index: 10000;
+}
+
+.components-reconnect-failed > div {
+    display: none;
+}
+
+.components-reconnect-failed > .failed {
+    display: block;
+    z-index: 10000;
+}
+
+.components-reconnect-rejected > div {
+    display: none;
+}
+
+.components-reconnect-rejected > .rejected {
+    display: block;
+    z-index: 10000;
+}
+
+.reconnect-func {
+    text-decoration: underline;
+    color: blue !important;
+}
+
+﻿.mudblazor-appbar-brand-text {
+     letter-spacing: 0.5rem;
+     font-weight: 300;
+     margin-left: 12px;
+     font-size: 24px;
+     user-select: none;
+ }
+
+@media (max-width: 400px) {
+    .mudblazor-appbar-brand-text {
+        letter-spacing: 0.25rem;
+    }
+}
+
+.create-button {
+    position: fixed;
+    bottom: 90px;
+    right: 15px;
+    z-index: 1210;
+}
+
+.scroll-to-top {
+    z-index: 1210;
+}
+
+.login-imagen {
+    max-width: 200px;
+    max-height: 200px;
+    margin: 20px;
+}
+
+/*Maneja el body del maintLayout(dependiendo del height del body se corre el footer)*/
+.content {
+    min-height: 100%;
+    margin-bottom: -64px;
+}
+
+.push {
+    height: 160px;
+}
+
+.footer {
+    height: 50px;
+}

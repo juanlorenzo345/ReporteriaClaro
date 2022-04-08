@@ -1,0 +1,29 @@
+﻿@using BlazorDownloadFile
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Infrastructure.Business.File
+@inject ISnackbar snackbar
+@inject IBlazorDownloadFileService blazorDownloadFileService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudExpansionPanels>
+    <MudExpansionPanel Text="@this.Titulo" Style="font-weight: bold !important;" MaxHeight="500">
+        <MudButton HtmlTag="label" Variant="Variant.Filled" Color="Color.Tertiary" StartIcon="@Icons.Filled.CloudUpload" for="fileInputCargaMasiva">Escoger archivo</MudButton>
+        <MudButton Variant="Variant.Text" StartIcon="@Icons.Filled.FileDownload" Style="text-transform:none; color: blue;" OnClick="DescargarEjemploArchivoAsync">Ejemplo formato</MudButton>
+        <InputFile id="fileInputCargaMasiva" OnChange="InputFileChanged" hidden accept="@($" .{FileExtensions.Csv}")" />
+        @if (this.archivosSeleccionados is not null && this.archivosSeleccionados.Count > 0)
+        {
+            <MudList>
+                <MudListItem Icon="@Icons.Filled.AttachFile" @key="@this.archivosSeleccionados[0]">
+                    @this.archivosSeleccionados[0].Name <code>@FileHelper.SizeWithSuffix(this.archivosSeleccionados[0].Size)</code>
+                </MudListItem>
+            </MudList>
+            <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="SubirArchivosAsync">Cargar archivo</MudButton>
+        }
+        else
+        {
+            <MudText>No se ha seleccionado ningún archivo.</MudText>
+        }
+    </MudExpansionPanel>
+</MudExpansionPanels>
+<ProgresoIndefinido Texto="@this.mensajeProcesandoArchivo" Visible="procesandoArchivos" />

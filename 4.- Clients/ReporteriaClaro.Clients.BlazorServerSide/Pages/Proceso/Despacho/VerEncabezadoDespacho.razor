@@ -1,0 +1,107 @@
+﻿@using ReporteriaClaro.Application.Models.View
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.Configuration
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData
+@using ReporteriaClaro.Clients.BlazorServerSide.Pages.Shared
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject IEncabezadoDespachoService encabezadoDespachoService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<AuthorizeView Roles="@Roles.SuperAdministrador">
+    <div class="d-flex justify-end">
+        <MudSwitch T="bool" Checked="mostrarEliminados" CheckedChanged="MostrarEliminadosChangedAsync" Color="Color.Primary" Label="Mostrar registros eliminados" />
+    </div>
+</AuthorizeView>
+<MudTable @ref="tabla"
+          ServerData="@(new Func<TableState, Task<TableData<ViewEncabezadoDespachoModel>>>(ObtenerDatosAsync))"
+          Bordered="MudBlazorTableConfiguration.Bordered"
+          Dense="MudBlazorTableConfiguration.Dense"
+          Hover="MudBlazorTableConfiguration.Hover"
+          Striped="MudBlazorTableConfiguration.Striped"
+          FixedHeader="MudBlazorTableConfiguration.FixedHeader"
+          FixedFooter="MudBlazorTableConfiguration.FixedFooter"
+          Height="@MudBlazorTableConfiguration.Height">
+    <ToolBarContent>
+        <MudText Typo="Typo.h6">Despachos</MudText>
+        <MudSpacer />
+        <MudTextField T="string"
+                      ValueChanged="BuscarPorGuiaAsync"
+                      Placeholder="Buscar por guía"
+                      Adornment="Adornment.Start"
+                      AdornmentIcon="@Icons.Material.Filled.Search"
+                      IconSize="Size.Medium"
+                      Clearable="true" />
+    </ToolBarContent>
+    <ColGroup>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <col style="width: 145px;" />
+        </AuthorizeView>
+    </ColGroup>
+    <HeaderContent>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)">
+            <MudTh Style="text-align: center">Acción</MudTh>
+        </AuthorizeView>
+        <MudTh>#</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="id" T="ViewEncabezadoDespachoModel">ID</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha" T="ViewEncabezadoDespachoModel">Fecha</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="guia" T="ViewEncabezadoDespachoModel">Guía</MudTableSortLabel></MudTh>
+        <MudTh>Detalle</MudTh>
+        <MudTh><MudTableSortLabel SortLabel="estado" T="ViewEncabezadoDespachoModel">Estado</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="fecha_creacion" T="ViewEncabezadoDespachoModel">Fecha creación</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel SortLabel="usuario_creacion" T="ViewEncabezadoDespachoModel">Usuario creación</MudTableSortLabel></MudTh>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTh><MudTableSortLabel SortLabel="fecha_modificacion" T="ViewEncabezadoDespachoModel">Fecha modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_modificacion" T="ViewEncabezadoDespachoModel">Usuario modificación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="eliminado" T="ViewEncabezadoDespachoModel">Eliminado</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="fecha_eliminacion" T="ViewEncabezadoDespachoModel">Fecha eliminación</MudTableSortLabel></MudTh>
+            <MudTh><MudTableSortLabel SortLabel="usuario_eliminacion" T="ViewEncabezadoDespachoModel">Usuario eliminación</MudTableSortLabel></MudTh>
+        </AuthorizeView>
+    </HeaderContent>
+    <RowTemplate>
+        <AuthorizeView Roles="@string.Join(",", Roles.SuperAdministrador, Roles.Administrador)" Context="authContext">
+            <MudTd Style="text-align: center; overflow: hidden;">
+                @if (!context.Eliminado)
+                {
+                    <MudTooltip Text="Editar">
+                        <MudIconButton Icon="@Icons.Material.Sharp.Edit" Color="Color.Warning" OnClick="() => EditarEncabezadoAsync(context.Id)" />
+                    </MudTooltip>
+                    <MudTooltip Text="Eliminar">
+                        <MudIconButton Icon="@Icons.Material.Sharp.Delete" Color="Color.Error" OnClick="() => EliminarEncabezadoAsync(context)" />
+                    </MudTooltip>
+                }
+            </MudTd>
+        </AuthorizeView>
+        <MudTd Style="font-weight: bold;" DataLabel="#">@context.NumeroFila</MudTd>
+        <MudTd>@context.Id</MudTd>
+        <MudTd>@($"{context.Fecha:d}")</MudTd>
+        <MudTd>@context.Guia</MudTd>
+        <MudTd Style="overflow: hidden;">
+            <MudTooltip Text="Ver detalle">
+                <MudIconButton Icon="@Icons.Material.Sharp.Checklist" Color="Color.Primary" OnClick="() => IrADetalleDespacho(context, false)" />
+            </MudTooltip>
+        </MudTd>
+        <MudTd>@context.Estado</MudTd>
+        <MudTd>@context.FechaCreacionRegistro</MudTd>
+        <MudTd>@context.UsuarioCreacionRegistro</MudTd>
+        <AuthorizeView Roles="@Roles.SuperAdministrador" Context="authContext">
+            <MudTd>@context.FechaModificacionRegistro</MudTd>
+            <MudTd>@context.UsuarioModificacionRegistro</MudTd>
+            <MudTd><MudCheckBox T="bool" Checked="@context.Eliminado" ReadOnly="true" /></MudTd>
+            <MudTd>@context.FechaEliminacionRegistro</MudTd>
+            <MudTd>@context.UsuarioEliminacionRegistro</MudTd>
+        </AuthorizeView>
+    </RowTemplate>
+    <NoRecordsContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.NoRecordsContentMessage</MudText>
+    </NoRecordsContent>
+    <LoadingContent>
+        <MudText Typo="Typo.subtitle1" Align="Align.Center">@MudBlazorTableConfiguration.LoadingContentMessage</MudText>
+    </LoadingContent>
+    <PagerContent>
+        <MudTablePager InfoFormat="@MudBlazorTableConfiguration.InfoFormat" RowsPerPageString="@MudBlazorTableConfiguration.RowsPerPageString" PageSizeOptions="MudBlazorTableConfiguration.PageSizeOptions" />
+    </PagerContent>
+</MudTable>
+<CargaMasiva CargaMasivaService="this.encabezadoDespachoService" Titulo="Carga masiva de despachos" TamanoMaximoArchivo="@FileHelper.ConvertMegabytesToBytes(10D)" ProcesamientoArchivoChanged="RecargarDatosArchivoProcesadoAsync" />
+<MudFab Class="create-button" Icon="@Icons.Material.Sharp.Add" Color="Color.Success" Label="Crear" OnClick="CrearEncabezadoAsync" />

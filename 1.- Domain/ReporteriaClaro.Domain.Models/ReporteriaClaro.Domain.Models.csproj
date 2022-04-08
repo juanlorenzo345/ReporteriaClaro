@@ -1,0 +1,205 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Entities\ComponenteDetalleEntity.cs" />
+    <Compile Remove="Entities\ComponenteEntity.cs" />
+    <Compile Remove="Entities\ControlCalidadEstadoEntity.cs" />
+    <Compile Remove="Entities\EquipoDespachoEntity.cs" />
+    <Compile Remove="Entities\EquipoFamiliaEntity.cs" />
+    <Compile Remove="Entities\EquipoRecepcionEntity.cs" />
+    <Compile Remove="Entities\FaceplateEstadoEntity.cs" />
+    <Compile Remove="Entities\GuiaDespachoMovimientoEntity.cs" />
+    <Compile Remove="Entities\GuiaEstadoEntity.cs" />
+    <Compile Remove="Entities\HdmiEstadoEntity.cs" />
+    <Compile Remove="Entities\RcaEstadoEntity.cs" />
+    <Compile Remove="Entities\SPSeguimientoUltimoMovimientoEntityResult1.cs" />
+    <Compile Remove="Entities\SPUltimoOperarioPinturaEntityResult.cs" />
+    <Compile Remove="Entities\UtpEstadoEntity.cs" />
+    <Compile Remove="Entities\VWDetalleDespachoYComponentesEntity.cs" />
+    <Compile Remove="Entities\VWDetalleMovimientoEquipoPowerBiEntity.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Entities\ApiUserEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ComponenteEstadoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DespachoDetalleEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DespachoEncabezadoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\DespachoEstadoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EFMigrationsHistoryEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoColorEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoConfiguracionEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoMarcaEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoModeloEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoMovimientoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoScrapEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EquipoTecnologiaEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EtapaEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EtapaEstadoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\EtapaSecuenciaEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityRoleClaimEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityRoleEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserAccessLogEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserClaimEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserExceptionLogEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserLoginEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserOperationLogEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserRoleEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\IdentityUserTokenEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\OperarioEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\PronosticoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\SPInformacionEquipoEntityResult.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\SPSeguimientoDespachoEntityResult.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\SPSeguimientoEquipoEntityResult.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\SPSeguimientoUltimoMovimientoEntityResult.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\SPUltimoOperarioEtapaEntityResult.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\TempDespachoCsvEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\TempEquipoMovimientoCsvEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\VWMovimientoEquipoEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+    <Compile Update="Entities\ZonaEntity.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Entities</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ReporteriaClaroDbModel.Diagram1.view">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaClaroDbModel.efml</DependentUpon>
+    </None>
+    <None Update="ReporteriaClaroDbModel.edps">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaClaroDbModel.efml</DependentUpon>
+    </None>
+    <None Update="ReporteriaClaroDbModel.efml">
+      <Generator>DevartEFCoreGenerator</Generator>
+      <LastGenOutput>ReporteriaClaroDbModel.info</LastGenOutput>
+    </None>
+    <None Update="ReporteriaClaroDbModel.info">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ReporteriaClaroDbModel.efml</DependentUpon>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Enums\" />
+  </ItemGroup>
+
+</Project>

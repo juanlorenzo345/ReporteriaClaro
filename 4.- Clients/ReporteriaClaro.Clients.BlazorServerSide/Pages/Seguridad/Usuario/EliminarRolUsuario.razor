@@ -1,0 +1,18 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData.Models
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject UserManager<ApplicationUser> userManager
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudDialog>
+    <DialogContent>
+        <MudText>¿Desea quitar el rol '@this.Modelo.Rol'?</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="EliminarAsync">Si</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Cancelar">No</MudButton>
+    </DialogActions>
+</MudDialog>

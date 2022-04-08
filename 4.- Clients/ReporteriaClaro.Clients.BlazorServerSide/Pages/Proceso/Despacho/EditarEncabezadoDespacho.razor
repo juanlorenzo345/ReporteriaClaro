@@ -1,0 +1,63 @@
+﻿@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Application.Models.Input.Choice
+@using ReporteriaClaro.Application.Models.Validation.Update
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject UpdateEncabezadoDespachoModelValidator validator
+@inject IEncabezadoDespachoService encabezadoDespachoService
+@inject EstadoDespachoData estadoDespachoData
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudForm @ref="formulario" Model="@modelo">
+    <MudDialog>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTextField T="int"
+                                  Label="ID"
+                                  @bind-Value="modelo.Id"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.Id)"
+                                  InputType="InputType.Number"
+                                  ReadOnly="true" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudDatePicker Label="Fecha"
+                                   @bind-Date="modelo.Fecha"
+                                   Validation="validator.ValidateValue"
+                                   For="@(() => modelo.Fecha)" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudTextField T="string"
+                                  Label="Guía"
+                                  @bind-Value="modelo.Guia"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.Guia)"
+                                  InputType="InputType.Text" />
+                </MudItem>
+                <MudItem xs="6">
+                    <MudSelect T="ChoiceEstadoDespachoModel"
+                               Label="Estado"
+                               @bind-Value="modelo.Estado"
+                               Validation="validator.ValidateValue"
+                               For="@(() => modelo.Estado)"
+                               ToStringFunc="@((item) => item is null ? null : $" {item.Nombre}")">
+                        @foreach (ChoiceEstadoDespachoModel estado in estados)
+                        {
+                            <MudSelectItem T="ChoiceEstadoDespachoModel" Value="estado">@estado.Nombre</MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudTooltip Text="Guardar">
+                <MudFab Color="Color.Primary" Icon="@Icons.Material.Sharp.Save" OnClick="GuardarAsync" />
+            </MudTooltip>
+            <MudTooltip Text="Cancelar">
+                <MudFab Color="Color.Error" Icon="@Icons.Material.Sharp.Close" OnClick="CancelarAsync" />
+            </MudTooltip>
+        </DialogActions>
+    </MudDialog>
+</MudForm>

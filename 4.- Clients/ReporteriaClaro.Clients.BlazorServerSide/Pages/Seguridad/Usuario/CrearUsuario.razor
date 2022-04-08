@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using ReporteriaClaro.Application.Models.Validation.Insert
+@using ReporteriaClaro.Application.Interfaces.Services.Data
+@using ReporteriaClaro.Application.Models.Input.Choice
+@using ReporteriaClaro.Clients.BlazorServerSide.IdentityData.Models
+@inject ISnackbar snackbar
+@inject IDialogService dialogService
+@inject NewUsuarioModelValidator validator
+@inject UserManager<ApplicationUser> userManager
+@inject IRolService rolService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudForm @ref="formulario" Model="@modelo">
+    <MudDialog>
+        <DialogContent>
+            <MudGrid>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                  Label="Nombre de usuario"
+                                  @bind-Value="modelo.NombreUsuario"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.NombreUsuario)"
+                                  InputType="InputType.Text" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                  Label="Nombre completo"
+                                  @bind-Value="modelo.NombreCompleto"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.NombreCompleto)"
+                                  InputType="InputType.Text" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                  Label="Contraseña"
+                                  @bind-Value="modelo.Contrasena"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.Contrasena)"
+                                  InputType="InputType.Password" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudTextField T="string"
+                                  Label="Confirme contraseña"
+                                  @bind-Value="modelo.ContrasenaConfirmacion"
+                                  Validation="validator.ValidateValue"
+                                  For="@(() => modelo.ContrasenaConfirmacion)"
+                                  InputType="InputType.Password" />
+                </MudItem>
+                <MudItem xs="12">
+                    <MudAutocomplete T="ChoiceRolModel"
+                                     Label="Rol"
+                                     @bind-Value="modelo.Rol"
+                                     Validation="validator.ValidateValue"
+                                     For="@(() => modelo.Rol)"
+                                     SearchFunc="BuscarRolAsync"
+                                     ToStringFunc="@((item) => item is null ? null : $"{item.Nombre}")"
+                                     MaxItems="null"
+                                     DebounceInterval="1000" />
+                </MudItem>
+            </MudGrid>
+        </DialogContent>
+        <DialogActions>
+            <MudTooltip Text="Guardar">
+                <MudFab Color="Color.Primary" Icon="@Icons.Material.Sharp.Save" OnClick="GuardarAsync" />
+            </MudTooltip>
+            <MudTooltip Text="Cancelar">
+                <MudFab Color="Color.Error" Icon="@Icons.Material.Sharp.Close" OnClick="CancelarAsync" />
+            </MudTooltip>
+        </DialogActions>
+    </MudDialog>
+</MudForm>

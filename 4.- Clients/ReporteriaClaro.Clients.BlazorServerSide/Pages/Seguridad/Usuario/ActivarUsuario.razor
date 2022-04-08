@@ -1,0 +1,15 @@
+﻿@using ReporteriaClaro.Application.Interfaces.Services.Data
+@inject ISnackbar snackbar
+@inject IUsuarioService usuarioService
+@inject ILogExcepcionUsuarioService logExcepcionUsuarioService
+@inject NavigationManager navigationManager
+
+<MudDialog>
+    <DialogContent>
+        <MudText>¿Está seguro que desea activar el usuario '@this.Modelo.Usuario' (ID: @this.Modelo.Id)?</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Variant="Variant.Filled" Color="Color.Error" OnClick="ActivarAsync">Si</MudButton>
+        <MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="Cancelar">No</MudButton>
+    </DialogActions>
+</MudDialog>
